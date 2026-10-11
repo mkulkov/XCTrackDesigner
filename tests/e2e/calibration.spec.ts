@@ -24,10 +24,10 @@ test('calibration: missing inputs, layers, alpha and native-size capture', async
   await page.getByLabel('Рамки', { exact: true }).uncheck()
   await page.getByRole('button', { name: 'Сбросить размеры текста' }).click()
   const svg = page.getByRole('img', { name: 'Предпросмотр страницы XCTrack' })
-  // Drawing uses fractional font size; layout uses Android's integer size.
+  // Native fonts position each glyph; the portable fallback uses one text origin.
   await expect(svg.locator('[data-widget=WSpeed] text').first()).toHaveAttribute(
     'x',
-    /^-?\d+(?:\.\d+)?(?: -?\d+(?:\.\d+)?)+$/,
+    fonts.available ? /^-?\d+(?:\.\d+)?(?: -?\d+(?:\.\d+)?)+$/ : /^-?\d+(?:\.\d+)?$/,
   )
   await expect(
     svg.locator('[data-widget=WVerticalSpeed] text').filter({ hasText: /^\+0,0$/ }),
@@ -58,10 +58,25 @@ test('calibration: missing inputs, layers, alpha and native-size capture', async
     ...png.data.subarray((y * png.width + x) * 4, (y * png.width + x) * 4 + 3),
   ]
   for (const [x, y, color] of points) expect(pixel(decoded, x, y)).toEqual(color)
-  {
-    const nativePath =
-      process.env.XCT_QA_NATIVE ?? 'docs/research/screenshots/calibration-values-portrait.png'
-    const nativeBytes = await readFile(nativePath)
+  const nativePath =
+    process.env.XCT_QA_NATIVE ?? 'docs/research/screenshots/calibration-values-portrait.png'
+  const nativeBytes = await readFile(nativePath).catch((cause: NodeJS.ErrnoException) => {
+    if (
+      cause.code !== 'ENOENT' ||
+      process.env.XCT_QA_NATIVE ||
+      process.env.XCT_QA_REQUIRE_PIXEL_PARITY === '1'
+    ) {
+      throw cause
+    }
+    return null
+  })
+  if (!nativeBytes) {
+    test.info().annotations.push({
+      type: 'native-reference',
+      description: 'No local native screenshot; browser geometry and export are still checked',
+    })
+  }
+  if (nativeBytes) {
     const native = PNG.sync.read(nativeBytes)
     expect([native.width, native.height]).toEqual([1080, 2400])
     for (const [x, y, color] of points) expect(pixel(native, x, y)).toEqual(color)

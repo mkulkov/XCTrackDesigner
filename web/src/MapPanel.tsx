@@ -13,6 +13,7 @@ export function MapPanel({
   airspaces: AirspacePolygon[]
   loaded: (airspaces: AirspacePolygon[]) => void
 }) {
+  const staticHosted = import.meta.env.VITE_PAGES_MODE === 'true'
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
   const [thermal, setThermal] = useState(settings.thermalTiles)
@@ -82,6 +83,10 @@ export function MapPanel({
     }
   }
   const loadCatalog = async () => {
+    if (staticHosted) {
+      setError('Каталог XContest недоступен на статической веб-странице.')
+      return
+    }
     cancel()
     setError('')
     const request = new AbortController()
@@ -265,55 +270,64 @@ export function MapPanel({
           </label>
           <button>Применить слой термиков</button>
         </form>
-        <button type="button" disabled={busy} onClick={() => void loadCatalog()}>
-          Получить каталог зон XContest
-        </button>
-        {datasets.length > 0 && (
-          <label>
-            Набор воздушных зон
-            <select
-              value={dataset}
-              onChange={(event) => {
-                cancel()
-                setDataset(event.target.value)
-              }}
+        {!staticHosted ? (
+          <>
+            <button type="button" disabled={busy} onClick={() => void loadCatalog()}>
+              Получить каталог зон XContest
+            </button>
+            {datasets.length > 0 && (
+              <label>
+                Набор воздушных зон
+                <select
+                  value={dataset}
+                  onChange={(event) => {
+                    cancel()
+                    setDataset(event.target.value)
+                  }}
+                >
+                  {!datasets.some((entry) => String(entry.id) === dataset) && (
+                    <option value={dataset}>ID {dataset}</option>
+                  )}
+                  {datasets.map((entry) => (
+                    <option key={entry.id} value={entry.id}>
+                      {entry.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <label>
+              ID набора XContest
+              <input
+                type="number"
+                min="1"
+                max="9999999"
+                step="1"
+                value={dataset}
+                onChange={(event) => {
+                  cancel()
+                  setDataset(event.target.value)
+                }}
+              />
+            </label>
+            <button
+              type="button"
+              disabled={busy || !/^[1-9]\d{0,6}$/.test(dataset)}
+              onClick={() => void load(`/__xcontest/data/${dataset}`, true)}
             >
-              {!datasets.some((entry) => String(entry.id) === dataset) && (
-                <option value={dataset}>ID {dataset}</option>
-              )}
-              {datasets.map((entry) => (
-                <option key={entry.id} value={entry.id}>
-                  {entry.label}
-                </option>
-              ))}
-            </select>
-          </label>
+              Загрузить геозоны XContest
+            </button>
+            <p className="hint">
+              982 — Kazakhstan / Almaty; покрытие набора не гарантирует полноту региона. Показаны
+              границы зон; статус активации не рассчитан.
+            </p>
+          </>
+        ) : (
+          <p className="hint">
+            Каталог XContest недоступен на веб-странице. Можно указать публичный HTTPS-источник
+            GeoJSON ниже.
+          </p>
         )}
-        <label>
-          ID набора XContest
-          <input
-            type="number"
-            min="1"
-            max="9999999"
-            step="1"
-            value={dataset}
-            onChange={(event) => {
-              cancel()
-              setDataset(event.target.value)
-            }}
-          />
-        </label>
-        <button
-          type="button"
-          disabled={busy || !/^[1-9]\d{0,6}$/.test(dataset)}
-          onClick={() => void load(`/__xcontest/data/${dataset}`, true)}
-        >
-          Загрузить геозоны XContest
-        </button>
-        <p className="hint">
-          982 — Kazakhstan / Almaty; покрытие набора не гарантирует полноту региона. Показаны
-          границы зон; статус активации не рассчитан.
-        </p>
         <label>
           URL геозон GeoJSON
           <input

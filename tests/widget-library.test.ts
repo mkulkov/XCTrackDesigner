@@ -8,7 +8,7 @@ import {
   addWidget,
 } from '../web/src/editor-commands'
 import { openXcfg } from '../web/src/xcfg'
-import defaults from '../docs/research/widget-native-defaults.json'
+import defaults from './fixtures/widget-native-defaults.json'
 
 test('registered catalog is complete, executable widgets remain inert metadata', () => {
   expect(widgetLibrary).toHaveLength(78)

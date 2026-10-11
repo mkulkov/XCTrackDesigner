@@ -217,7 +217,7 @@ export function App() {
     [doc],
   )
   useEffect(() => {
-    if (!hasMap) return
+    if (!hasMap || import.meta.env.VITE_PAGES_MODE === 'true') return
     const controller = new AbortController()
     void locateEditorMap(controller.signal)
       .then((location) => {

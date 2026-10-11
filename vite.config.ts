@@ -9,6 +9,7 @@ const modules = fileURLToPath(new URL('./node_modules', import.meta.url))
 
 export default defineConfig({
   root: webRoot,
+  base: process.env.VITE_BASE_PATH ?? '/',
   publicDir: false,
   plugins: [react(), localFonts(), onlineAirspaces()],
   server: {

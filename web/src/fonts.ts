@@ -1,6 +1,7 @@
 export let nativeFontsReady = false
 let loading: Promise<boolean> | undefined
 export function loadNativeFonts(): Promise<boolean> {
+  if (import.meta.env.VITE_PAGES_MODE === 'true') return Promise.resolve(false)
   loading ??= (async () => {
     try {
       const manifest = (await fetch('/__local-fonts/manifest.json').then((response) =>

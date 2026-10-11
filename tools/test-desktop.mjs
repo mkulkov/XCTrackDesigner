@@ -28,7 +28,7 @@ try {
   for (const restart of [false, true]) {
     application = await electron.launch({
       ...(executable ? { executablePath: resolve(executable) } : {}),
-      args: [...(executable ? [] : ['.']), `--user-data-dir=${profile}`],
+      args: [...(executable ? [] : ['.']), '--lang=ru-RU', `--user-data-dir=${profile}`],
       timeout: 60_000,
       env: Object.fromEntries(
         Object.entries(process.env).filter(([key]) => key !== 'ELECTRON_RUN_AS_NODE'),
@@ -75,13 +75,16 @@ try {
     }, destination)
     await page.getByRole('button', { name: 'Экспорт XCFG', exact: true }).click()
     await expect
-      .poll(async () => {
-        try {
-          return await readFile(destination, 'utf8')
-        } catch {
-          return null
-        }
-      })
+      .poll(
+        async () => {
+          try {
+            return await readFile(destination, 'utf8')
+          } catch {
+            return null
+          }
+        },
+        { timeout: 30_000 },
+      )
       .toBe(source)
     await page.screenshot({ path: join(output, restart ? 'restored.png' : 'window.png') })
     await application.close()

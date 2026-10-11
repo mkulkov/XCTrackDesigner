@@ -1,0 +1,136 @@
+name: Build Windows EXE
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-exe-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-2025
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      ELECTRON_BUILDER_COMPRESSION_LEVEL: '9'
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Verify release version
+        if: github.event_name == 'push'
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          node -e "const version=JSON.parse(require('node:fs').readFileSync('package.json','utf8')).version; if(process.env.RELEASE_TAG !== 'v'+version) throw new Error('Tag must match package.json: v'+version)"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.18.0'
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Check types, lint, formatting, tests and web build
+        run: npm run check
+
+      - name: Install test browser
+        run: npx playwright install chromium
+
+      - name: Run browser tests
+        run: npm run test:e2e
+
+      - name: Package portable Windows x64 EXE
+        run: npm run desktop:pack
+
+      - name: Test packaged desktop application
+        run: npm run desktop:test -- "release/win-unpacked/XCTrack Screen Designer.exe"
+
+      - name: Write SHA-256 checksum
+        run: |
+          $executables = @(Get-ChildItem -LiteralPath release -Filter '*.exe' -File)
+          if ($executables.Count -ne 1) { throw 'Expected exactly one portable EXE' }
+          $exe = $executables[0]
+          $hash = (Get-FileHash -LiteralPath $exe.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+          Set-Content -LiteralPath ($exe.FullName + '.sha256') -Value ($hash + '  ' + $exe.Name) -Encoding ascii
+
+      - name: Save EXE and checksum
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: windows-exe
+          path: |
+            release/*.exe
+            release/*.exe.sha256
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
+      - name: Save test diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: windows-test-diagnostics
+          path: |
+            .local/playwright-report/
+            .local/playwright-results/
+            .local/desktop-qa/*.png
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
+
+  publish:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: windows-2025
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: ${{ github.ref_name }}
+    steps:
+      - name: Download verified EXE
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: windows-exe
+          path: release
+
+      - name: Publish versioned release
+        shell: pwsh
+        run: |
+          gh release view $env:RELEASE_TAG --json tagName > $null
+          if ($LASTEXITCODE -eq 0) { throw 'Release already exists; existing assets will not be replaced' }
+          $executables = @(Get-ChildItem -LiteralPath release -Filter '*.exe' -File)
+          if ($executables.Count -ne 1) { throw 'Expected exactly one portable EXE' }
+          $exe = $executables[0]
+          $checksum = $exe.FullName + '.sha256'
+          $expected = ((Get-Content -LiteralPath $checksum -Raw).Trim() -split '\s+')[0]
+          $actual = (Get-FileHash -LiteralPath $exe.FullName -Algorithm SHA256).Hash
+          if ($actual -ne $expected) { throw 'EXE checksum mismatch' }
+          $releaseArguments = @(
+            $env:RELEASE_TAG, $exe.FullName, $checksum, '--verify-tag',
+            '--title', ('XCTrack Screen Designer ' + $env:RELEASE_TAG),
+            '--notes', 'Portable Windows x64 build. No installation required. EXE is unsigned. Built and tested by GitHub Actions.'
+          )
+          if ($env:RELEASE_TAG.Contains('-')) { $releaseArguments += '--prerelease' }
+          gh release create @releaseArguments
+          if ($LASTEXITCODE -ne 0) { throw 'Release publication failed' }

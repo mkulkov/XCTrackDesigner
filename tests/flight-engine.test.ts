@@ -6,6 +6,7 @@ import {
   enrichManualFrame,
   igcFrame,
   parseIGC,
+  type FlightSettings,
 } from '../web/src/flight-engine'
 
 const igc = (records: string[]) => `AXXXTEST\nHFDTE101026\n${records.join('\n')}\n`
@@ -17,6 +18,89 @@ const b = (
   gps = '01200',
   validity = 'A',
 ) => `B${clock}${latitude}N${longitude}E${validity}${baro}${gps}`
+
+describe('taskimport navigation', () => {
+  it('retains up to 10000 collection points with zero radius independently of task limits', () => {
+    const point = { name: 'Collection', lat: 43, lon: 76, altitude: null, radius: 0 }
+    const frame = buildFlightFrame(0, 'glide', {
+      ...defaultFlightSettings,
+      waypoints: Array.from({ length: 10001 }, () => ({ ...point })),
+      task: Array.from({ length: 101 }, () => ({ ...point, radius: 400 })),
+    })
+    expect(frame.flight.waypoints).toHaveLength(10000)
+    expect(frame.flight.waypoints?.[0]?.radius).toBe(0)
+    expect(frame.flight.task?.waypoints).toHaveLength(100)
+    expect(
+      buildFlightFrame(0, 'glide', { ...defaultFlightSettings, task: [point] }).flight.task,
+    ).toBeNull()
+  })
+  const settings: FlightSettings = {
+    ...defaultFlightSettings,
+    taskStartTime: 43260,
+    task: [
+      { name: 'Launch', type: 'TAKEOFF', lat: 40, lon: 70, radius: 100, altitude: 1000 },
+      { name: 'Start', type: 'SSS', lat: 44, lon: 77, radius: 400, altitude: 900 },
+      { name: 'ESS', type: 'ESS', lat: 45, lon: 78, radius: 400, altitude: 800 },
+      {
+        name: 'Goal',
+        type: 'GOAL',
+        goalType: 'LINE',
+        lat: 46,
+        lon: 79,
+        radius: 100,
+        altitude: 700,
+      },
+    ],
+    waypoints: [
+      {
+        name: 'Reference',
+        description: 'Imported collection',
+        lat: 43,
+        lon: 76,
+        radius: 100,
+        altitude: null,
+      },
+    ],
+  }
+  it('retains takeoff metadata but navigates to the start and computes ESS preview separately', () => {
+    const frame = buildFlightFrame(0, 'glide', settings)
+    expect(frame.flight.task?.nextIndex).toBe(1)
+    expect(frame.flight.task?.waypoints).toEqual(settings.task)
+    expect(frame.widgetValues?.WNextTurnpoint).toBe('Start')
+    expect(frame.widgetValues?.WCompDistanceToESS).toBeGreaterThan(0)
+    expect(frame.widgetValues?.WCompDistanceToESS).toBeLessThan(frame.flight.task!.distance)
+    expect(frame.widgetValues?.WCompGlideToESS).toBe(
+      Number(frame.widgetValues?.WCompDistanceToESS) / (settings.initialAltitude - 800),
+    )
+    expect(frame.widgetValues?.WCompAltitudeOverESS).toBe(
+      settings.initialAltitude -
+        800 -
+        Number(frame.widgetValues?.WCompDistanceToESS) / settings.glideRatio,
+    )
+    expect(frame.widgetValues?.WCompTimeToStart).toBe(60)
+    expect(frame.widgetValues?.WCompSpeedToStart).toBeGreaterThan(0)
+    expect(buildFlightFrame(61, 'glide', settings).widgetValues?.WCompTimeToStart).toBe(-1)
+    expect(buildFlightFrame(61, 'glide', settings).widgetValues?.WCompSpeedToStart).toBeNull()
+  })
+  it('propagates normalized collection in simulation, manual, replay and unavailable frames', () => {
+    const input = {
+      ...settings,
+      waypoints: [...settings.waypoints!, { ...settings.waypoints![0]!, lat: NaN }],
+    }
+    const replay = parseIGC(igc([b('120000'), b('121000')]))
+    for (const frame of [
+      buildFlightFrame(0, 'glide', input),
+      buildFlightFrame(0, 'no-data', input),
+      enrichManualFrame({ speed: 40, altitude: 1200, vertical: 0, time: 0 }, input),
+      enrichManualFrame({ speed: null, altitude: null, vertical: null, time: null }, input),
+      igcFrame(replay, 0, input),
+      igcFrame(replay, 100, input),
+    ])
+      expect(frame.flight.waypoints).toEqual(settings.waypoints)
+    expect(igcFrame(replay, 0, input).widgetValues?.WCompAltitudeOverESS).toBeNull()
+    expect(input.waypoints).toHaveLength(2)
+  })
+})
 
 describe('connected flight model', () => {
   it('seeks deterministically with bounded history and SI widget values', () => {

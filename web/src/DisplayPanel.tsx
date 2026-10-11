@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useState } from 'react'
 import type { Json } from './xcfg'
 import { ColorPicker } from './ColorPicker'
@@ -29,6 +30,20 @@ const labels: Record<string, string> = {
   'Display.WidgetTitleColor': 'Цвет заголовков',
   'Display.WidgetTitleOutline': 'Обводка заголовков',
   'Display.WidgetTitleOutlineColor': 'Цвет обводки',
+}
+
+function translateDisplayError(message: string): string {
+  const patterns = [
+    ['Недопустимая единица: ', 'Недопустимая единица: {key}'],
+    ['Неизвестная настройка экрана: ', 'Неизвестная настройка экрана: {key}'],
+    ['Недопустимое значение настройки ', 'Недопустимое значение настройки {key}'],
+    ['Ожидается целый цвет ARGB: ', 'Ожидается целый цвет ARGB: {key}'],
+    ['Ожидается логическое значение: ', 'Ожидается логическое значение: {key}'],
+  ] as const
+  for (const [prefix, template] of patterns) {
+    if (message.startsWith(prefix)) return tr(template, { key: message.slice(prefix.length) })
+  }
+  return tr(message)
 }
 
 export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel }: Props) {
@@ -73,18 +88,18 @@ export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel
       const selected = String(value)
       return (
         <label key={key}>
-          {labels[key]}
+          {tr(labels[key]!)}
           <select
-            aria-label={labels[key]}
+            aria-label={tr(labels[key]!)}
             value={selected}
             onChange={(event) => change(key, event.target.value)}
           >
             {!choices.some(([option]) => option === selected) && (
-              <option value={selected}>Исходное: {selected}</option>
+              <option value={selected}>{tr('Исходное: {value}', { value: selected })}</option>
             )}
             {choices.map(([option, label]) => (
               <option key={option} value={option}>
-                {label}
+                {tr(label)}
               </option>
             ))}
           </select>
@@ -94,9 +109,9 @@ export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel
     if (displayColorKeys.includes(key)) {
       return (
         <div className="native-setting display-color-row" key={key}>
-          <span>{labels[key]}</span>
+          <span>{tr(labels[key]!)}</span>
           <ColorPicker
-            label={labels[key]!}
+            label={tr(labels[key]!)}
             value={Number(value)}
             onChange={(color) => change(key, color)}
           />
@@ -105,7 +120,7 @@ export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel
     }
     return (
       <label key={key} className="checkbox switch-row">
-        <span>{labels[key]}</span>
+        <span>{tr(labels[key]!)}</span>
         <input
           type="checkbox"
           checked={value === true}
@@ -123,7 +138,7 @@ export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel
         }}
       >
         <fieldset disabled={disabled} className="display-form-content">
-          <h3>Отображение в XCTrack</h3>
+          <h3>{tr('Отображение в XCTrack')}</h3>
           <div className="configuration-grid form-columns">
             {[
               'Display.Language',
@@ -133,7 +148,7 @@ export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel
             ].map(renderSetting)}
           </div>
           {renderSetting('Display.Fullscreen')}
-          <h3>Заголовки виджетов</h3>
+          <h3>{tr('Заголовки виджетов')}</h3>
           <div className="configuration-grid form-columns">
             {['Display.WidgetTitleSize', 'Display.WidgetTitleFont'].map(renderSetting)}
           </div>
@@ -142,26 +157,28 @@ export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel
           {current('Display.WidgetTitleOutline') === true &&
             renderSetting('Display.WidgetTitleOutlineColor')}
           <details className="screen-units">
-            <summary>Единицы измерения</summary>
+            <summary>{tr('Единицы измерения')}</summary>
             <div className="unit-settings">
               {Object.entries(unitChoices).map(([key, choices]) => {
                 const selected = String(fields[key] ?? preferences[key] ?? '')
                 return (
                   <label key={key}>
-                    {unitLabels[key]}
+                    {tr(unitLabels[key]!)}
                     <select
-                      aria-label={`Единицы: ${unitLabels[key]}`}
+                      aria-label={tr('Единицы: {label}', { label: tr(unitLabels[key]!) })}
                       value={selected}
                       onChange={(event) => change(key, event.target.value)}
                     >
                       {!choices.some(([option]) => option === selected) && (
                         <option value={selected}>
-                          {selected ? `Исходное: ${selected}` : 'По умолчанию XCTrack'}
+                          {selected
+                            ? tr('Исходное: {value}', { value: selected })
+                            : tr('По умолчанию XCTrack')}
                         </option>
                       )}
                       {choices.map(([option, label]) => (
                         <option key={option} value={option}>
-                          {label}
+                          {tr(label)}
                         </option>
                       ))}
                     </select>
@@ -171,26 +188,27 @@ export function DisplayPanel({ preferences, disabled, apply, onApplied, onCancel
             </div>
           </details>
           <details>
-            <summary>Особенности предпросмотра</summary>
+            <summary>{tr('Особенности предпросмотра')}</summary>
             <p className="hint display-compatibility-hint">
-              Полноэкранный режим, ориентация и частота обновления сохраняются для XCTrack;
-              браузерный предпросмотр их не выполняет, языки предпросмотра — русский и английский.
+              {tr(
+                'Полноэкранный режим, ориентация и частота обновления сохраняются для XCTrack; браузерный предпросмотр их не выполняет, языки предпросмотра — русский и английский.',
+              )}
             </p>
           </details>
         </fieldset>
         <div className="dialog-footer display-form-footer">
           {onCancel && (
             <button type="button" className="cancel-button" onClick={onCancel}>
-              Отмена
+              {tr('Отмена')}
             </button>
           )}
           <button type="submit" disabled={disabled || !Object.keys(fields).length}>
-            Применить настройки экрана
+            {tr('Применить настройки экрана')}
           </button>
         </div>
         {error && (
           <p className="error" role="alert">
-            {error}
+            {translateDisplayError(error)}
           </p>
         )}
       </form>

@@ -2,6 +2,7 @@ import { afterEach, expect, test } from 'vitest'
 import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { get } from 'node:http'
 import { startDesktopServer } from '../tools/desktop-server.ts'
 
 let close: (() => Promise<void>) | undefined
@@ -27,7 +28,13 @@ test('desktop serves generated assets only and rejects foreign requests', async 
   expect((await fetch(server.origin + '/assets/%2e%2e%2fprivate.xcfg')).status).toBe(404)
   expect((await fetch(server.origin + '/assets/%2e%2e%2findex.html')).status).toBe(404)
   expect((await fetch(server.origin + '/assets/%2e%2e%2f%2e%2e%2fsecret.js')).status).toBe(404)
-  expect((await fetch(server.origin, { headers: { Host: 'foreign.example' } })).status).toBe(403)
+  const foreignHostStatus = await new Promise<number | undefined>((accept, reject) => {
+    get(server.origin, { headers: { Host: 'foreign.example' } }, (response) => {
+      response.resume()
+      accept(response.statusCode)
+    }).on('error', reject)
+  })
+  expect(foreignHostStatus).toBe(403)
   expect(
     (await fetch(server.origin, { headers: { Origin: 'https://foreign.example' } })).status,
   ).toBe(403)

@@ -1,4 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import {
+  tr,
+  editorLanguage,
+  setEditorLanguagePreference,
+  subscribeLanguage,
+  languageSnapshot,
+} from './i18n'
+import type { EditorLanguage } from './i18n'
 import {
   PanelsTopLeft,
   FolderOpen,
@@ -12,8 +20,11 @@ import {
   ArrowUp,
   ArrowDown,
   Plus,
+  Navigation,
 } from 'lucide-react'
 import { SettingsDialog } from './SettingsDialog'
+import { NavigationPanel } from './NavigationPanel'
+import type { ImportedTask, NavigationWaypoint } from './navigation-import'
 import { loadNativeFonts } from './fonts'
 import { WidgetPreview } from './WidgetPreview'
 import { EditorCanvas } from './EditorCanvas'
@@ -48,12 +59,13 @@ import { PageLayoutPanel } from './PageLayoutPanel'
 import { nearbyAirspaces } from './airspace-proximity'
 import { locateEditorMap } from './map-location'
 import { ScreenViewport } from './ScreenViewport'
-import { initialMap } from './online-map'
+import { initialMap, worldPoint } from './online-map'
 import type { AirspacePolygon } from './online-map'
-import { libraryWidget } from './widget-library'
-import { widgetDescription } from './widget-descriptions'
+
+import { widgetDescription, widgetTitle } from './widget-descriptions'
 import { WidgetSimulation } from './WidgetSimulation'
 import { contentSpecs } from './widget-content'
+import type { Frame } from './value-layout'
 import { cellStep, gestureBounds } from './editor-geometry'
 import { changeBounds, editWidgetList, openXcfg, pixelBounds } from './xcfg'
 import type { Bounds, Document, Orientation, Widget, Json } from './xcfg'
@@ -78,6 +90,10 @@ function downloadDocument(doc: Document, filename: string) {
 }
 
 export function App() {
+  const languageState = useSyncExternalStore(subscribeLanguage, languageSnapshot)
+  useEffect(() => {
+    document.documentElement.lang = editorLanguage()
+  }, [languageState])
   const [settingsPreview, setSettingsPreview] = useState<{
     widget: Widget
     fields: Record<string, Json>
@@ -112,20 +128,50 @@ export function App() {
   const [mapSettings, setMapSettings] = useState(initialMap)
   const [airspaces] = useState<AirspacePolygon[]>([])
   const [flightSettings, setFlightSettings] = useState(defaultFlightSettings)
+  const [navigationTask, setNavigationTask] = useState<ImportedTask | null>(null)
+  const [navigationTarget, setNavigationTarget] = useState<NavigationWaypoint | null>(null)
+  const locationOverridden = useRef(false)
   const [replay, setReplay] = useState<IGCReplay | null>(null)
   const [draft, setDraft] = useState<Draft | null>(null)
   const [savedDocument, setSavedDocument] = useState<Document | null>(null)
   const [simulationOpen, setSimulationOpen] = useState(false)
-  const [settingsDialog, setSettingsDialog] = useState<'screen' | 'pages' | null>(null)
+  const [settingsDialog, setSettingsDialog] = useState<'screen' | 'pages' | 'navigation' | null>(
+    null,
+  )
   const [inspectorTab, setInspectorTab] = useState<'appearance' | 'advanced'>('appearance')
   const [playbackTarget, setPlaybackTarget] = useState<HTMLDivElement | null>(null)
   const [locationStatus, setLocationStatus] = useState('')
   const [draftStatus, setDraftStatus] = useState('')
   const autosaveTimer = useRef<number | null>(null)
+  const initialDocumentChosen = useRef(false)
   useEffect(() => {
+    let active = true
     void loadDraft()
-      .then(setDraft)
-      .catch(() => setDraftStatus('Черновики недоступны; экспорт XCFG работает отдельно'))
+      .then((saved) => {
+        if (!active || initialDocumentChosen.current) return
+        setDraft(saved)
+        if (!saved) return
+        try {
+          const restored = openXcfg(saved.bytes)
+          initialDocumentChosen.current = true
+          setHistory([restored])
+          setCursor(0)
+          setFilename(saved.filename)
+          setOrientation(restored.pages.portrait.length ? 'portrait' : 'landscape')
+          setPageId(null)
+          setSelectedId(null)
+          setSavedDocument(restored)
+          setDraftStatus(tr('Черновик восстановлен; история начинается с сохранённого состояния'))
+        } catch (cause) {
+          setDraftStatus(cause instanceof Error ? cause.message : tr('Ошибка черновика'))
+        }
+      })
+      .catch(() => {
+        if (active) setDraftStatus(tr('Черновики недоступны; экспорт XCFG работает отдельно'))
+      })
+    return () => {
+      active = false
+    }
   }, [])
   useEffect(() => {
     playbackSeconds.current = seconds
@@ -153,9 +199,9 @@ export function App() {
         .then((saved) => {
           setDraft(saved)
           setSavedDocument(doc)
-          setDraftStatus('Черновик сохранён на этом компьютере')
+          setDraftStatus(tr('Черновик сохранён на этом компьютере'))
         })
-        .catch(() => setDraftStatus('Не удалось сохранить черновик; скачайте XCFG'))
+        .catch(() => setDraftStatus(tr('Не удалось сохранить черновик; скачайте XCFG')))
     }, 500)
     autosaveTimer.current = timer
     return () => window.clearTimeout(timer)
@@ -175,7 +221,7 @@ export function App() {
     const controller = new AbortController()
     void locateEditorMap(controller.signal)
       .then((location) => {
-        if (controller.signal.aborted) return
+        if (controller.signal.aborted || locationOverridden.current) return
         setMapSettings((current) => ({
           ...current,
           latitude: location.latitude,
@@ -183,13 +229,13 @@ export function App() {
         }))
         setLocationStatus(
           location.source === 'browser'
-            ? 'Центр карты определён браузером'
-            : 'Примерный центр карты определён по IP',
+            ? tr('Центр карты определён браузером')
+            : tr('Примерный центр карты определён по IP'),
         )
       })
       .catch(() => {
         if (!controller.signal.aborted)
-          setLocationStatus('Местоположение недоступно; используется резервный центр карты')
+          setLocationStatus(tr('Местоположение недоступно; используется резервный центр карты'))
       })
     return () => controller.abort()
   }, [hasMap])
@@ -258,6 +304,42 @@ export function App() {
   }
   const width = orientation === 'portrait' ? 1080 : 2400
   const height = orientation === 'portrait' ? 2400 : 1080
+  function fitNavigation(points: NavigationWaypoint[]) {
+    if (!points.length) return
+    locationOverridden.current = true
+    const lat = (Math.min(...points.map((p) => p.lat)) + Math.max(...points.map((p) => p.lat))) / 2
+    const origin = points[0]!.lon
+    const longitudes = points.map((p) => origin + ((p.lon - origin + 540) % 360) - 180)
+    const lon = (((Math.min(...longitudes) + Math.max(...longitudes)) / 2 + 540) % 360) - 180
+    let zoom = 14
+    for (; zoom > 2; zoom--) {
+      const center = worldPoint(lon, lat, zoom)
+      const size = 256 * 2 ** zoom
+      const scale = 512 / Math.max(width, height)
+      if (
+        points.every((p) => {
+          const q = worldPoint(p.lon, p.lat, zoom)
+          const dx = ((q.x - center.x + size * 1.5) % size) - size / 2
+          const radius = p.radius / ((40075016.686 * Math.cos((p.lat * Math.PI) / 180)) / size)
+          return (
+            Math.abs(dx) + radius < width * scale * 0.38 &&
+            Math.abs(q.y - center.y) + radius < height * scale * 0.38
+          )
+        })
+      )
+        break
+    }
+    setMapSettings((current) => ({ ...current, latitude: lat, longitude: lon, zoom }))
+    setLocationStatus(tr('На карте показаны загруженные навигационные данные'))
+  }
+  function useNavigationTask(task: ImportedTask | null) {
+    setNavigationTask(task)
+    setFlightSettings((current) => ({
+      ...current,
+      task: task?.turnpoints ?? (navigationTarget ? [navigationTarget] : []),
+      taskStartTime: task?.startTime,
+    }))
+  }
   const simulated = useMemo(
     () =>
       replay
@@ -280,15 +362,51 @@ export function App() {
       : {
           ...simulated,
           flight: { ...simulated.flight, ...(proximity ? { airspaces: proximity } : {}) },
-          widgetValues: { ...simulated.widgetValues, ...extraValues },
+          widgetValues: simulated.widgetValues,
           altitude: altitudeMissing ? null : simulated.altitude,
           time: timeMissing ? null : simulated.time,
         }
+  const manualSupported =
+    !!widget &&
+    shortName(widget.CLASS) !== 'WFreeText' &&
+    (!!contentSpecs[shortName(widget.CLASS)] ||
+      ['WSpeed', 'WVerticalSpeed', 'WAMSL', 'WAirTime', 'WLiveMessage', 'WLogPeek'].includes(
+        shortName(widget.CLASS),
+      ))
+  const manualValue =
+    widget && Object.hasOwn(extraValues, ids[selected] ?? '')
+      ? extraValues[ids[selected]!]
+      : widget
+        ? currentReading(shortName(widget.CLASS))
+        : undefined
+  function currentReading(name: string) {
+    if (name === 'WSpeed') return frame.speed === null ? null : frame.speed / 3.6
+    if (name === 'WVerticalSpeed') return frame.vertical
+    if (name === 'WAMSL') return frame.altitude
+    if (name === 'WAirTime') return frame.time
+    return frame.widgetValues?.[name] ?? null
+  }
+  function widgetFrame(w: Widget, index: number): Frame {
+    const id = ids[index]
+    if (!id || !Object.hasOwn(extraValues, id)) return frame
+    const name = shortName(w.CLASS)
+    const value = extraValues[id] ?? null
+    const numeric = typeof value === 'number' ? value : null
+    return {
+      ...frame,
+      ...(name === 'WSpeed' ? { speed: numeric === null ? null : numeric * 3.6 } : {}),
+      ...(name === 'WVerticalSpeed' ? { vertical: numeric } : {}),
+      ...(name === 'WAMSL' ? { altitude: numeric } : {}),
+      ...(name === 'WAirTime' ? { time: numeric } : {}),
+      widgetValues: { ...frame.widgetValues, [name]: value },
+    }
+  }
   async function load(file: File | undefined) {
     if (!file) return
     try {
-      if (file.size > 5 * 1024 * 1024) throw Error('XCFG больше 5 МБ')
+      if (file.size > 5 * 1024 * 1024) throw Error(tr('XCFG больше 5 МБ'))
       const opened = openXcfg(new Uint8Array(await file.arrayBuffer()))
+      initialDocumentChosen.current = true
       setHistory([opened])
       setTextEpoch((epoch) => epoch + 1)
       setCursor(0)
@@ -298,7 +416,7 @@ export function App() {
       setSelectedId(null)
       setError('')
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : 'Ошибка импорта')
+      setError(cause instanceof Error ? cause.message : tr('Ошибка импорта'))
     }
   }
   function download() {
@@ -333,7 +451,7 @@ export function App() {
       }
       setError('')
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : 'Ошибка изменения')
+      setError(cause instanceof Error ? cause.message : tr('Ошибка изменения'))
     }
   }
   function insertWidget(name: string, x?: number, y?: number) {
@@ -434,22 +552,39 @@ export function App() {
           <h1>XCTrack Designer</h1>
         </div>
         <div className="document-status">
-          <span>{doc ? filename : 'Новая конфигурация'}</span>
+          <span>{doc ? filename : tr('Новая конфигурация')}</span>
           <small data-native-fonts={fontsReady}>
-            {doc ? (savedDocument === doc ? 'Сохранено' : 'Сохранение…') : 'Конструктор экранов'}
+            {doc
+              ? savedDocument === doc
+                ? tr('Сохранено')
+                : tr('Сохранение…')
+              : tr('Конструктор экранов')}
           </small>
         </div>
         <div className="file-actions">
+          <label className="editor-language-toggle">
+            <select
+              aria-label={tr('Язык редактора')}
+              value={editorLanguage()}
+              onChange={(event) =>
+                setEditorLanguagePreference(event.target.value as EditorLanguage)
+              }
+            >
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+            </select>
+          </label>
           <EditorThemeToggle />
           <details className="draft-tools">
-            <summary>Черновик и восстановление</summary>
-            <section className="draft-panel" aria-label="Локальный черновик">
+            <summary>{tr('Черновик и восстановление')}</summary>
+            <section className="draft-panel" aria-label={tr('Локальный черновик')}>
               {draft && (
                 <>
                   <button
                     onClick={() => {
                       try {
                         const restored = openXcfg(draft.bytes)
+                        initialDocumentChosen.current = true
                         setHistory([restored])
                         setCursor(0)
                         setFilename(draft.filename)
@@ -459,14 +594,16 @@ export function App() {
                         setError('')
                         setTextEpoch((epoch) => epoch + 1)
                         setDraftStatus(
-                          'Черновик восстановлен; история начинается с сохранённого состояния',
+                          tr('Черновик восстановлен; история начинается с сохранённого состояния'),
                         )
                       } catch (cause) {
-                        setDraftStatus(cause instanceof Error ? cause.message : 'Ошибка черновика')
+                        setDraftStatus(
+                          cause instanceof Error ? cause.message : tr('Ошибка черновика'),
+                        )
                       }
                     }}
                   >
-                    Восстановить черновик
+                    {tr('Восстановить черновик')}
                   </button>
                   <button
                     onClick={() => {
@@ -474,22 +611,23 @@ export function App() {
                       void deleteDraft()
                         .then(() => {
                           setDraft(null)
-                          setDraftStatus('Черновик удалён')
+                          setDraftStatus(tr('Черновик удалён'))
                         })
-                        .catch(() => setDraftStatus('Не удалось удалить черновик'))
+                        .catch(() => setDraftStatus(tr('Не удалось удалить черновик')))
                     }}
                   >
-                    Удалить черновик
+                    {tr('Удалить черновик')}
                   </button>
-                  <span> {new Date(draft.savedAt).toLocaleString('ru')}</span>
+                  <span> {new Date(draft.savedAt).toLocaleString(editorLanguage())}</span>
                 </>
               )}
-              <span role="status">{draftStatus}</span>
+              <span role="status">{tr(draftStatus)}</span>
             </section>
           </details>
 
           <button
             onClick={() => {
+              initialDocumentChosen.current = true
               setHistory([newConfiguration()])
               setCursor(0)
               setFilename('new-screen.xcfg')
@@ -500,12 +638,13 @@ export function App() {
               setError('')
             }}
           >
-            Новая конфигурация
+            {tr('Новая конфигурация')}
           </button>
           <label className="file">
-            <FolderOpen size={16} /> Открыть XCFG
+            <FolderOpen size={16} />
+            {tr('Открыть XCFG')}
             <input
-              aria-label="Открыть XCFG"
+              aria-label={tr('Открыть XCFG')}
               type="file"
               accept=".xcfg,application/json"
               onChange={(event) => {
@@ -517,7 +656,7 @@ export function App() {
           {doc && (
             <button className="primary export-button" onClick={download}>
               <Download size={16} />
-              Экспорт XCFG
+              {tr('Экспорт XCFG')}
             </button>
           )}
         </div>
@@ -538,34 +677,35 @@ export function App() {
             add={() => undefined}
           />
           <article className="empty">
-            <h2>Начните с конфигурации XCTrack</h2>
+            <h2>{tr('Начните с конфигурации XCTrack')}</h2>
             <p>
-              Создайте новую конфигурацию или откройте XCFG, затем перетаскивайте виджеты из
-              коллекции на экран.
+              {tr(
+                'Создайте новую конфигурацию или откройте XCFG, затем перетаскивайте виджеты из коллекции на экран.',
+              )}
             </p>
           </article>
           <aside className="inspector-panel">
-            <h2>Настройки виджета</h2>
-            <p className="hint">Выберите виджет на экране.</p>
+            <h2>{tr('Настройки виджета')}</h2>
+            <p className="hint">{tr('Выберите виджет на экране.')}</p>
           </aside>
         </div>
       ) : (
         <>
           <div className="modebar">
-            <nav aria-label="Режим работы">
+            <nav aria-label={tr('Режим работы')}>
               <button aria-pressed={!simulationOpen} onClick={returnToEditor}>
-                Редактор
+                {tr('Редактор')}
               </button>
               <button
                 aria-pressed={simulationOpen}
                 onClick={() => (simulationOpen ? returnToEditor() : setSimulationOpen(true))}
               >
-                Симуляция полёта
+                {tr('Симуляция полёта')}
               </button>
             </nav>
             <div className="history-actions">
               <button
-                aria-label="Отменить"
+                aria-label={tr('Отменить')}
                 disabled={cursor === 0}
                 onClick={() => {
                   setCursor(cursor - 1)
@@ -575,7 +715,7 @@ export function App() {
                 <Undo2 size={16} />
               </button>
               <button
-                aria-label="Повторить"
+                aria-label={tr('Повторить')}
                 disabled={cursor === history.length - 1}
                 onClick={() => {
                   setCursor(cursor + 1)
@@ -588,8 +728,9 @@ export function App() {
           </div>
           {!doc.editable && (
             <p className="warning">
-              Версия или тип экспорта не исследованы. Доступны просмотр и экспорт исходных байтов;
-              изменения заблокированы.
+              {tr(
+                'Версия или тип экспорта не исследованы. Доступны просмотр и экспорт исходных байтов; изменения заблокированы.',
+              )}
             </p>
           )}
           <div
@@ -598,9 +739,9 @@ export function App() {
             <aside
               className="simulation-panel standalone-simulation"
               hidden={!simulationOpen}
-              aria-label="Параметры симуляции"
+              aria-label={tr('Параметры симуляции')}
             >
-              <h2>Запись полёта</h2>
+              <h2>{tr('Полёт')}</h2>
               <TrackReplay
                 playbackTarget={playbackTarget}
                 replay={replay}
@@ -617,26 +758,10 @@ export function App() {
                 rate={rate}
                 onRate={setRate}
               />
-              <FlightPanel settings={flightSettings} onChange={setFlightSettings} replay={replay} />
-              {widget &&
-                (contentSpecs[shortName(widget.CLASS)] ||
-                  ['WLiveMessage', 'WLogPeek'].includes(shortName(widget.CLASS))) &&
-                shortName(widget.CLASS) !== 'WFreeText' && (
-                  <details className="manual-simulation">
-                    <summary>Показание выбранного виджета</summary>
-                    <WidgetSimulation
-                      key={ids[selected]}
-                      value={extraValues[shortName(widget.CLASS)]}
-                      apply={(value) =>
-                        setExtraValues({ ...extraValues, [shortName(widget.CLASS)]: value })
-                      }
-                    />
-                  </details>
-                )}
               <label className="sim-control simulation-scenario">
-                Сценарий
+                {tr('Сценарий')}
                 <select
-                  aria-label="Сценарий"
+                  aria-label={tr('Сценарий')}
                   value={replay ? 'track' : scenario}
                   onChange={(event) => {
                     setScenario(event.target.value as Scenario)
@@ -646,18 +771,30 @@ export function App() {
                     setRate(1)
                   }}
                 >
-                  {replay && <option value="track">Загруженный трек</option>}
-                  <option value="manual">Ручные показания</option>
-                  <option value="thermal">Набор в термике</option>
-                  <option value="glide">Планирование</option>
-                  <option value="no-data">Нет датчиков</option>
+                  {replay && <option value="track">{tr('Загруженный трек')}</option>}
+                  <option value="manual">{tr('Ручные показания')}</option>
+                  <option value="thermal">{tr('Набор в термике')}</option>
+                  <option value="glide">{tr('Планирование')}</option>
+                  <option value="no-data">{tr('Нет датчиков')}</option>
                 </select>
               </label>
+              <FlightPanel
+                settings={flightSettings}
+                onChange={(settings) => {
+                  if (settings.task !== flightSettings.task) {
+                    setNavigationTask(null)
+                    setNavigationTarget(null)
+                    settings = { ...settings, taskStartTime: undefined }
+                  }
+                  setFlightSettings(settings)
+                }}
+                replay={replay}
+              />
               {scenario !== 'manual' && !replay && (
                 <>
                   <div className="widget-actions">
                     <button onClick={() => setPlaying(!playing)}>
-                      {playing ? 'Пауза симуляции' : 'Запустить симуляцию'}
+                      {playing ? tr('Пауза симуляции') : tr('Запустить симуляцию')}
                     </button>
                     <button
                       onClick={() => {
@@ -665,13 +802,13 @@ export function App() {
                         setPlaying(false)
                       }}
                     >
-                      Сбросить симуляцию
+                      {tr('Сбросить симуляцию')}
                     </button>
                   </div>
                   <label className="sim-control">
-                    Темп
+                    {tr('Темп')}
                     <select
-                      aria-label="Темп симуляции"
+                      aria-label={tr('Темп симуляции')}
                       value={rate}
                       onChange={(event) => setRate(Number(event.target.value))}
                     >
@@ -683,9 +820,9 @@ export function App() {
                     </select>
                   </label>
                   <label className="sim-control">
-                    Время сценария, s
+                    {tr('Время сценария, s')}
                     <input
-                      aria-label="Время сценария, s"
+                      aria-label={tr('Время сценария, s')}
                       type="range"
                       min={0}
                       max={3600}
@@ -693,16 +830,17 @@ export function App() {
                       value={seconds}
                       onChange={(event) => setSeconds(Number(event.target.value))}
                     />
-                    <output aria-label="Текущее время сценария">{seconds.toFixed(1)}</output>
+                    <output aria-label={tr('Текущее время сценария')}>{seconds.toFixed(1)}</output>
                   </label>
                   <p className="hint">
-                    Связанные показания, история и навигация по учебной модели; алгоритмы XCTrack не
-                    воспроизведены полностью.
+                    {tr(
+                      'Связанные показания, история и навигация по учебной модели; алгоритмы XCTrack не воспроизведены полностью.',
+                    )}
                   </p>
                 </>
               )}
               <details className="manual-values">
-                <summary>Показания и отсутствие данных</summary>
+                <summary>{tr('Показания и отсутствие данных')}</summary>
                 <div className="simulation-values-grid">
                   <label className="sim-control">
                     <span>
@@ -711,7 +849,7 @@ export function App() {
                         checked={noData}
                         onChange={(event) => setNoData(event.target.checked)}
                       />{' '}
-                      Нет данных
+                      {tr('Нет данных')}
                     </span>
                   </label>
                   <label className="sim-control">
@@ -721,7 +859,7 @@ export function App() {
                         checked={altitudeMissing}
                         onChange={(event) => setAltitudeMissing(event.target.checked)}
                       />{' '}
-                      Нет высоты AMSL
+                      {tr('Нет высоты AMSL')}
                     </span>
                   </label>
                   <label className="sim-control">
@@ -731,19 +869,20 @@ export function App() {
                         checked={timeMissing}
                         onChange={(event) => setTimeMissing(event.target.checked)}
                       />{' '}
-                      Не в полёте
+                      {tr('Не в полёте')}
                     </span>
                   </label>
                   <p className="hint">
-                    Не записываются в XCFG. Дополнительные значения выбранного класса перекрывают
-                    расчёт модели.
+                    {tr(
+                      'Не записываются в XCFG. Дополнительные значения выбранного класса перекрывают расчёт модели.',
+                    )}
                   </p>
                   {(
                     [
-                      ['speed', 'Скорость, km/h', 0, 300],
-                      ['vertical', 'Вариометр, m/s', -30, 30],
-                      ['altitude', 'Высота AMSL, m', -500, 15000],
-                      ['time', 'Время полёта, s', 0, 86400],
+                      ['speed', tr('Скорость, km/h'), 0, 300],
+                      ['vertical', tr('Вариометр, m/s'), -30, 30],
+                      ['altitude', tr('Высота AMSL, m'), -500, 15000],
+                      ['time', tr('Время полёта, s'), 0, 86400],
                     ] as const
                   ).map(([key, label, min, max]) => (
                     <label className="sim-control" key={key}>
@@ -773,13 +912,13 @@ export function App() {
                 add={() => insertWidget(catalogClass)}
               />
             </div>
-            <section className="preview" aria-label="Предпросмотр">
+            <section className="preview" aria-label={tr('Предпросмотр')}>
               <div className="toolbar preview-navigation">
                 {' '}
                 <label>
-                  Страница
+                  {tr('Страница')}
                   <select
-                    aria-label="Страница"
+                    aria-label={tr('Страница')}
                     value={pageIndex}
                     onChange={(event) => {
                       setPageIndex(Number(event.target.value))
@@ -789,8 +928,8 @@ export function App() {
                     {doc.pages[orientation].map((p, index) => (
                       <option key={index} value={index}>
                         {pageNames[p.CLASS]
-                          ? `${index + 1} · ${pageNames[p.CLASS]}`
-                          : `Страница ${index + 1}`}
+                          ? `${index + 1} · ${tr(pageNames[p.CLASS]!)}`
+                          : tr('Страница {v0}', { v0: index + 1 })}
                       </option>
                     ))}
                   </select>
@@ -798,18 +937,53 @@ export function App() {
                 <div className="canvas-actions">
                   <button onClick={() => setSettingsDialog('screen')}>
                     <Settings2 size={15} />
-                    Экран
+                    {tr('Экран')}
                   </button>
                   <button onClick={() => setSettingsDialog('pages')}>
                     <Layers size={15} />
-                    Страницы
+                    {tr('Страницы')}
+                  </button>
+                  <button onClick={() => setSettingsDialog('navigation')}>
+                    <Navigation size={15} />
+                    {tr('Навигация')}
                   </button>
                 </div>
               </div>
               <SettingsDialog
+                open={settingsDialog === 'navigation'}
+                title={tr('Навигация')}
+                description={tr('Точки и задачи для предпросмотра и симуляции')}
+                close={() => setSettingsDialog(null)}
+              >
+                <NavigationPanel
+                  waypoints={flightSettings.waypoints ?? []}
+                  task={navigationTask}
+                  target={navigationTarget}
+                  onWaypoints={(points) => {
+                    setNavigationTarget(null)
+                    setFlightSettings((current) => ({
+                      ...current,
+                      waypoints: points,
+                      task: navigationTask?.turnpoints ?? [],
+                    }))
+                  }}
+                  onTask={useNavigationTask}
+                  onTarget={(point) => {
+                    setNavigationTarget(point)
+                    if (!navigationTask)
+                      setFlightSettings((current) => ({
+                        ...current,
+                        task: point ? [{ ...point, radius: Math.max(1, point.radius) }] : [],
+                      }))
+                  }}
+                  fit={fitNavigation}
+                  close={() => setSettingsDialog(null)}
+                />
+              </SettingsDialog>
+              <SettingsDialog
                 open={settingsDialog === 'screen'}
-                title="Настройки экрана"
-                description="Общие параметры для всех страниц"
+                title={tr('Настройки экрана')}
+                description={tr('Общие параметры для всех страниц')}
                 close={() => setSettingsDialog(null)}
               >
                 <DisplayPanel
@@ -823,8 +997,8 @@ export function App() {
               </SettingsDialog>
               <SettingsDialog
                 open={settingsDialog === 'pages'}
-                title="Раскладка страниц"
-                description="Страницы каждой ориентации настраиваются отдельно"
+                title={tr('Раскладка страниц')}
+                description={tr('Страницы каждой ориентации настраиваются отдельно')}
                 close={() => setSettingsDialog(null)}
               >
                 <div className="page-orientation segments">
@@ -836,7 +1010,7 @@ export function App() {
                       setSelectedId(null)
                     }}
                   >
-                    Портрет
+                    {tr('Портрет')}
                   </button>
                   <button
                     aria-pressed={orientation === 'landscape'}
@@ -846,7 +1020,7 @@ export function App() {
                       setSelectedId(null)
                     }}
                   >
-                    Альбом
+                    {tr('Альбом')}
                   </button>
                 </div>
                 <div className="page-manager">
@@ -867,9 +1041,13 @@ export function App() {
                           <span />
                         </span>
                         <span>
-                          {pageNames[entry.CLASS] ?? `Страница ${index + 1}`}
+                          {tr(pageNames[entry.CLASS] ?? '') ||
+                            tr('Страница {v0}', { v0: index + 1 })}
                           <small>
-                            Страница {index + 1} · {entry.widgets.length} виджетов
+                            {tr('Страница {number} · {count} виджетов', {
+                              number: index + 1,
+                              count: entry.widgets.length,
+                            })}
                           </small>
                         </span>
                       </button>
@@ -880,7 +1058,7 @@ export function App() {
                       onClick={() => pageCommand('add')}
                     >
                       <Plus size={15} />
-                      Добавить страницу
+                      {tr('Добавить страницу')}
                     </button>
                   </div>
                   <div className="page-properties">
@@ -895,14 +1073,14 @@ export function App() {
                       }
                     >
                       <button
-                        aria-label="Страница раньше"
+                        aria-label={tr('Страница раньше')}
                         disabled={!doc.editable || !page || pageIndex === 0}
                         onClick={() => command(() => reorderPage(doc, orientation, pageIndex, -1))}
                       >
                         <ArrowUp size={15} />
                       </button>
                       <button
-                        aria-label="Страница позже"
+                        aria-label={tr('Страница позже')}
                         disabled={
                           !doc.editable || !page || pageIndex >= doc.pages[orientation].length - 1
                         }
@@ -911,15 +1089,15 @@ export function App() {
                         <ArrowDown size={15} />
                       </button>
                       <button
-                        aria-label="Дублировать страницу"
+                        aria-label={tr('Дублировать страницу')}
                         disabled={!doc.editable || !page}
                         onClick={() => pageCommand('duplicate')}
                       >
                         <Copy size={15} />
-                        Копировать
+                        {tr('Копировать')}
                       </button>
                       <button
-                        aria-label="Удалить страницу"
+                        aria-label={tr('Удалить страницу')}
                         disabled={!doc.editable || !page}
                         onClick={() => pageCommand('delete')}
                       >
@@ -929,15 +1107,15 @@ export function App() {
                   </div>
                 </div>
                 <div className="pages-dialog-footer">
-                  <button onClick={() => setSettingsDialog(null)}>Готово</button>
+                  <button onClick={() => setSettingsDialog(null)}>{tr('Готово')}</button>
                 </div>
               </SettingsDialog>
 
               <div className="preview-title">
                 <label>
-                  Ориентация
+                  {tr('Ориентация')}
                   <select
-                    aria-label="Ориентация"
+                    aria-label={tr('Ориентация')}
                     value={orientation}
                     onChange={(event) => {
                       setOrientation(event.target.value as Orientation)
@@ -945,8 +1123,8 @@ export function App() {
                       setSelectedId(null)
                     }}
                   >
-                    <option value="portrait">Портрет</option>
-                    <option value="landscape">Альбом</option>
+                    <option value="portrait">{tr('Портрет')}</option>
+                    <option value="landscape">{tr('Альбом')}</option>
                   </select>
                 </label>
                 <label>
@@ -955,28 +1133,28 @@ export function App() {
                     checked={snap}
                     onChange={(event) => setSnap(event.target.checked)}
                   />
-                  Привязка к сетке
+                  {tr('Привязка к сетке')}
                 </label>
                 <details className="preview-options">
-                  <summary>Вид</summary>
+                  <summary>{tr('Вид')}</summary>
                   <label>
                     <input
                       type="checkbox"
                       checked={showBounds}
                       onChange={(event) => setShowBounds(event.target.checked)}
                     />
-                    Рамки
+                    {tr('Рамки')}
                   </label>
                   <button onClick={() => setTextEpoch((epoch) => epoch + 1)}>
-                    Сбросить размеры текста
+                    {tr('Сбросить размеры текста')}
                   </button>
                   <p>
                     {width} × {height} · 420 dpi
                   </p>
-                  {locationStatus && <p>{locationStatus}</p>}
+                  {locationStatus && <p>{tr(locationStatus)}</p>}
                   {mapSettings.enabled && (
                     <p className="map-attribution">
-                      Онлайн-подложка · ©{' '}
+                      {tr('Онлайн-подложка · ©')}{' '}
                       <a
                         href="https://www.openstreetmap.org/copyright"
                         target="_blank"
@@ -989,7 +1167,7 @@ export function App() {
                           {' '}
                           ·{' '}
                           <a href="https://thermal.kk7.ch/" target="_blank" rel="noreferrer">
-                            M. von Känel / thermal.kk7.ch (либо выбранный поставщик)
+                            {tr('M. von Känel / thermal.kk7.ch (либо выбранный поставщик)')}
                           </a>{' '}
                           ·{' '}
                           <a
@@ -1006,7 +1184,7 @@ export function App() {
                 </details>
               </div>
               {!page ? (
-                <p>В этой ориентации нет страниц.</p>
+                <p>{tr('В этой ориентации нет страниц.')}</p>
               ) : (
                 <ScreenViewport portrait={orientation === 'portrait'}>
                   <EditorCanvas
@@ -1018,7 +1196,7 @@ export function App() {
                     width={width}
                     height={height}
                     editable={doc.editable && !simulationOpen}
-                    showBounds={showBounds && !simulationOpen}
+                    showBounds={showBounds}
                     snap={snap}
                     addFromCollection={insertWidget}
                   >
@@ -1040,7 +1218,7 @@ export function App() {
                         index={index}
                         widget={previewWidget(w)}
                         preferences={doc.preferences}
-                        frame={frame}
+                        frame={widgetFrame(w, index)}
                         width={width}
                         height={height}
                         showBounds={showBounds && !simulationOpen}
@@ -1079,29 +1257,68 @@ export function App() {
               <div ref={setPlaybackTarget} className="playback-slot" hidden={!simulationOpen} />
             </section>
             <aside className="telemetry-panel" hidden={!simulationOpen}>
-              <h2>Показания</h2>
+              <h2>{tr('Показания')}</h2>
               <dl>
-                <dt>Скорость</dt>
-                <dd>{frame.speed?.toFixed(1) ?? '—'} км/ч</dd>
-                <dt>Вариометр</dt>
-                <dd>{frame.vertical?.toFixed(1) ?? '—'} м/с</dd>
-                <dt>Высота</dt>
-                <dd>{frame.altitude?.toFixed(0) ?? '—'} м</dd>
+                <dt>{tr('Скорость')}</dt>
+                <dd>
+                  {frame.speed?.toFixed(1) ?? '—'} {tr('км/ч')}
+                </dd>
+                <dt>{tr('Вариометр')}</dt>
+                <dd>
+                  {frame.vertical?.toFixed(1) ?? '—'} {tr('м/с')}
+                </dd>
+                <dt>{tr('Высота')}</dt>
+                <dd>
+                  {frame.altitude?.toFixed(0) ?? '—'} {tr('м')}
+                </dd>
               </dl>
-              <h3>Параметры виджетов</h3>
-              <p className="hint">Используются настройки текущей страницы.</p>
-              <button onClick={returnToEditor}>Вернуться к редактированию</button>
+              {widget && (
+                <section className="simulation-widget-control">
+                  <span className="eyebrow">{tr('Выбранный виджет')}</span>
+                  <h2 className="selected-widget-name">{widgetTitle(widget.CLASS)}</h2>
+                  <p className="selected-widget-description">{widgetDescription(widget.CLASS)}</p>
+                  {manualSupported ? (
+                    <details className="manual-simulation" open>
+                      <summary>{tr('Показание выбранного виджета')}</summary>
+                      <WidgetSimulation
+                        key={ids[selected]}
+                        value={manualValue}
+                        resetValue={currentReading(shortName(widget.CLASS))}
+                        allowsText={
+                          contentSpecs[shortName(widget.CLASS)]?.textWidget === true ||
+                          ['WLiveMessage', 'WLogPeek'].includes(shortName(widget.CLASS))
+                        }
+                        apply={(value) =>
+                          setExtraValues((old) => ({ ...old, [ids[selected]!]: value }))
+                        }
+                        reset={() =>
+                          setExtraValues((old) => {
+                            const next = { ...old }
+                            delete next[ids[selected]!]
+                            return next
+                          })
+                        }
+                      />
+                    </details>
+                  ) : (
+                    <p className="hint">
+                      {tr(
+                        'Этот виджет использует связанные данные полёта. Его отдельное показание нельзя задать вручную.',
+                      )}
+                    </p>
+                  )}
+                </section>
+              )}
+              <button onClick={returnToEditor}>{tr('Вернуться к редактированию')}</button>
             </aside>
             <aside
               className="inspector-panel"
               hidden={simulationOpen}
               data-testid="widget-inspector"
             >
-              <span className="eyebrow">Выбранный виджет</span>
+              <span className="eyebrow">{tr('Выбранный виджет')}</span>
               <h2 className="selected-widget-name">
-                {widget
-                  ? (libraryWidget(widget.CLASS)?.title ?? shortName(widget.CLASS))
-                  : 'Выберите виджет на экране'}
+                {widget ? widgetTitle(widget.CLASS) : tr('Выберите виджет на экране')}
               </h2>
               {widget && (
                 <p className="selected-widget-description" aria-live="polite">
@@ -1113,29 +1330,29 @@ export function App() {
                   aria-pressed={inspectorTab === 'appearance'}
                   onClick={() => setInspectorTab('appearance')}
                 >
-                  Оформление
+                  {tr('Оформление')}
                 </button>
                 <button
                   aria-pressed={inspectorTab === 'advanced'}
                   onClick={() => setInspectorTab('advanced')}
                 >
-                  Дополнительно
+                  {tr('Дополнительно')}
                 </button>
               </div>
               <div hidden={inspectorTab !== 'advanced'} className="inspector-advanced">
                 <details className="template-panel">
-                  <summary>Копировать из конфигурации</summary>
+                  <summary>{tr('Копировать из конфигурации')}</summary>
                   <label className="sim-control">
-                    Шаблон из конфигурации
+                    {tr('Шаблон из конфигурации')}
                     <select
-                      aria-label="Шаблон из конфигурации"
+                      aria-label={tr('Шаблон из конфигурации')}
                       value={template}
                       onChange={(event) => setTemplate(event.target.value)}
                     >
-                      <option value="">Выберите виджет</option>
+                      <option value="">{tr('Выберите виджет')}</option>
                       {templates.map((entry) => (
                         <option key={entry.id} value={entry.id}>
-                          {entry.orientation === 'portrait' ? 'П' : 'А'}
+                          {entry.orientation === 'portrait' ? tr('П') : tr('А')}
                           {entry.page + 1} · {entry.widget + 1}. {entry.name}
                         </option>
                       ))}
@@ -1162,7 +1379,7 @@ export function App() {
                       )
                     }}
                   >
-                    Добавить из шаблона
+                    {tr('Добавить из шаблона')}
                   </button>
                 </details>
               </div>
@@ -1173,7 +1390,7 @@ export function App() {
                     command(() => reorderWidget(doc, orientation, pageIndex, selected, -1))
                   }
                 >
-                  Слой назад
+                  {tr('Слой назад')}
                 </button>
                 <button
                   disabled={!doc.editable || !widget || selected >= (page?.widgets.length ?? 0) - 1}
@@ -1181,11 +1398,11 @@ export function App() {
                     command(() => reorderWidget(doc, orientation, pageIndex, selected, 1))
                   }
                 >
-                  Слой вперёд
+                  {tr('Слой вперёд')}
                 </button>
                 <button disabled={!doc.editable || !widget} onClick={() => editList('duplicate')}>
                   <Copy size={14} />
-                  Дублировать виджет
+                  {tr('Дублировать виджет')}
                 </button>
                 <button
                   disabled={
@@ -1199,7 +1416,7 @@ export function App() {
                   onClick={() => editList('delete')}
                 >
                   <Trash2 size={14} />
-                  Удалить виджет
+                  {tr('Удалить виджет')}
                 </button>
               </div>
               {widget && (
@@ -1233,10 +1450,10 @@ export function App() {
           </div>
           <footer className="app-status">
             <span role="status">
-              {error ||
+              {tr(error) ||
                 (simulationOpen
-                  ? 'Показания из симуляции · настройки XCFG сохраняются'
-                  : 'Перетащите виджет на экран или выберите его для настройки')}
+                  ? tr('Показания из симуляции · настройки XCFG сохраняются')
+                  : tr('Перетащите виджет на экран или выберите его для настройки'))}
             </span>
             <span>XCTrack 0.9.12.6</span>
           </footer>

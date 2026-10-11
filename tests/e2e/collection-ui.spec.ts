@@ -141,6 +141,31 @@ test('screen zoom changes visual size without changing XCFG and restores fit', a
   expect(await exported(page)).toEqual(Buffer.from(source))
 })
 
+test('landscape fit respects preview padding after zoom and window resize', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await page.goto('/')
+  const config = JSON.parse(source)
+  config.layout.landscape = config.layout.portrait
+  await page.getByLabel('Открыть XCFG', { exact: true }).setInputFiles({
+    name: 'landscape-fit.xcfg',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(config)),
+  })
+  await page.locator('.preview').getByLabel('Ориентация', { exact: true }).selectOption('landscape')
+  const viewport = page.locator('.screen-viewport')
+  const canvas = page.getByRole('img', { name: 'Предпросмотр страницы XCTrack' })
+  for (const width of [1440, 1000, 800]) {
+    await page.setViewportSize({ width, height: 1000 })
+    await page.getByLabel('Масштаб экрана', { exact: true }).fill('200')
+    await page.getByRole('button', { name: 'По размеру окна', exact: true }).click()
+    await expect.poll(() => viewport.evaluate((el) => el.scrollWidth <= el.clientWidth)).toBe(true)
+    const area = await viewport.boundingBox()
+    const screen = await canvas.boundingBox()
+    expect(screen!.x).toBeGreaterThanOrEqual(area!.x + 17)
+    expect(screen!.x + screen!.width).toBeLessThanOrEqual(area!.x + area!.width - 17)
+  }
+})
+
 test('readable settings retain native keys, nested fields and colour alpha', async ({ page }) => {
   const fixture = JSON.parse(source)
   fixture.layout.portrait[0].widgets = [

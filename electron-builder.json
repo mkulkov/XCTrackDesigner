@@ -8,7 +8,7 @@
   "npmRebuild": false,
   "win": {
     "target": [{ "target": "portable", "arch": ["x64"] }],
-    "signAndEditExecutable": false,
+    "signExecutable": false,
     "artifactName": "XCTrack-Screen-Designer-${version}-win-x64.exe"
   },
   "portable": { "requestExecutionLevel": "user" },

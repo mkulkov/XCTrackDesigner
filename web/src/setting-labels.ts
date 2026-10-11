@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 export const settingLabels: Record<string, string> = {
   _border: 'Рамка виджета',
   _bg: 'Прозрачность фона, %',
@@ -138,7 +139,7 @@ export const settingLabels: Record<string, string> = {
   theme: 'Тема оформления',
 }
 
-export const settingLabel = (key: string) => settingLabels[key] ?? key
+export const settingLabel = (key: string) => tr(settingLabels[key] ?? key)
 
 export const settingHints: Record<string, string> = {
   nav_showWind: 'Стрелка показывает, куда дует ветер. Показания берутся из симуляции.',

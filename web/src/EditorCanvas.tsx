@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useRef, useState } from 'react'
 import type { PointerEvent, ReactNode } from 'react'
 import { gestureBounds } from './editor-geometry'
@@ -82,7 +83,7 @@ export function EditorCanvas({
   return (
     <svg
       role="img"
-      aria-label="Предпросмотр страницы XCTrack"
+      aria-label={tr('Предпросмотр страницы XCTrack')}
       tabIndex={0}
       viewBox={`0 0 ${width} ${height}`}
       className={`screen ${width < height ? 'portrait' : 'landscape'} editor-canvas`}
@@ -182,7 +183,7 @@ export function EditorCanvas({
       }}
     >
       {children}
-      {showBounds && box && editable && (
+      {showBounds && box && (
         <g>
           <rect
             {...box}
@@ -191,21 +192,24 @@ export function EditorCanvas({
             strokeWidth={5}
             pointerEvents="none"
           />
-          {(['nw', 'ne', 'sw', 'se'] as const).map((handle) => (
-            <rect
-              key={handle}
-              data-handle={handle}
-              aria-label={`Изменить размер ${handle}`}
-              x={(handle.endsWith('w') ? box.x : box.x + box.width) - size / 2}
-              y={(handle.startsWith('n') ? box.y : box.y + box.height) - size / 2}
-              width={size}
-              height={size}
-              fill="#6dffc0"
-              stroke="#123"
-              strokeWidth={3}
-              style={{ cursor: handle === 'nw' || handle === 'se' ? 'nwse-resize' : 'nesw-resize' }}
-            />
-          ))}
+          {editable &&
+            (['nw', 'ne', 'sw', 'se'] as const).map((handle) => (
+              <rect
+                key={handle}
+                data-handle={handle}
+                aria-label={tr('Изменить размер {handle}', { handle })}
+                x={(handle.endsWith('w') ? box.x : box.x + box.width) - size / 2}
+                y={(handle.startsWith('n') ? box.y : box.y + box.height) - size / 2}
+                width={size}
+                height={size}
+                fill="#6dffc0"
+                stroke="#123"
+                strokeWidth={3}
+                style={{
+                  cursor: handle === 'nw' || handle === 'se' ? 'nwse-resize' : 'nesw-resize',
+                }}
+              />
+            ))}
         </g>
       )}
     </svg>

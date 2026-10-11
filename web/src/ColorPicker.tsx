@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 type Props = { label: string; value: number; onChange: (value: number) => void }
 
 /** Android ARGB: editing RGB retains the exact alpha byte and vice versa. */
@@ -9,17 +10,17 @@ export function ColorPicker({ label, value, onChange }: Props) {
     <div className="color-picker">
       <input
         type="color"
-        aria-label={label}
+        aria-label={tr(label)}
         value={rgb}
         onChange={(event) =>
           onChange((argb & 0xff000000) | parseInt(event.target.value.slice(1), 16))
         }
       />
       <label>
-        Прозрачность · {Math.round(((255 - alpha) * 100) / 255)} %
+        {tr('Прозрачность ·')} {Math.round(((255 - alpha) * 100) / 255)} %
         <input
           type="range"
-          aria-label={`Прозрачность: ${label}`}
+          aria-label={tr('Прозрачность: {label}', { label })}
           min={0}
           max={255}
           step={1}

@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useEffect, useState } from 'react'
 import { SunMoon } from 'lucide-react'
 
@@ -22,15 +23,15 @@ export function EditorThemeToggle() {
   }, [theme])
   return (
     <label className="editor-theme-toggle">
-      Тема редактора
+      {tr('Тема редактора')}
       <SunMoon size={17} aria-hidden="true" />
       <select
-        aria-label="Тема редактора"
+        aria-label={tr('Тема редактора')}
         value={theme}
         onChange={(event) => setTheme(event.target.value as Theme)}
       >
-        <option value="dark">Тёмная</option>
-        <option value="light">Светлая</option>
+        <option value="dark">{tr('Тёмная')}</option>
+        <option value="light">{tr('Светлая')}</option>
       </select>
     </label>
   )

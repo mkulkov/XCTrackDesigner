@@ -8,6 +8,7 @@ export default defineConfig({
   retries: 0,
   reporter: [['list'], ['html', { outputFolder: '.local/playwright-report', open: 'never' }]],
   use: {
+    locale: 'ru-RU',
     baseURL: 'http://127.0.0.1:4174',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',

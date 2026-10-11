@@ -1,4 +1,10 @@
 import { libraryWidget } from './widget-library'
+import { editorLanguage, tr } from './i18n'
+
+export function widgetTitle(name: string): string {
+  const current = libraryWidget(name)
+  return current ? (editorLanguage() === 'en' ? current.titleEn : current.title) : name
+}
 
 const descriptions: Record<string, string> = {
   WSpeed: 'Скорость движения относительно земли по GPS.',
@@ -22,14 +28,23 @@ const descriptions: Record<string, string> = {
 }
 export function widgetDescription(name: string): string {
   const current = libraryWidget(name)
+  const description = current ? descriptions[current.name] : undefined
   return current
-    ? (descriptions[current.name] ??
-        (current.family === 'button'
-          ? `Кнопка «${current.title}». В XCTrack выполняет соответствующее действие; в редакторе служит для компоновки экрана.`
-          : current.debugOnly
-            ? `Диагностический виджет «${current.title}» для проверки состояния приложения.`
-            : current.family === 'webview'
-              ? 'Область веб-содержимого. В редакторе отображается без загрузки и исполнения страницы.'
-              : `Отображает ${current.title.toLowerCase()}.`))
-    : 'Описание этого виджета отсутствует в библиотеке XCTrack.'
+    ? description
+      ? tr(description)
+      : current.family === 'button'
+        ? tr(
+            'Кнопка «{title}». В XCTrack выполняет соответствующее действие; в редакторе служит для компоновки экрана.',
+            { title: widgetTitle(name) },
+          )
+        : current.debugOnly
+          ? tr('Диагностический виджет «{title}» для проверки состояния приложения.', {
+              title: widgetTitle(name),
+            })
+          : current.family === 'webview'
+            ? tr(
+                'Область веб-содержимого. В редакторе отображается без загрузки и исполнения страницы.',
+              )
+            : tr('Отображает {title}.', { title: widgetTitle(name).toLowerCase() })
+    : tr('Описание этого виджета отсутствует в библиотеке XCTrack.')
 }

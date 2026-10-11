@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useEffect, useState } from 'react'
 import type { Json, Widget } from './xcfg'
 import { libraryWidget } from './widget-library'
@@ -53,20 +54,20 @@ export function WidgetSettings({
       }}
     >
       <fieldset disabled={disabled}>
-        <legend>Оформление виджета</legend>
+        <legend>{tr('Оформление виджета')}</legend>
         <div className="widget-appearance">
-          <h3>Внешний вид</h3>
+          <h3>{tr('Внешний вид')}</h3>
           <label>
-            Тема
+            {tr('Тема')}
             <select
-              aria-label="Тема"
+              aria-label={tr('Тема')}
               value={String(value('_theme') ?? '')}
               onChange={(event) => set('_theme', event.target.value || null)}
             >
-              <option value="">Из настроек XCTrack</option>
+              <option value="">{tr('Из настроек XCTrack')}</option>
               {['WhiteTheme', 'WhiteHCTheme', 'BlackTheme', 'BlackHCTheme'].map((theme) => (
                 <option key={theme} value={theme}>
-                  {optionLabels[theme] ?? theme}
+                  {tr(optionLabels[theme] ?? theme)}
                 </option>
               ))}
               {typeof value('_theme') === 'string' &&
@@ -74,17 +75,17 @@ export function WidgetSettings({
                   String(value('_theme')),
                 ) && (
                   <option value={String(value('_theme'))}>
-                    {String(value('_theme'))} (исходная)
+                    {tr('{value} (исходная)', { value: String(value('_theme')) })}
                   </option>
                 )}
             </select>
           </label>
           <label>
             <span>
-              Прозрачность фона <output>{Number(value('_bg') ?? 0)} %</output>
+              {tr('Прозрачность фона')} <output>{Number(value('_bg') ?? 0)} %</output>
             </span>
             <input
-              aria-label="Прозрачность фона, %"
+              aria-label={tr('Прозрачность фона, %')}
               type="range"
               min={0}
               max={100}
@@ -99,12 +100,12 @@ export function WidgetSettings({
               checked={value('_border') === true}
               onChange={(event) => set('_border', event.target.checked)}
             />{' '}
-            Рамка виджета
+            {tr('Рамка виджета')}
           </label>
         </div>
         {known && (
           <div className="widget-labels">
-            <h3>Подписи</h3>
+            <h3>{tr('Подписи')}</h3>
             {(
               [
                 ['_title', 'Показывать заголовок'],
@@ -122,11 +123,11 @@ export function WidgetSettings({
                     }
                     onChange={(event) => set(key, event.target.checked)}
                   />{' '}
-                  {label}
+                  {tr(label)}
                 </label>
               ))}
             <label>
-              Свой заголовок
+              {tr('Свой заголовок')}
               <input
                 maxLength={256}
                 value={String(value('titletext') ?? '')}
@@ -135,18 +136,18 @@ export function WidgetSettings({
             </label>
             {String(value('titletext') ?? '').length > 0 && (
               <p className="hint">
-                Свой заголовок может требовать XCTrack PRO; здесь он сохраняется в файле.
+                {tr('Свой заголовок может требовать XCTrack PRO; здесь он сохраняется в файле.')}
               </p>
             )}
           </div>
         )}
         {specific.length > 0 && (
           <details>
-            <summary>Параметры виджета · {specific.length}</summary>
+            <summary>{tr('Параметры виджета · {count}', { count: specific.length })}</summary>
             {specific.map((setting) => (
               <div className="native-setting" key={setting.key}>
                 <span>{settingLabel(setting.key)}</span>
-                {settingHints[setting.key] && <small>{settingHints[setting.key]}</small>}
+                {settingHints[setting.key] && <small>{tr(settingHints[setting.key]!)}</small>}
                 {setting.key === 'rotation' &&
                 typeof setting.default === 'object' &&
                 setting.default !== null ? (
@@ -165,14 +166,16 @@ export function WidgetSettings({
                     >
                       {mapRotations.map((choice) => (
                         <option key={choice} value={choice}>
-                          {optionLabels[choice]}
+                          {tr(optionLabels[choice] ?? choice)}
                         </option>
                       ))}
                       {!mapRotations.includes(
                         String(objectValue(setting.key, setting.default).value),
                       ) && (
                         <option value={String(objectValue(setting.key, setting.default).value)}>
-                          {String(objectValue(setting.key, setting.default).value)} (из файла)
+                          {tr('{value} (из файла)', {
+                            value: String(objectValue(setting.key, setting.default).value),
+                          })}
                         </option>
                       )}
                     </select>
@@ -187,7 +190,7 @@ export function WidgetSettings({
                           })
                         }
                       />{' '}
-                      Показывать указатель севера
+                      {tr('Показывать указатель севера')}
                     </label>
                   </>
                 ) : setting.type === 'scale' ? (
@@ -203,10 +206,10 @@ export function WidgetSettings({
                           })
                         }
                       />{' '}
-                      Автоматический масштаб: {settingLabel(setting.key)}
+                      {tr('Автоматический масштаб:')} {settingLabel(setting.key)}
                     </label>
                     <label>
-                      Уровень: {settingLabel(setting.key)}
+                      {tr('Уровень:')} {settingLabel(setting.key)}
                       <input
                         type="number"
                         step="1"
@@ -233,7 +236,7 @@ export function WidgetSettings({
                           })
                         }
                       />{' '}
-                      Сбрасывать масштаб после сдвига карты
+                      {tr('Сбрасывать масштаб после сдвига карты')}
                     </label>
                   </>
                 ) : setting.type === 'boolean' ? (
@@ -257,12 +260,12 @@ export function WidgetSettings({
                     onChange={(event) => set(setting.key, event.target.value || null)}
                   >
                     <option value="">
-                      По умолчанию:{' '}
-                      {optionLabels[String(setting.default)] ?? String(setting.default)}
+                      {tr('По умолчанию:')}{' '}
+                      {tr(optionLabels[String(setting.default)] ?? String(setting.default))}
                     </option>
                     {settingChoices(setting.key, setting.default, widget.CLASS)!.map((choice) => (
                       <option key={choice} value={choice}>
-                        {optionLabels[choice] ?? choice}
+                        {tr(optionLabels[choice] ?? choice)}
                       </option>
                     ))}
                     {typeof value(setting.key) === 'string' &&
@@ -270,7 +273,7 @@ export function WidgetSettings({
                         String(value(setting.key)),
                       ) && (
                         <option value={String(value(setting.key))}>
-                          {String(value(setting.key))} (из файла)
+                          {tr('{value} (из файла)', { value: String(value(setting.key)) })}
                         </option>
                       )}
                   </select>
@@ -291,7 +294,9 @@ export function WidgetSettings({
                         : ''
                     }
                     placeholder={
-                      setting.default === undefined ? 'Штатное значение' : String(setting.default)
+                      setting.default === undefined
+                        ? tr('Штатное значение')
+                        : String(setting.default)
                     }
                     onChange={(event) =>
                       set(
@@ -306,21 +311,25 @@ export function WidgetSettings({
                     }
                   />
                 ) : (
-                  <small>Дополнительная настройка — откройте технические параметры (JSON)</small>
+                  <small>
+                    {tr('Дополнительная настройка — откройте технические параметры (JSON)')}
+                  </small>
                 )}
                 <button
                   type="button"
                   title={setting.key}
-                  aria-label={`Вернуть по умолчанию: ${settingLabel(setting.key)}`}
+                  aria-label={tr('Вернуть по умолчанию: {label}', {
+                    label: settingLabel(setting.key),
+                  })}
                   onClick={() => set(setting.key, null)}
                 >
-                  По умолчанию
+                  {tr('По умолчанию')}
                 </button>
               </div>
             ))}
           </details>
         )}
-        <button disabled={!Object.keys(draft).length}>Применить оформление</button>
+        <button disabled={!Object.keys(draft).length}>{tr('Применить оформление')}</button>
       </fieldset>
     </form>
   )

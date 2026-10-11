@@ -1,8 +1,19 @@
+import { tr } from './i18n'
 import { useMemo, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { createPortal } from 'react-dom'
+import { FileUp, FileCheck2 } from 'lucide-react'
 import { parseIGC } from './flight-engine'
 import type { IGCReplay } from './flight-engine'
+
+const replayWarning = (warning: string) => {
+  const invalid = /^Пропущено недействительных GPS-записей: (\d+)$/.exec(warning)
+  if (invalid) return tr('Пропущено недействительных GPS-записей: {n}', { n: invalid[1]! })
+  const repeated = /^Пропущено повторов или нарушений порядка времени: (\d+)$/.exec(warning)
+  if (repeated)
+    return tr('Пропущено повторов или нарушений порядка времени: {n}', { n: repeated[1]! })
+  return tr(warning)
+}
 
 const timeText = (seconds: number) => {
   const t = Math.floor(Math.max(0, seconds))
@@ -68,14 +79,21 @@ export function TrackReplay({
     return { min, max, path }
   }, [replay])
   return (
-    <section className="settings track-replay" aria-label="Полёт по треку">
-      <h2>Полёт по треку</h2>
+    <section className="settings track-replay" aria-label={tr('Полёт по треку')}>
+      <h2>{tr('Полёт по треку')}</h2>
       <label className="replay-file">
-        Загрузить трек полёта (IGC)
+        <span className="replay-upload-icon">
+          <FileUp size={22} />
+        </span>
+        <span className="replay-upload-title">
+          {loading ? tr('Загрузка…') : replay ? tr('Заменить трек IGC') : tr('Загрузить трек IGC')}
+        </span>
+        <span className="replay-upload-caption">{tr('Выберите файл записи полёта')}</span>
         <input
-          aria-label="Загрузить запись IGC"
+          aria-label={tr('Загрузить запись IGC')}
           type="file"
           accept=".igc"
+          disabled={loading}
           onChange={async (event) => {
             const file = event.currentTarget.files?.[0]
             event.currentTarget.value = ''
@@ -83,7 +101,8 @@ export function TrackReplay({
             const id = ++request.current
             setLoading(true)
             try {
-              if (file.size > 20 * 1024 * 1024) throw new Error('Трек превышает ограничение 20 МиБ')
+              if (file.size > 20 * 1024 * 1024)
+                throw new Error(tr('Трек превышает ограничение 20 МиБ'))
               const parsed = parseIGC(await file.text())
               if (request.current !== id) return
               onReplay(parsed)
@@ -91,21 +110,38 @@ export function TrackReplay({
               setError('')
             } catch (cause) {
               if (request.current === id)
-                setError(cause instanceof Error ? cause.message : 'Не удалось загрузить трек')
+                setError(
+                  cause instanceof Error ? tr(cause.message) : tr('Не удалось загрузить трек'),
+                )
             } finally {
               if (request.current === id) setLoading(false)
             }
           }}
         />
       </label>
-      {loading && <p role="status">Загрузка трека…</p>}
-      {!replay && <p className="hint">Загрузите IGC для воспроизведения полёта на экране.</p>}
+      {replay && (
+        <div className="replay-loaded">
+          <FileCheck2 size={16} />
+          <div>
+            <strong>{filename}</strong>
+            <span>
+              {timeText(replay.duration)} · {tr('{n} GPS-точек', { n: replay.fixes.length })}
+            </span>
+          </div>
+        </div>
+      )}
+      {loading && <p role="status">{tr('Загрузка трека…')}</p>}
+      {!replay && (
+        <p className="hint">
+          {tr('Воспроизведите запись полёта или выберите учебный сценарий ниже.')}
+        </p>
+      )}
       <ReplayPlacement target={playbackTarget}>
         {replay && profile && (
           <>
             <p className="replay-info">
-              {filename} · {replay.date ?? 'Дата неизвестна'} · {replay.fixes.length} GPS-точек ·{' '}
-              {timeText(replay.duration)}
+              {filename} · {replay.date ?? tr('Дата неизвестна')} ·{' '}
+              {tr('{n} GPS-точек', { n: replay.fixes.length })} · {timeText(replay.duration)}
             </p>
             <div className="widget-actions">
               <button
@@ -114,7 +150,7 @@ export function TrackReplay({
                   onPlaying(!playing)
                 }}
               >
-                {playing ? 'Пауза симуляции' : 'Запустить симуляцию'}
+                {playing ? tr('Пауза симуляции') : tr('Запустить симуляцию')}
               </button>
               <button
                 onClick={() => {
@@ -122,7 +158,7 @@ export function TrackReplay({
                   onSeek(0)
                 }}
               >
-                Сбросить симуляцию
+                {tr('Сбросить симуляцию')}
               </button>
               <button
                 onClick={() => {
@@ -130,7 +166,7 @@ export function TrackReplay({
                   onSeek(replay.duration)
                 }}
               >
-                К концу трека
+                {tr('К концу трека')}
               </button>
               <button
                 onClick={() => {
@@ -141,13 +177,13 @@ export function TrackReplay({
                   setError('')
                 }}
               >
-                Закрыть запись IGC
+                {tr('Закрыть запись IGC')}
               </button>
             </div>
             <label className="replay-rate">
-              Темп{' '}
+              {tr('Темп')}{' '}
               <select
-                aria-label="Темп симуляции"
+                aria-label={tr('Темп симуляции')}
                 value={rate}
                 onChange={(e) => onRate(Number(e.target.value))}
               >
@@ -159,9 +195,9 @@ export function TrackReplay({
               </select>
             </label>
             <label className="replay-timeline">
-              Позиция записи{' '}
+              {tr('Позиция записи')}{' '}
               <input
-                aria-label="Позиция записи IGC"
+                aria-label={tr('Позиция записи IGC')}
                 type="range"
                 min={0}
                 max={replay.duration}
@@ -171,23 +207,23 @@ export function TrackReplay({
               />
             </label>
             <p className="replay-status">
-              <output aria-label="Время трека">
+              <output aria-label={tr('Время трека')}>
                 {timeText(seconds)} / {timeText(replay.duration)}
               </output>{' '}
               ·{' '}
-              <output aria-label="Состояние воспроизведения">
+              <output aria-label={tr('Состояние воспроизведения')}>
                 {seconds >= replay.duration
-                  ? 'Трек завершён'
+                  ? tr('Трек завершён')
                   : playing
-                    ? 'Воспроизведение'
-                    : 'Пауза'}
+                    ? tr('Воспроизведение')
+                    : tr('Пауза')}
               </output>
             </p>
             <svg
               viewBox="0 0 900 140"
               style={{ width: '100%', maxHeight: 80, background: '#18222b', cursor: 'crosshair' }}
               role="img"
-              aria-label="Профиль высоты трека"
+              aria-label={tr('Профиль высоты трека')}
               onClick={(e) => {
                 const matrix = e.currentTarget.getScreenCTM()
                 if (!matrix) return
@@ -205,21 +241,22 @@ export function TrackReplay({
                 strokeWidth={2}
               />
               <text x={8} y={15} fill="white" fontSize={12}>
-                {Math.round(profile.max)} м
+                {tr('{n} м', { n: Math.round(profile.max) })}
               </text>
               <text x={8} y={135} fill="white" fontSize={12}>
-                {Math.round(profile.min)} м
+                {tr('{n} м', { n: Math.round(profile.min) })}
               </text>
             </svg>
             <details className="replay-details">
-              <summary>О записи</summary>
+              <summary>{tr('О записи')}</summary>
               <p className="hint">
-                Профиль GPS-высоты: нажмите для перемотки. Время записи — UTC. Ветер, воздушная
-                скорость и рельеф в IGC отсутствуют. Симуляция не меняет XCFG.
+                {tr(
+                  'Профиль GPS-высоты: нажмите для перемотки. Время записи — UTC. Ветер, воздушная скорость и рельеф в IGC отсутствуют. Симуляция не меняет XCFG.',
+                )}
               </p>
               {replay.warnings.map((warning) => (
                 <p className="hint" key={warning}>
-                  {warning}
+                  {replayWarning(warning)}
                 </p>
               ))}
             </details>

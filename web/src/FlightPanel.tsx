@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useState } from 'react'
 import type { FlightSettings, IGCReplay, Turnpoint } from './flight-engine'
 
@@ -32,11 +33,13 @@ const fields: {
 ]
 
 function readTask(text: string): Turnpoint[] {
-  if (text.length > 64000) throw new Error('Маршрут слишком большой')
+  if (text.length > 64000) throw new Error(tr('Маршрут слишком большой'))
   const value: unknown = JSON.parse(text)
-  if (!Array.isArray(value) || value.length > 100) throw new Error('Ожидается массив до 100 точек')
+  if (!Array.isArray(value) || value.length > 100)
+    throw new Error(tr('Ожидается массив до 100 точек'))
   return value.map((entry: unknown, index: number) => {
-    if (!entry || typeof entry !== 'object') throw new Error(`Точка ${index + 1}: ожидается объект`)
+    if (!entry || typeof entry !== 'object')
+      throw new Error(tr('Точка {n}: ожидается объект', { n: index + 1 }))
     const p = entry as Record<string, unknown>
     if (
       typeof p.name !== 'string' ||
@@ -57,7 +60,9 @@ function readTask(text: string): Turnpoint[] {
           p.altitude < -500 ||
           p.altitude > 9000))
     )
-      throw new Error(`Точка ${index + 1}: неверные имя, координаты, высота или радиус`)
+      throw new Error(
+        tr('Точка {n}: неверные имя, координаты, высота или радиус', { n: index + 1 }),
+      )
     return {
       name: p.name,
       lat: p.lat,
@@ -74,17 +79,18 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
   const [terrain, setTerrain] = useState<string | null>(null)
   return (
     <details className="settings flight-panel">
-      <summary>Полёт и маршрут</summary>
+      <summary>{tr('Полёт и маршрут')}</summary>
       <p className="hint">
-        Учебная модель: прямой планирующий полёт или спираль в термике. Расчёты навигации
-        приближённые. Данные не меняют XCFG.
+        {tr(
+          'Учебная модель: прямой планирующий полёт или спираль в термике. Расчёты навигации приближённые. Данные не меняют XCFG.',
+        )}
       </p>
       {!replay &&
         fields.map(({ key, label, min, max, step }) => (
           <label key={key}>
-            {label}
+            {tr(label)}
             <input
-              aria-label={label}
+              aria-label={tr(label)}
               type="number"
               min={min}
               max={max}
@@ -100,25 +106,25 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
         ))}
       {!replay && (
         <details>
-          <summary>GPS и внешние данные</summary>
+          <summary>{tr('GPS и внешние данные')}</summary>
           <label>
             <input
-              aria-label="GPS доступен"
+              aria-label={tr('GPS доступен')}
               type="checkbox"
               checked={settings.gpsAvailable !== false}
               onChange={(e) => onChange({ ...settings, gpsAvailable: e.target.checked })}
             />{' '}
-            GPS доступен
+            {tr('GPS доступен')}
           </label>
           <label>
-            Заряд, %
+            {tr('Заряд, %')}
             <input
-              aria-label="Заряд батареи модели"
+              aria-label={tr('Заряд батареи модели')}
               type="number"
               min={0}
               max={100}
               value={settings.batteryPercent ?? ''}
-              placeholder="Неизвестно"
+              placeholder={tr('Неизвестно')}
               onChange={(e) => {
                 const v = e.target.valueAsNumber
                 if (e.target.value === '' || (Number.isFinite(v) && v >= 0 && v <= 100))
@@ -128,9 +134,11 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
           </label>
           {(['sensors', 'live'] as const).map((key) => (
             <label key={key}>
-              {key === 'sensors' ? 'Внешние датчики' : 'Live tracking'}
+              {key === 'sensors' ? tr('Внешние датчики') : 'Live tracking'}
               <select
-                aria-label={key === 'sensors' ? 'Внешние датчики модели' : 'Live tracking модели'}
+                aria-label={
+                  key === 'sensors' ? tr('Внешние датчики модели') : tr('Live tracking модели')
+                }
                 value={settings[key] === true ? 'yes' : settings[key] === false ? 'no' : 'unknown'}
                 onChange={(e) =>
                   onChange({
@@ -139,23 +147,23 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
                   })
                 }
               >
-                <option value="unknown">Неизвестно</option>
-                <option value="yes">Доступно</option>
-                <option value="no">Недоступно</option>
+                <option value="unknown">{tr('Неизвестно')}</option>
+                <option value="yes">{tr('Доступно')}</option>
+                <option value="no">{tr('Недоступно')}</option>
               </select>
             </label>
           ))}
         </details>
       )}
       <details>
-        <summary>Явный профиль рельефа</summary>
+        <summary>{tr('Явный профиль рельефа')}</summary>
         <p className="hint">
-          Без данных рельеф отсутствует. JSON: массив distance (м впереди) и altitude (м AMSL).
-          Максимум 200 точек; это заданный профиль для проверки бокового вида, а не географическая
-          DEM.
+          {tr(
+            'Без данных рельеф отсутствует. JSON: массив distance (м впереди) и altitude (м AMSL). Максимум 200 точек; это заданный профиль для проверки бокового вида, а не географическая DEM.',
+          )}
         </p>
         <textarea
-          aria-label="Профиль рельефа JSON"
+          aria-label={tr('Профиль рельефа JSON')}
           rows={5}
           style={{ width: '100%', boxSizing: 'border-box' }}
           value={terrain ?? JSON.stringify(settings.terrainProfile ?? [], null, 2)}
@@ -165,13 +173,13 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
           onClick={() => {
             try {
               const text = terrain ?? JSON.stringify(settings.terrainProfile ?? [])
-              if (text.length > 32000) throw new Error('Профиль слишком большой')
+              if (text.length > 32000) throw new Error(tr('Профиль слишком большой'))
               const parsed: unknown = JSON.parse(text)
               if (!Array.isArray(parsed) || parsed.length > 200)
-                throw new Error('Ожидается массив до 200 точек')
+                throw new Error(tr('Ожидается массив до 200 точек'))
               let previous = -1
               const profile = parsed.map((p: unknown) => {
-                if (!p || typeof p !== 'object') throw new Error('Неверная точка профиля')
+                if (!p || typeof p !== 'object') throw new Error(tr('Неверная точка профиля'))
                 const value = p as Record<string, unknown>
                 if (
                   typeof value.distance !== 'number' ||
@@ -184,7 +192,7 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
                   value.altitude < -500 ||
                   value.altitude > 9000
                 )
-                  throw new Error('Расстояния должны возрастать; высоты от −500 до 9000 м')
+                  throw new Error(tr('Расстояния должны возрастать; высоты от −500 до 9000 м'))
                 previous = value.distance
                 return { distance: value.distance, altitude: value.altitude }
               })
@@ -192,21 +200,22 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
               setTerrain(null)
               setError('')
             } catch (cause) {
-              setError(cause instanceof Error ? cause.message : 'Неверный профиль')
+              setError(cause instanceof Error ? tr(cause.message) : tr('Неверный профиль'))
             }
           }}
         >
-          Применить профиль рельефа
+          {tr('Применить профиль рельефа')}
         </button>
       </details>
       <details>
-        <summary>Маршрут · {settings.task.length} точек</summary>
+        <summary>{tr('Маршрут · {n} точек', { n: settings.task.length })}</summary>
         <p className="hint">
-          JSON: name, lat, lon, altitude (м или null), radius (м). Высоты задаются явно; рельеф не
-          предполагается. ETA предполагает прямой полёт с текущей скоростью.
+          {tr(
+            'JSON: name, lat, lon, altitude (м или null), radius (м). Высоты задаются явно; рельеф не предполагается. ETA предполагает прямой полёт с текущей скоростью.',
+          )}
         </p>
         <textarea
-          aria-label="Маршрут JSON"
+          aria-label={tr('Маршрут JSON')}
           rows={7}
           style={{ width: '100%', boxSizing: 'border-box' }}
           value={route ?? JSON.stringify(settings.task, null, 2)}
@@ -219,11 +228,11 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
               setRoute(null)
               setError('')
             } catch (cause) {
-              setError(cause instanceof Error ? cause.message : 'Неверный маршрут')
+              setError(cause instanceof Error ? tr(cause.message) : tr('Неверный маршрут'))
             }
           }}
         >
-          Применить маршрут
+          {tr('Применить маршрут')}
         </button>
         <button
           onClick={() => {
@@ -243,7 +252,7 @@ export function FlightPanel({ settings, onChange, replay }: Props) {
             setError('')
           }}
         >
-          Пример маршрута
+          {tr('Пример маршрута')}
         </button>
       </details>
       {error && <p role="alert">{error}</p>}

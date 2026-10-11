@@ -17,6 +17,7 @@ import { NativeMapWind } from './NativeMapWind'
 import type { Widget, Json } from './xcfg'
 import type { Frame } from './value-layout'
 import { mapTrackPaint, widgetMapRotation } from './widget-paint'
+import { bearingBetween } from './flight-engine'
 
 function ThermalTile({
   url,
@@ -303,11 +304,68 @@ export function OnlineMap({
           />
         )}
         {settings.showTask !== false &&
+          (flight?.waypoints ?? []).map((waypoint, index) => {
+            const p = mapPoint(waypoint.lon, waypoint.lat, view, width, height)
+            const size = Math.max(width, height) / 85
+            return (
+              <g key={`collection-${index}`} data-map-navpoint="true">
+                <circle
+                  cx={p.x}
+                  cy={p.y}
+                  r={size / 3}
+                  fill="#2464ab"
+                  stroke="white"
+                  strokeWidth={2}
+                />
+                <text
+                  x={p.x + size / 2}
+                  y={p.y}
+                  fontSize={size}
+                  fill="#164475"
+                  paintOrder="stroke"
+                  stroke="#fff"
+                  strokeWidth={size / 8}
+                >
+                  {waypoint.name}
+                </text>
+                <title>{waypoint.description || waypoint.name}</title>
+              </g>
+            )
+          })}
+        {settings.showTask !== false &&
           waypoints.map((waypoint, index) => {
             const p = mapPoint(waypoint.lon, waypoint.lat, view, width, height)
             const radius = Math.max(width, height) / 70
+            const cylinder =
+              (((waypoint.radius * 256 * 2 ** view.zoom) /
+                (40075016.686 * Math.cos((waypoint.lat * Math.PI) / 180))) *
+                Math.max(width, height)) /
+              512
+            const incoming = index > 0 ? (bearingBetween(waypoints[index - 1]!, waypoint) ?? 0) : 0
+            const dx = Math.cos((incoming * Math.PI) / 180) * cylinder
+            const dy = Math.sin((incoming * Math.PI) / 180) * cylinder
             return (
               <g key={index} data-map-waypoint="true">
+                {waypoint.type !== 'TAKEOFF' &&
+                  (waypoint.goalType === 'LINE' ? (
+                    <path
+                      data-map-goal-line="true"
+                      d={`M${p.x - dx} ${p.y - dy} L${p.x + dx} ${p.y + dy}`}
+                      stroke="#b534a2"
+                      strokeWidth={Math.max(width, height) / 250}
+                    />
+                  ) : (
+                    <circle
+                      data-map-cylinder="true"
+                      cx={p.x}
+                      cy={p.y}
+                      r={cylinder}
+                      fill="#b534a2"
+                      fillOpacity={0.07}
+                      stroke="#b534a2"
+                      strokeWidth={Math.max(width, height) / 350}
+                    />
+                  ))}
                 <circle
                   cx={p.x}
                   cy={p.y}

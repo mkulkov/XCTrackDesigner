@@ -2,7 +2,14 @@ import type { Frame } from './value-layout'
 import type { WidgetValues } from './widget-content'
 
 export type Position = { lat: number; lon: number }
-export type Turnpoint = Position & { name: string; altitude: number | null; radius: number }
+export type Turnpoint = Position & {
+  name: string
+  altitude: number | null
+  radius: number
+  description?: string
+  type?: 'TAKEOFF' | 'SSS' | 'ESS' | 'GOAL'
+  goalType?: 'LINE' | 'CYLINDER'
+}
 export type FlightSettings = {
   latitude: number
   longitude: number
@@ -13,6 +20,8 @@ export type FlightSettings = {
   glideRatio: number
   startTime: number
   task: Turnpoint[]
+  waypoints?: Turnpoint[]
+  taskStartTime?: number
   terrainProfile?: { distance: number; altitude: number }[]
   batteryPercent?: number | null
   sensors?: boolean | null
@@ -48,6 +57,7 @@ export type FlightTask = {
   waypoints: readonly Turnpoint[]
 }
 export type FlightState = {
+  waypoints?: readonly Turnpoint[]
   position: Position | null
   heading: number | null
   wind: { speed: number; from: number } | null
@@ -138,7 +148,25 @@ function clock(seconds: number) {
 function normalizeSettings(settings: FlightSettings): FlightSettings {
   const number = (v: number, fallback: number, min: number, max: number) =>
     Number.isFinite(v) ? Math.max(min, Math.min(max, v)) : fallback
+  const points = (input: readonly Turnpoint[], collection = false) =>
+    input
+      .slice(0, collection ? 10000 : 100)
+      .filter(
+        (p) =>
+          Number.isFinite(p.lat) &&
+          Math.abs(p.lat) <= 90 &&
+          Number.isFinite(p.lon) &&
+          Math.abs(p.lon) <= 180 &&
+          Number.isFinite(p.radius) &&
+          (collection ? p.radius >= 0 : p.radius > 0) &&
+          (p.altitude === null || Number.isFinite(p.altitude)),
+      )
   return {
+    waypoints: settings.waypoints === undefined ? undefined : points(settings.waypoints, true),
+    taskStartTime:
+      settings.taskStartTime !== undefined && Number.isFinite(settings.taskStartTime)
+        ? number(settings.taskStartTime, 0, 0, 86399)
+        : undefined,
     latitude: number(settings.latitude, defaultFlightSettings.latitude, -85, 85),
     longitude: number(settings.longitude, defaultFlightSettings.longitude, -180, 180),
     initialAltitude: number(settings.initialAltitude, 1800, -500, 9000),
@@ -147,18 +175,7 @@ function normalizeSettings(settings: FlightSettings): FlightSettings {
     windFrom: angle(number(settings.windFrom, 270, -3600, 3600)),
     glideRatio: number(settings.glideRatio, 9, 1, 100),
     startTime: number(settings.startTime, 43200, 0, 86399),
-    task: settings.task
-      .slice(0, 100)
-      .filter(
-        (p) =>
-          Number.isFinite(p.lat) &&
-          Math.abs(p.lat) <= 90 &&
-          Number.isFinite(p.lon) &&
-          Math.abs(p.lon) <= 180 &&
-          Number.isFinite(p.radius) &&
-          p.radius > 0 &&
-          (p.altitude === null || Number.isFinite(p.altitude)),
-      ),
+    task: points(settings.task),
     terrainProfile: settings.terrainProfile
       ?.slice(0, 200)
       .filter((p) => Number.isFinite(p.distance) && p.distance >= 0 && Number.isFinite(p.altitude)),
@@ -171,13 +188,14 @@ function normalizeSettings(settings: FlightSettings): FlightSettings {
     gpsAvailable: settings.gpsAvailable !== false,
   }
 }
-function emptyFrame(elapsed: number): FlightFrame {
+function emptyFrame(elapsed: number, settings?: FlightSettings): FlightFrame {
   return {
     speed: null,
     vertical: null,
     altitude: null,
     time: null,
     flight: {
+      waypoints: settings?.waypoints,
       position: null,
       heading: null,
       wind: null,
@@ -246,7 +264,7 @@ function taskAt(
   allowPolar: boolean,
 ): FlightTask | null {
   if (!settings.task.length) return null
-  let nextIndex = 0
+  let nextIndex = settings.task[0]?.type === 'TAKEOFF' ? 1 : 0
   // Progress is recomputed from the bounded track, so seeking has no hidden state.
   for (const p of track) {
     const target = settings.task[nextIndex]
@@ -282,6 +300,8 @@ function connectedValues(
   history: FlightSample[],
   task: FlightTask | null,
   startTime: number,
+  settings: FlightSettings,
+  allowPolar: boolean,
 ): Record<string, number | string | null> {
   const maximum = Math.max(...history.map((h) => h.altitude ?? -Infinity), p.altitude ?? -Infinity)
   const lift = p.altitude !== null && first.altitude !== null ? p.altitude - first.altitude : null
@@ -293,7 +313,38 @@ function connectedValues(
     next?.altitude !== undefined && next.altitude !== null && p.altitude !== null
       ? p.altitude - next.altitude
       : null
+  const essIndex = task?.waypoints.findIndex((point) => point.type === 'ESS') ?? -1
+  const ess = essIndex >= 0 ? task?.waypoints[essIndex] : undefined
+  let essDistance: number | null = null
+  if (task && ess) {
+    essDistance = 0
+    if (task.nextIndex <= essIndex && next) {
+      essDistance = nextDistance!
+      for (let i = task.nextIndex + 1; i <= essIndex; i++)
+        essDistance += distanceBetween(task.waypoints[i - 1]!, task.waypoints[i]!)
+    }
+  }
+  const essHeight =
+    ess?.altitude !== null && ess?.altitude !== undefined && p.altitude !== null
+      ? p.altitude - ess.altitude
+      : null
+  // Imported clock gate and remaining-route estimates are preview values, not native scoring.
+  // All turnpoints (including line goals) currently use the existing entry-cylinder model.
+  const countdown =
+    settings.taskStartTime === undefined ? null : settings.taskStartTime - (startTime + elapsed)
+  const start = task?.waypoints.find((point) => point.type === 'SSS')
+  const startDistance = start ? Math.max(0, distanceBetween(p, start) - start.radius) : null
   return {
+    WNextTurnpoint: next?.name ?? null,
+    WCompTimeToStart: countdown,
+    WCompTimeAtStart:
+      countdown !== null && startDistance !== null && p.speed !== null && p.speed > 0.1
+        ? startDistance / p.speed - countdown
+        : null,
+    WCompSpeedToStart:
+      countdown !== null && countdown > 0 && startDistance !== null
+        ? startDistance / countdown
+        : null,
     WAltitude: p.altitude,
     WAltitudeMaximum: Number.isFinite(maximum) ? maximum : null,
     WTakeoffHeightAbove: lift,
@@ -306,11 +357,15 @@ function connectedValues(
     WLocation: `${p.lat.toFixed(5)} ${p.lon.toFixed(5)}`,
     WTime: clock(startTime + elapsed),
     WCompDistanceToGoal: task?.distance ?? null,
-    WCompDistanceToESS: null,
+    WCompDistanceToESS: essDistance,
     WCompGlideToGoal: task?.requiredGlide ?? null,
-    WCompGlideToESS: null,
+    WCompGlideToESS:
+      essHeight !== null && essHeight > 0 && essDistance !== null ? essDistance / essHeight : null,
     WCompAltitudeOverGoal: task?.arrivalHeight ?? null,
-    WCompAltitudeOverESS: null,
+    WCompAltitudeOverESS:
+      allowPolar && essHeight !== null && essDistance !== null
+        ? essHeight - essDistance / settings.glideRatio
+        : null,
     WNextTurnpointDistance: nextDistance,
     WNextTurnpointAlt: nextHeight,
     WNextTurnpointGlideTo:
@@ -347,8 +402,8 @@ export function buildFlightFrame(
   settings = defaultFlightSettings,
 ): FlightFrame {
   const t = boundedSeconds(seconds)
-  if (scenario === 'no-data') return emptyFrame(t)
   const s = normalizeSettings(settings)
+  if (scenario === 'no-data') return emptyFrame(t, s)
   const sample = simulationSampler(scenario === 'thermal', s)
   const p = sample(t)
   const history = historyAt(t, sample)
@@ -359,7 +414,7 @@ export function buildFlightFrame(
   const heading =
     t > 0 ? bearingBetween(sample(Math.max(0, t - 0.01)), p) : bearingBetween(p, sample(0.01))
   const task = taskAt(p, p.altitude, p.speed, track, s, true)
-  const values = connectedValues(p, sample(0), heading, history, task, s.startTime)
+  const values = connectedValues(p, sample(0), heading, history, task, s.startTime, s, true)
   values.WAltitudeMaximum = Math.max(s.initialAltitude, p.altitude!)
   values.WBaroAltitude = p.altitude
   values.WAirSpeed = s.airSpeed
@@ -374,6 +429,7 @@ export function buildFlightFrame(
     time: t,
     widgetValues: values,
     flight: {
+      waypoints: s.waypoints,
       position: s.gpsAvailable ? p : null,
       heading: s.gpsAvailable ? heading : null,
       wind: { speed: s.windSpeed, from: s.windFrom },
@@ -400,7 +456,8 @@ export function enrichManualFrame(
   const s = normalizeSettings(settings)
   const t = boundedSeconds(seconds)
   const speed = frame.speed === null ? null : frame.speed / 3.6
-  if (speed === null || frame.altitude === null) return { ...frame, flight: emptyFrame(t).flight }
+  if (speed === null || frame.altitude === null)
+    return { ...frame, flight: emptyFrame(t, s).flight }
   const heading = 75
   const sample = (i: number): FlightSample => ({
     ...advance(
@@ -418,7 +475,7 @@ export function enrichManualFrame(
   const history = historyAt(t, sample)
   const track = history.map(({ lat, lon }) => ({ lat, lon }))
   const task = taskAt(p, frame.altitude, speed, track, s, true)
-  const values = connectedValues(p, sample(0), heading, history, task, s.startTime)
+  const values = connectedValues(p, sample(0), heading, history, task, s.startTime, s, true)
   values.WAirSpeed = s.airSpeed
   values.WWindSpeed = s.windSpeed
   values.WWindDirection = s.windFrom
@@ -429,6 +486,7 @@ export function enrichManualFrame(
     speed: s.gpsAvailable ? frame.speed : null,
     widgetValues: merged,
     flight: {
+      waypoints: s.waypoints,
       position: s.gpsAvailable ? p : null,
       heading: s.gpsAvailable && speed > 0 ? heading : null,
       wind: { speed: s.windSpeed, from: s.windFrom },
@@ -576,9 +634,10 @@ export function igcFrame(
   settings = defaultFlightSettings,
 ): FlightFrame {
   const t = Math.max(0, Math.min(replay.duration, Number.isFinite(seconds) ? seconds : 0))
-  if (replay.fixes.length < 2) return emptyFrame(t)
+  const s = normalizeSettings(settings)
+  if (replay.fixes.length < 2) return emptyFrame(t, s)
   const p = replaySample(replay, t)
-  if (!p) return { ...emptyFrame(t), flight: { ...emptyFrame(t).flight, status: 'replay' } }
+  if (!p) return { ...emptyFrame(t, s), flight: { ...emptyFrame(t, s).flight, status: 'replay' } }
   const [a, b, lastIndex] = fixSegment(replay, t)
   const heading = p.speed !== null && p.speed > 0.1 ? bearingBetween(a, b) : null
   const history = historyAt(t, (i) => replaySample(replay, i))
@@ -591,7 +650,6 @@ export function igcFrame(
     if (i % stride === 0) track.push({ lat: fix.lat, lon: fix.lon })
   }
   track.push(p)
-  const s = normalizeSettings(settings)
   const task = taskAt(p, p.altitude, p.speed, track, s, false)
   const first = replaySample(replay, 0)!
   const values: Record<string, number | string | null> = connectedValues(
@@ -601,6 +659,8 @@ export function igcFrame(
     history,
     task,
     replay.startTime,
+    s,
+    false,
   )
   values.WAltitudeMaximum = maximum
   values.WBaroAltitude = p.baroAltitude
@@ -614,6 +674,7 @@ export function igcFrame(
     time: t,
     widgetValues: values as WidgetValues,
     flight: {
+      waypoints: s.waypoints,
       position: p,
       heading,
       wind: null,

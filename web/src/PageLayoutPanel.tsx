@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import type { Json, Page, Orientation } from './xcfg'
@@ -41,7 +42,10 @@ export function PageLayoutPanel({
   return (
     <section
       className="settings configuration-panel page-layout-panel"
-      aria-label={`${orientation === 'portrait' ? 'Портретная' : 'Альбомная'} страница ${index + 1}`}
+      aria-label={tr(
+        orientation === 'portrait' ? 'Портретная страница {number}' : 'Альбомная страница {number}',
+        { number: index + 1 },
+      )}
     >
       {page && (
         <form
@@ -57,26 +61,30 @@ export function PageLayoutPanel({
         >
           <fieldset disabled={disabled} className="configuration-grid">
             <label>
-              Тип страницы
+              {tr('Тип страницы')}
               <select
-                aria-label="Тип страницы"
+                aria-label={tr('Тип страницы')}
                 value={String(value('CLASS'))}
                 onChange={(e) => setDraft({ ...draft, CLASS: e.target.value })}
               >
-                <option value="org.xcontest.XCTrack.widget.wp.WPXCAssistant">XC-помощник</option>
-                <option value="org.xcontest.XCTrack.widget.wp.WPCompetition">Соревнование</option>
+                <option value="org.xcontest.XCTrack.widget.wp.WPXCAssistant">
+                  {tr('XC-помощник')}
+                </option>
+                <option value="org.xcontest.XCTrack.widget.wp.WPCompetition">
+                  {tr('Соревнование')}
+                </option>
                 {![
                   'org.xcontest.XCTrack.widget.wp.WPXCAssistant',
                   'org.xcontest.XCTrack.widget.wp.WPCompetition',
                 ].includes(String(value('CLASS'))) && (
-                  <option value={String(value('CLASS'))}>Другой тип из конфигурации</option>
+                  <option value={String(value('CLASS'))}>{tr('Другой тип из конфигурации')}</option>
                 )}
               </select>
             </label>
             <label>
-              Доступность страницы
+              {tr('Доступность страницы')}
               <select
-                aria-label="Доступность страницы"
+                aria-label={tr('Доступность страницы')}
                 value={mode}
                 onChange={(e) =>
                   setDraft({
@@ -90,15 +98,17 @@ export function PageLayoutPanel({
                   })
                 }
               >
-                <option value="all">Во всех режимах навигации</option>
-                <option value="none">Не показывать</option>
-                <option value="selected">В выбранных режимах</option>
-                {mode === 'unknown' && <option value="unknown">Значение из конфигурации</option>}
+                <option value="all">{tr('Во всех режимах навигации')}</option>
+                <option value="none">{tr('Не показывать')}</option>
+                <option value="selected">{tr('В выбранных режимах')}</option>
+                {mode === 'unknown' && (
+                  <option value="unknown">{tr('Значение из конфигурации')}</option>
+                )}
               </select>
             </label>
             {mode === 'selected' && (
               <fieldset className="page-navigation-modes">
-                <legend>Режимы навигации</legend>
+                <legend>{tr('Режимы навигации')}</legend>
                 {modes.map(([key, label]) => {
                   const name = `org.xcontest.XCTrack.navig.${key}`
                   const current = Array.isArray(navigations) ? navigations : []
@@ -116,13 +126,13 @@ export function PageLayoutPanel({
                           })
                         }
                       />
-                      {label}
+                      {tr(label)}
                     </label>
                   )
                 })}
               </fieldset>
             )}
-            <button type="submit">Применить параметры страницы</button>
+            <button type="submit">{tr('Применить параметры страницы')}</button>
           </fieldset>
         </form>
       )}

@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 import { X } from 'lucide-react'
@@ -25,7 +26,7 @@ export function SettingsDialog({
     <dialog
       ref={ref}
       className="designer-dialog"
-      aria-label={title}
+      aria-label={tr(title)}
       onCancel={(event) => {
         event.preventDefault()
         close()
@@ -36,10 +37,10 @@ export function SettingsDialog({
     >
       <div className="dialog-header">
         <div>
-          <h2>{title}</h2>
-          <p>{description}</p>
+          <h2>{tr(title)}</h2>
+          <p>{tr(description)}</p>
         </div>
-        <button aria-label="Закрыть настройки" onClick={close}>
+        <button aria-label={tr('Закрыть настройки')} onClick={close}>
           <X size={18} />
         </button>
       </div>

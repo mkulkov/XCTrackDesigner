@@ -78,7 +78,7 @@ async function exportBytes(page: import('@playwright/test').Page) {
   return readFile((await (await pending).path())!)
 }
 
-test('local draft persists exact export across reload, restores explicitly and can be deleted', async ({
+test('local draft restores automatically with exact export across reload and can be deleted', async ({
   page,
 }) => {
   await page.goto('/')
@@ -96,8 +96,7 @@ test('local draft persists exact export across reload, restores explicitly and c
   await expect(
     page.getByRole('button', { name: 'Восстановить черновик', exact: true }),
   ).toBeVisible()
-  await expect(page.getByRole('button', { name: 'Экспорт XCFG', exact: true })).toHaveCount(0)
-  await page.getByRole('button', { name: 'Восстановить черновик', exact: true }).click()
+  await expect(page.getByRole('button', { name: 'Экспорт XCFG', exact: true })).toBeVisible()
   expect(await exportBytes(page)).toEqual(before)
   await page.getByRole('button', { name: 'Удалить черновик', exact: true }).click()
   await expect(

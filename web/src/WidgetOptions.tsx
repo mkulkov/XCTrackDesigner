@@ -1,3 +1,4 @@
+import { tr } from './i18n'
 import { useState } from 'react'
 import type { Widget } from './xcfg'
 
@@ -16,11 +17,11 @@ export function WidgetOptions({
   const [draft, setDraft] = useState(JSON.stringify(options, null, 2))
   return (
     <details className="widget-options">
-      <summary>Технические параметры (JSON)</summary>
+      <summary>{tr('Технические параметры (JSON)')}</summary>
       <p className="hint">
-        Штатные и неизвестные параметры сохраняются. Отсутствующие поля использует XCTrack по
-        умолчанию. Удаление ключа сбрасывает override; null сохраняется как null. Адреса и команды
-        здесь не выполняются.
+        {tr(
+          'Штатные и неизвестные параметры сохраняются. Отсутствующие поля использует XCTrack по умолчанию. Удаление ключа сбрасывает override; null сохраняется как null. Адреса и команды здесь не выполняются.',
+        )}
       </p>
       <form
         onSubmit={(event) => {
@@ -29,18 +30,22 @@ export function WidgetOptions({
         }}
       >
         <label>
-          Параметры JSON
+          {tr('Параметры JSON')}
           <textarea
-            aria-label="Параметры JSON"
+            aria-label={tr('Параметры JSON')}
             spellCheck={false}
             disabled={disabled}
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
           />
         </label>
-        <button disabled={disabled}>Применить параметры виджета</button>
+        <button disabled={disabled}>{tr('Применить параметры виджета')}</button>
       </form>
-      <p className="hint">Исходные ключи: {Object.keys(options).join(', ') || 'нет overrides'}</p>
+      <p className="hint">
+        {tr('Исходные ключи: {keys}', {
+          keys: Object.keys(options).join(', ') || tr('нет overrides'),
+        })}
+      </p>
     </details>
   )
 }

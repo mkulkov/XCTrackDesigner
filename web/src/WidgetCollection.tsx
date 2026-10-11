@@ -1,5 +1,6 @@
 import { libraryWidget, widgetLibrary } from './widget-library'
-import { widgetDescription } from './widget-descriptions'
+import { widgetDescription, widgetTitle } from './widget-descriptions'
+import { tr } from './i18n'
 import { GripVertical, Gauge, Mountain, Map, Radar, Timer, Wind, CircleDot } from 'lucide-react'
 
 const icons: Record<string, typeof Gauge> = {
@@ -29,25 +30,25 @@ export function WidgetCollection({
 }) {
   const current = libraryWidget(selected)
   const filtered = widgetLibrary.filter((entry) =>
-    `${entry.name} ${entry.title} ${entry.titleEn} ${entry.groupTitle}`
+    `${entry.name} ${widgetTitle(entry.name)} ${entry.titleEn} ${entry.groupTitle} ${tr(entry.groupTitle)}`
       .toLowerCase()
       .includes(query.toLowerCase()),
   )
   const groups = [...new Set(filtered.map((entry) => entry.group))]
   const description = widgetDescription(selected)
   return (
-    <aside className="collection-panel" aria-label="Коллекция виджетов">
-      <h2>Виджеты</h2>
+    <aside className="collection-panel" aria-label={tr('Коллекция виджетов')}>
+      <h2>{tr('Виджеты')}</h2>
       <input
-        aria-label="Поиск виджетов"
-        placeholder="Найти виджет…"
+        aria-label={tr('Поиск виджетов')}
+        placeholder={tr('Найти виджет…')}
         value={query}
         onChange={(event) => search(event.target.value)}
       />
       <div className="catalog-list">
         {groups.map((group) => (
           <section key={group}>
-            <h3>{filtered.find((entry) => entry.group === group)!.groupTitle}</h3>
+            <h3>{tr(filtered.find((entry) => entry.group === group)!.groupTitle)}</h3>
             {filtered
               .filter((entry) => entry.group === group)
               .map((entry) => {
@@ -56,7 +57,7 @@ export function WidgetCollection({
                   <button
                     key={entry.name}
                     data-catalog-widget={entry.name}
-                    aria-label={`Выбрать виджет ${entry.name}`}
+                    aria-label={tr('Выбрать виджет {name}', { name: entry.name })}
                     aria-pressed={entry.name === selected}
                     draggable={canAdd}
                     onClick={() => select(entry.name)}
@@ -67,32 +68,32 @@ export function WidgetCollection({
                     }}
                   >
                     <Icon size={16} aria-hidden="true" />
-                    <span>{entry.title}</span>
+                    <span>{widgetTitle(entry.name)}</span>
                     {entry.pro && <small>PRO</small>}
-                    {entry.debugOnly && <small>Диагностика</small>}
+                    {entry.debugOnly && <small>{tr('Диагностика')}</small>}
                     <GripVertical size={14} className="drag-grip" aria-hidden="true" />
                   </button>
                 )
               })}
           </section>
         ))}
-        {!filtered.length && <p className="hint">Виджеты не найдены</p>}
+        {!filtered.length && <p className="hint">{tr('Виджеты не найдены')}</p>}
       </div>
       <div
         className="catalog-description"
         data-testid="widget-description"
-        aria-label="Описание виджета"
+        aria-label={tr('Описание виджета')}
         aria-live="polite"
       >
-        <h3>{current?.title}</h3>
+        <h3>{widgetTitle(selected)}</h3>
         <p>{description}</p>
         <small>
-          {current?.groupTitle}
+          {current ? tr(current.groupTitle) : ''}
           {current?.pro ? ' · XCTrack PRO' : ''}
         </small>
-        <p className="hint">Перетащите на экран или нажмите «Добавить виджет».</p>
+        <p className="hint">{tr('Перетащите на экран или нажмите «Добавить виджет».')}</p>
         <button disabled={!canAdd} onClick={add}>
-          Добавить виджет
+          {tr('Добавить виджет')}
         </button>
       </div>
     </aside>

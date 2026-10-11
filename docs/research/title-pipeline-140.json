@@ -1,0 +1,32 @@
+[
+  {
+    "rendering": "auto",
+    "kerning": "auto",
+    "regions": [
+      557,
+      1452,
+      462,
+      878
+    ]
+  },
+  {
+    "rendering": "auto",
+    "kerning": "native",
+    "regions": [
+      191,
+      1713,
+      566,
+      579
+    ]
+  },
+  {
+    "rendering": "auto",
+    "kerning": "nativeKern",
+    "regions": [
+      631,
+      575,
+      566,
+      579
+    ]
+  }
+]

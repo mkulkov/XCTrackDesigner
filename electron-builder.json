@@ -1,0 +1,16 @@
+{
+  "appId": "local.xctrack.screen-designer",
+  "productName": "XCTrack Screen Designer",
+  "directories": { "output": "release" },
+  "files": ["dist/**/*", ".local/desktop/main.cjs", "package.json"],
+  "extraMetadata": { "main": ".local/desktop/main.cjs" },
+  "asar": true,
+  "npmRebuild": false,
+  "win": {
+    "target": [{ "target": "portable", "arch": ["x64"] }],
+    "signAndEditExecutable": false,
+    "artifactName": "XCTrack-Screen-Designer-${version}-win-x64.exe"
+  },
+  "portable": { "requestExecutionLevel": "user" },
+  "publish": null
+}

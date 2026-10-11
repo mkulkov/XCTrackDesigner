@@ -1,0 +1,250 @@
+{
+  "width": 1080,
+  "height": 2400,
+  "changedPixels": 15078,
+  "changedRatio": 0.0058171296296296296,
+  "fonts": {
+    "available": true,
+    "hashes": [
+      "24ec861267f2d0a7fef35a52ba1b20bbe380232604a06b4885b75fe6301eede1",
+      "06cba01eb71ea5cbd3a7df498910624db68953beead4be18fd91f8ec7dc72351"
+    ]
+  },
+  "glyphGeometry": [
+    {
+      "name": "speed",
+      "native": {
+        "left": 199,
+        "top": 163,
+        "right": 388,
+        "bottom": 448
+      },
+      "web": {
+        "left": 199,
+        "top": 163,
+        "right": 388,
+        "bottom": 448
+      }
+    },
+    {
+      "name": "vario",
+      "native": {
+        "left": 581,
+        "top": 240,
+        "right": 934,
+        "bottom": 399
+      },
+      "web": {
+        "left": 581,
+        "top": 238,
+        "right": 934,
+        "bottom": 400
+      }
+    }
+  ],
+  "titleGeometry": [
+    {
+      "name": "speed-title",
+      "native": {
+        "left": 212,
+        "top": 6,
+        "right": 328,
+        "bottom": 30
+      },
+      "web": {
+        "left": 210,
+        "top": 6,
+        "right": 329,
+        "bottom": 30
+      }
+    },
+    {
+      "name": "vario-title",
+      "native": {
+        "left": 635,
+        "top": 6,
+        "right": 985,
+        "bottom": 30
+      },
+      "web": {
+        "left": 629,
+        "top": 6,
+        "right": 991,
+        "bottom": 30
+      }
+    },
+    {
+      "name": "altitude-title",
+      "native": {
+        "left": 234,
+        "top": 606,
+        "right": 305,
+        "bottom": 625
+      },
+      "web": {
+        "left": 234,
+        "top": 606,
+        "right": 305,
+        "bottom": 625
+      }
+    },
+    {
+      "name": "time-title",
+      "native": {
+        "left": 723,
+        "top": 607,
+        "right": 897,
+        "bottom": 630
+      },
+      "web": {
+        "left": 722,
+        "top": 606,
+        "right": 898,
+        "bottom": 630
+      }
+    }
+  ],
+  "regions": [
+    {
+      "name": "speed",
+      "changedPixels": 2158,
+      "changedRatio": 0.006660493827160494
+    },
+    {
+      "name": "vario",
+      "changedPixels": 8151,
+      "changedRatio": 0.025157407407407406
+    },
+    {
+      "name": "missing",
+      "changedPixels": 1863,
+      "changedRatio": 0.002875
+    },
+    {
+      "name": "overlap",
+      "changedPixels": 2462,
+      "changedRatio": 0.0037993827160493826
+    },
+    {
+      "name": "hide",
+      "changedPixels": 444,
+      "changedRatio": 0.0006851851851851852
+    }
+  ],
+  "points": [
+    {
+      "x": 100,
+      "y": 100,
+      "expected": [
+        255,
+        255,
+        255
+      ],
+      "native": [
+        255,
+        255,
+        255
+      ],
+      "web": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "x": 100,
+      "y": 800,
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "native": [
+        0,
+        0,
+        0
+      ],
+      "web": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "x": 300,
+      "y": 1400,
+      "expected": [
+        128,
+        128,
+        128
+      ],
+      "native": [
+        128,
+        128,
+        128
+      ],
+      "web": [
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "x": 290,
+      "y": 1400,
+      "expected": [
+        255,
+        255,
+        255
+      ],
+      "native": [
+        255,
+        255,
+        255
+      ],
+      "web": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "x": 100,
+      "y": 2200,
+      "expected": [
+        255,
+        255,
+        255
+      ],
+      "native": [
+        255,
+        255,
+        255
+      ],
+      "web": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "x": 1000,
+      "y": 2200,
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "native": [
+        0,
+        0,
+        0
+      ],
+      "web": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

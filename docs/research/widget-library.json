@@ -1,0 +1,3986 @@
+{
+  "profile": "XCTrack 0.9.12.6 / 91260",
+  "evidence": "apk-derived; no runtime parity claim",
+  "registrySource": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/o.java:92",
+  "count": 78,
+  "scope": "Registered catalog complete. Setting extraction covers explicit wm constructors plus selected verified helper keys; other helper and inherited map settings require further research. Omitted defaults are unknown, never implied zero. Labels are research metadata; resource redistribution rights are not established.",
+  "safeCreation": "CLASS and X1/Y1/X2/Y2 only; let native defaults apply unless independently verified.",
+  "entries": [
+    {
+      "name": "WStatusLine",
+      "titleRu": "Статус",
+      "titleEn": "Status Line",
+      "titleResource": "wStatusLineTitle",
+      "descriptionResource": "wStatusLineDescription",
+      "group": "wgSystem",
+      "groupRu": "Система",
+      "groupEn": "System",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "showGps",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:111",
+          "default": true
+        },
+        {
+          "key": "showSensors",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:113",
+          "default": true
+        },
+        {
+          "key": "showLive",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:115",
+          "default": true
+        },
+        {
+          "key": "showLiveLabel",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:117",
+          "default": true
+        },
+        {
+          "key": "showBatteryIcon",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:119",
+          "default": true
+        },
+        {
+          "key": "showBatteryPercent",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:121",
+          "default": true
+        },
+        {
+          "key": "showTime",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:123",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WStatusLine.java:100",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WBrightnessInfo",
+      "titleRu": "Яркость дисплея",
+      "titleEn": "Brightness of the display",
+      "titleResource": "wBrightnessInfoTitle",
+      "descriptionResource": "wBrightnessInfoDesc",
+      "group": "wgSystem",
+      "groupRu": "Система",
+      "groupEn": "System",
+      "family": "text",
+      "pro": true,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WBrightnessInfo.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WLastEvent",
+      "titleRu": "Последнее событие",
+      "titleEn": "Last event",
+      "titleResource": "wLastEventTitle",
+      "descriptionResource": "wLastEventDescription",
+      "group": "wgSystem",
+      "groupRu": "Система",
+      "groupEn": "System",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLastEvent.java:27",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WTime",
+      "titleRu": "Время",
+      "titleEn": "Time",
+      "titleResource": "wTimeTitle",
+      "descriptionResource": "wTimeDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "showSec",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WTime.java:44",
+          "default": true
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WTime.java:36",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WSpeed",
+      "titleRu": "Скорость",
+      "titleEn": "Speed",
+      "titleResource": "wSpeedTitle",
+      "descriptionResource": "wSpeedDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "_units",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSpeed.java:37"
+        },
+        {
+          "key": "backwardDetection",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSpeed.java:39",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSpeed.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAirSpeed",
+      "titleRu": "Воздушная скорость",
+      "titleEn": "Airspeed",
+      "titleResource": "wAirSpeedTitle",
+      "descriptionResource": "wAirSpeedDescription3",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "speed_avg",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirSpeed.java:37",
+          "default": 0
+        },
+        {
+          "key": "speed_type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirSpeed.java:39"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirSpeed.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WBearing",
+      "titleRu": "Курс",
+      "titleEn": "Bearing",
+      "titleResource": "wBearingTitle",
+      "descriptionResource": "wBearingDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "degrees",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WBearing.java:44",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WBearing.java:35",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAltitude",
+      "titleRu": "GPS Высота",
+      "titleEn": "GPS Alt",
+      "titleResource": "wAltitudeTitle",
+      "descriptionResource": "wAltitudeDescription2",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "_units",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitude.java:35",
+          "helperSource": "research/apk/decompiled/sources/wm/o.java"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitude.java:27",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WBaroAltitude",
+      "titleRu": "Высота по барометру",
+      "titleEn": "Baro Alt",
+      "titleResource": "wBaroAltitudeTitle",
+      "descriptionResource": "wBaroAltitudeDescription2",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "_units",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WBaroAltitude.java:37",
+          "helperSource": "research/apk/decompiled/sources/wm/o.java"
+        },
+        {
+          "key": "_altType",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WBaroAltitude.java:39"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WBaroAltitude.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAMSL",
+      "titleRu": "AMSL",
+      "titleEn": "AMSL",
+      "titleResource": "wAMSLTitle",
+      "descriptionResource": "wAMSLDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAMSL.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WFL",
+      "titleRu": "Эшелон",
+      "titleEn": "Flight Level",
+      "titleResource": "wFLTitle",
+      "descriptionResource": "wFLDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "_decimals",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFL.java:52",
+          "default": "0"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFL.java:31",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAltitudeAboveGround",
+      "titleRu": "Высота над землей",
+      "titleEn": "AGL",
+      "titleResource": "wAltitudeAboveGroundTitle",
+      "descriptionResource": "wAltitudeAboveGroundDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeAboveGround.java:23",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WTakeoffHeightAbove",
+      "titleRu": "Высота над стартом",
+      "titleEn": "Altitude above takeoff",
+      "titleResource": "wTakeoffHeightAboveTitle",
+      "descriptionResource": "wTakeoffHeightAboveDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WTakeoffHeightAbove.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WVerticalSpeed",
+      "titleRu": "Вертикальная скорость",
+      "titleEn": "Vertical speed",
+      "titleResource": "wVerticalSpeedTitle",
+      "descriptionResource": "wVerticalSpeedDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "avg",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVerticalSpeed.java:36",
+          "default": 2000
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVerticalSpeed.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WVarioColumn",
+      "titleRu": "Шкала варио",
+      "titleEn": "Vario bar",
+      "titleResource": "wVarioColumnTitle",
+      "descriptionResource": "wVarioColumnDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "avg",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVarioColumn.java:50",
+          "default": 2000
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVarioColumn.java:42",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WGlide",
+      "titleRu": "Качество",
+      "titleEn": "Glide Ratio",
+      "titleResource": "wGlideTitle",
+      "descriptionResource": "wGlideDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "avg",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WGlide.java:38",
+          "default": 2000
+        },
+        {
+          "key": "showVario",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WGlide.java:40",
+          "default": false
+        },
+        {
+          "key": "headless",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WGlide.java:42",
+          "helperSource": "research/apk/decompiled/sources/wm/w.java",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WGlide.java:30",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WLocation",
+      "titleRu": "Местоположение",
+      "titleEn": "Location",
+      "titleResource": "wLocationTitle",
+      "descriptionResource": "wLocationDescription2",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "_format",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLocation.java:56"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLocation.java:43",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAirTime",
+      "titleRu": "Время полета",
+      "titleEn": "Air time",
+      "titleResource": "wAirTimeTitle",
+      "descriptionResource": "wAirTimeDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirTime.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WSunset",
+      "titleRu": "Закат",
+      "titleEn": "Sunset",
+      "titleResource": "wSunsetTitle",
+      "descriptionResource": "wSunsetDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": true,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "relative",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSunset.java:176"
+        },
+        {
+          "key": "showBefore",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSunset.java:178",
+          "default": 0
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSunset.java:43",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WSunsetCivil",
+      "titleRu": "Гражданские сумерки",
+      "titleEn": "Civil twilight",
+      "titleResource": "wSunsetCivilTitle",
+      "descriptionResource": "wSunsetCivilDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": true,
+      "debugOnly": false,
+      "base": "WSunset",
+      "ancestry": [
+        "WSunset",
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "relative",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSunset.java:176"
+        },
+        {
+          "key": "showBefore",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSunset.java:178",
+          "default": 0
+        },
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSunsetCivil.java:21",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WVerticalGraph",
+      "titleRu": "Вертикальный график",
+      "titleEn": "Vertical graph",
+      "titleResource": "wVerticalGraphTitle",
+      "descriptionResource": "wVerticalGraphDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "interval",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVerticalGraph.java:97",
+          "default": 60000
+        },
+        {
+          "key": "vertical_step",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVerticalGraph.java:100",
+          "default": 50
+        },
+        {
+          "key": "dot_size",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVerticalGraph.java:103",
+          "default": 15
+        },
+        {
+          "key": "dot_color",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVerticalGraph.java:108"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVerticalGraph.java:89",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WAltitudeMaximum",
+      "titleRu": "Максимальная высота",
+      "titleEn": "Max altitude",
+      "titleResource": "wAltitudeMaxInFlight",
+      "descriptionResource": "wAltitudeMaxInFlightDescr",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": true,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeMaximum.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WNettoVario",
+      "titleRu": "Нетто варио",
+      "titleEn": "Netto vario",
+      "titleResource": "wNettoVarioTitle",
+      "descriptionResource": "wNettoVarioDescription",
+      "group": "wgFlying",
+      "groupRu": "Полет",
+      "groupEn": "Flying",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "netto_avg",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNettoVario.java:36",
+          "default": 0
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNettoVario.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WWindSpeed",
+      "titleRu": "Скорость ветра",
+      "titleEn": "Wind Speed",
+      "titleResource": "wWindSpeedTitle",
+      "descriptionResource": "wWindSpeedDescription",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWindSpeed.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WWindDirection",
+      "titleRu": "Направление ветра",
+      "titleEn": "Wind Direction",
+      "titleResource": "wWindDirectionTitle",
+      "descriptionResource": "wWindDirectionDescription",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "degrees",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWindDirection.java:44",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWindDirection.java:35",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WThermalAssistant",
+      "titleRu": "Помощник в термике",
+      "titleEn": "Thermal Assistant",
+      "titleResource": "wThermalAssistantTitle",
+      "descriptionResource": "wThermalAssistantDescription",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "mapScale",
+          "type": "scale",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:98"
+        },
+        {
+          "key": "drawCircle",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:100",
+          "default": false
+        },
+        {
+          "key": "drawScale",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:102",
+          "default": true
+        },
+        {
+          "key": "mapWidget_showAirspaces",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:104",
+          "default": true
+        },
+        {
+          "key": "rotation",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:106",
+          "helperSource": "research/apk/decompiled/sources/wm/k0.java"
+        },
+        {
+          "key": "interval",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:108",
+          "helperSource": "research/apk/decompiled/sources/wm/r0.java",
+          "default": 300
+        },
+        {
+          "key": "includeWindAlgorithm",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:110"
+        },
+        {
+          "key": "line_thickness",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:112",
+          "helperSource": "research/apk/decompiled/sources/wm/y.java",
+          "default": 10
+        },
+        {
+          "key": "mapWidget_drawBearing",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:114",
+          "default": true
+        },
+        {
+          "key": "postponedFloorLimit",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:117",
+          "default": 5000
+        },
+        {
+          "key": "postponedDisplayDistance",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:120",
+          "default": 300
+        },
+        {
+          "key": "fontSize",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:123"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAssistant.java:90",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WThermalAltGain",
+      "titleRu": "Выигрыш в термике",
+      "titleEn": "Thermal gain",
+      "titleResource": "wThermalAltGainTitle",
+      "descriptionResource": "wThermalAltGainDescription",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WThermalAltGain.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAltitudeDataGraph",
+      "titleRu": "Статистика высот",
+      "titleEn": "Altitude statistics",
+      "titleResource": "wAltitudeDataGraphName",
+      "descriptionResource": "wAltitudeDataGraphDescription",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "graphic",
+      "pro": true,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeDataGraph.java:97"
+        },
+        {
+          "key": "line_thickness",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeDataGraph.java:99",
+          "helperSource": "research/apk/decompiled/sources/wm/y.java",
+          "default": 10
+        },
+        {
+          "key": "color_thermal",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeDataGraph.java:101"
+        },
+        {
+          "key": "color_wind",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeDataGraph.java:103"
+        },
+        {
+          "key": "color_speed",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeDataGraph.java:105"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAltitudeDataGraph.java:89",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WQNH",
+      "titleRu": "Атмосферное давление в данной точке",
+      "titleEn": "QNH",
+      "titleResource": "wQNHTitle",
+      "descriptionResource": "wQNHDescription",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WQNH.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAirTemperature",
+      "titleRu": "Температура воздуха",
+      "titleEn": "Air Temperature",
+      "titleResource": "wAirTemperatureTitle",
+      "descriptionResource": "wAirTemperatureDesc",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "_units",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirTemperature.java:36"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirTemperature.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAirHumidity",
+      "titleRu": "Влажность воздуха",
+      "titleEn": "Air Humidity",
+      "titleResource": "wAirHumidityTitle",
+      "descriptionResource": "wAirHumidityDesc",
+      "group": "wgAir",
+      "groupRu": "Воздух",
+      "groupEn": "Air",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirHumidity.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WXCAssistant",
+      "titleRu": "Карта",
+      "titleEn": "XC map",
+      "titleResource": "wXCAssistantTitle2",
+      "descriptionResource": "wXCAssistantDescription2",
+      "group": "wgXContest",
+      "groupRu": "XContest",
+      "groupEn": "XContest",
+      "family": "map",
+      "pro": false,
+      "debugOnly": false,
+      "base": "MapWidget",
+      "ancestry": [
+        "MapWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "faiAreas",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCAssistant.java:82",
+          "default": true
+        },
+        {
+          "key": "faiAreasMinMax",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCAssistant.java:84",
+          "default": false
+        },
+        {
+          "key": "legDistance",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCAssistant.java:86",
+          "default": false
+        },
+        {
+          "key": "legPercentage",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCAssistant.java:88",
+          "default": false
+        },
+        {
+          "key": "closingCircle",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCAssistant.java:90",
+          "default": false
+        },
+        {
+          "key": "routes",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCAssistant.java:92",
+          "default": true
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "live_ShowFinalGlide",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:213",
+          "default": true
+        },
+        {
+          "key": "mapWidget_drawScale",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:228",
+          "default": true
+        },
+        {
+          "key": "rotation",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:229",
+          "helperSource": "research/apk/decompiled/sources/wm/k0.java"
+        },
+        {
+          "key": "mapWidget_showAirspaces",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:230",
+          "default": true
+        },
+        {
+          "key": "mapWidget_emergencyObstacles",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:231",
+          "default": true
+        },
+        {
+          "key": "mapWidget_emergencyZoom",
+          "type": "scale",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:232"
+        },
+        {
+          "key": "mapWidget_panningAirspaceList",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:234"
+        },
+        {
+          "key": "mapWidget_pilotPosCenter",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:236",
+          "default": true
+        },
+        {
+          "key": "line_thickness",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:239",
+          "helperSource": "research/apk/decompiled/sources/wm/y.java",
+          "default": 10
+        },
+        {
+          "key": "mapWidget_drawBearing",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:240",
+          "default": true
+        },
+        {
+          "key": "tracklog_color",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:243"
+        },
+        {
+          "key": "postponedFloorLimit",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:246",
+          "default": 5000
+        },
+        {
+          "key": "postponedDisplayDistance",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:250",
+          "default": 300
+        },
+        {
+          "key": "fontSize",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:253"
+        },
+        {
+          "key": "mapWidget_showRelativePositionWhilePanning",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:254",
+          "default": false
+        },
+        {
+          "key": "mapWidget_scale",
+          "type": "scale",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:552"
+        },
+        {
+          "key": "live_ShowNearby",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:571",
+          "default": true
+        },
+        {
+          "key": "live_ShowTracklogs",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:577",
+          "default": true
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCAssistant.java:74",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WOptiResult",
+      "titleRu": "XC дистанция полета",
+      "titleEn": "XC Distance",
+      "titleResource": "wOptiResultTitle",
+      "descriptionResource": "wOptiResultDescription",
+      "group": "wgXContest",
+      "groupRu": "XContest",
+      "groupEn": "XContest",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WOptiResult.java:24",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WOptiUnfinishedTriangle",
+      "titleRu": "НЕЗАВЕРШЕННЫЙ Треугольник",
+      "titleEn": "UNFINISHED Triangle",
+      "titleResource": "wOptiUnfinishedTriangleTitle",
+      "descriptionResource": "wOptiUnfinishedTriangleDescription",
+      "group": "wgXContest",
+      "groupRu": "XContest",
+      "groupEn": "XContest",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WOptiUnfinishedTriangle.java:23",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WXCSpeed",
+      "titleRu": "Средняя XC скорость",
+      "titleEn": "Average XC speed",
+      "titleResource": "wXCSpeedTitle",
+      "descriptionResource": "wXCSpeedDescription",
+      "group": "wgXContest",
+      "groupRu": "XContest",
+      "groupEn": "XContest",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WXCSpeed.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompass",
+      "titleRu": "Компас и ветер",
+      "titleEn": "Compass and wind",
+      "titleResource": "wCompassTitleWind",
+      "descriptionResource": "wCompassDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "navigation_target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:136"
+        },
+        {
+          "key": "showHeading",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:138",
+          "default": false
+        },
+        {
+          "key": "showBearing",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:140",
+          "default": false
+        },
+        {
+          "key": "showWind",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:142",
+          "default": false
+        },
+        {
+          "key": "showBackground",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:144",
+          "default": true
+        },
+        {
+          "key": "newWindArrow",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:146",
+          "default": false
+        },
+        {
+          "key": "rotation",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:148"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompass.java:128",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WCompassDigital",
+      "titleRu": "Цифровой компас",
+      "titleEn": "Digital compass",
+      "titleResource": "wCompassDigitTitle",
+      "descriptionResource": "wCompassDigitDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompassDigital.java:46"
+        },
+        {
+          "key": "relative",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompassDigital.java:48",
+          "default": true
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompassDigital.java:38",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WSideView",
+      "titleRu": "Вид сбоку",
+      "titleEn": "Side view",
+      "titleResource": "wSideViewTitle",
+      "descriptionResource": "wSideViewTitleDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "finalGlideAvg",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSideView.java:135"
+        },
+        {
+          "key": "type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSideView.java:137"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WSideView.java:102",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WNextTurnpoint",
+      "titleRu": "Следующая точка",
+      "titleEn": "Next Turnpoint",
+      "titleResource": "wNextTurnpointTitle",
+      "descriptionResource": "wNextTurnpointDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WeightedTextWidget",
+      "ancestry": [
+        "WeightedTextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WeightedTextWidget.java:77",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WeightedTextWidget.java:79",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WeightedTextWidget.java:120",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpoint.java:33",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WNextTurnpointDistance",
+      "titleRu": "Дистанция до следующей",
+      "titleEn": "Distance Next",
+      "titleResource": "wNextTurnpointDistanceTitle",
+      "descriptionResource": "wNextTurnpointDistanceDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WNextTurnpointSomething",
+      "ancestry": [
+        "WNextTurnpointSomething",
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "navigation_target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:32"
+        },
+        {
+          "key": "use_brackets",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:34",
+          "default": true
+        },
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointDistance.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WNextTurnpointTimeOfArrival",
+      "titleRu": "Время прибытия к следующему поворотному пункту",
+      "titleEn": "Next TP TOA",
+      "titleResource": "wNextTurnpointTimeOfArrivalTitle",
+      "descriptionResource": "wNextTurnpointTimeOfArrivalDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WNextTurnpointSpeedSomething",
+      "ancestry": [
+        "WNextTurnpointSpeedSomething",
+        "WNextTurnpointSomething",
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "time_format",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointTimeOfArrival.java:36",
+          "helperSource": "research/apk/decompiled/sources/wm/o.java"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "speed_type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSpeedSomething.java:28"
+        },
+        {
+          "key": "navigation_target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:32"
+        },
+        {
+          "key": "use_brackets",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:34",
+          "default": true
+        },
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointTimeOfArrival.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WNextTurnpointAlt",
+      "titleRu": "Следующая высота поворотного пункта",
+      "titleEn": "Next TP Height",
+      "titleResource": "wNextTurnpointAltOfArrivalTitle",
+      "descriptionResource": "wNextTurnpointAltOfArrivalDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WNextTurnpointSomething",
+      "ancestry": [
+        "WNextTurnpointSomething",
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "altitude",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointAlt.java:38"
+        },
+        {
+          "key": "glide",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointAlt.java:40"
+        },
+        {
+          "key": "speed_avg",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointAlt.java:42",
+          "default": 0
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "navigation_target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:32"
+        },
+        {
+          "key": "use_brackets",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:34",
+          "default": true
+        },
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointAlt.java:30",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WNextTurnpointGlideTo",
+      "titleRu": "Аэродинамическое качество к поворотному пункту",
+      "titleEn": "Glide Ratio to TP",
+      "titleResource": "wNextTurnpointGlideToTitle",
+      "descriptionResource": "wNextTurnpointGlideToDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WNextTurnpointSomething",
+      "ancestry": [
+        "WNextTurnpointSomething",
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "headless",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointGlideTo.java:38",
+          "helperSource": "research/apk/decompiled/sources/wm/w.java",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "navigation_target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:32"
+        },
+        {
+          "key": "use_brackets",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:34",
+          "default": true
+        },
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WNextTurnpointGlideTo.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WAirspaceProximity",
+      "titleRu": "Близость к запретным зонам",
+      "titleEn": "Airspace proximity",
+      "titleResource": "wAirspaceProximityTitle",
+      "descriptionResource": "wAirspaceProximityDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "_shownearinside",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirspaceProximity.java:121",
+          "default": true
+        },
+        {
+          "key": "postponedFloorLimit",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirspaceProximity.java:126",
+          "default": 5000
+        },
+        {
+          "key": "postponedDisplayDistance",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirspaceProximity.java:129",
+          "default": 300
+        },
+        {
+          "key": "_showrecomputedheightline",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirspaceProximity.java:132",
+          "default": false
+        },
+        {
+          "key": "_showoriginalheightline",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirspaceProximity.java:134",
+          "default": true
+        },
+        {
+          "key": "_splitdirection",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirspaceProximity.java:136"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WAirspaceProximity.java:113",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WTakeoffDistance",
+      "titleRu": "Дистанция от старта",
+      "titleEn": "Distance from takeoff",
+      "titleResource": "wTakeoffDistanceTitle",
+      "descriptionResource": "wTakeoffDistanceTitleDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WTakeoffDistance.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WTakeoffCourse",
+      "titleRu": "Курс на старт",
+      "titleEn": "Course to takeoff",
+      "titleResource": "wTakeoffCourseTitle",
+      "descriptionResource": "wTakeoffCourseDescription",
+      "group": "wgNavigation",
+      "groupRu": "Навигация",
+      "groupEn": "Navigation",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "degrees",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WTakeoffCourse.java:35",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WTakeoffCourse.java:27",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompMap",
+      "titleRu": "Карта таска",
+      "titleEn": "Task map",
+      "titleResource": "wCompMapTitle",
+      "descriptionResource": "wCompMapDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "map",
+      "pro": false,
+      "debugOnly": false,
+      "base": "MapWidget",
+      "ancestry": [
+        "MapWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "live_ShowFinalGlide",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:213",
+          "default": true
+        },
+        {
+          "key": "mapWidget_drawScale",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:228",
+          "default": true
+        },
+        {
+          "key": "rotation",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:229",
+          "helperSource": "research/apk/decompiled/sources/wm/k0.java"
+        },
+        {
+          "key": "mapWidget_showAirspaces",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:230",
+          "default": true
+        },
+        {
+          "key": "mapWidget_emergencyObstacles",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:231",
+          "default": true
+        },
+        {
+          "key": "mapWidget_emergencyZoom",
+          "type": "scale",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:232"
+        },
+        {
+          "key": "mapWidget_panningAirspaceList",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:234"
+        },
+        {
+          "key": "mapWidget_pilotPosCenter",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:236",
+          "default": true
+        },
+        {
+          "key": "line_thickness",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:239",
+          "helperSource": "research/apk/decompiled/sources/wm/y.java",
+          "default": 10
+        },
+        {
+          "key": "mapWidget_drawBearing",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:240",
+          "default": true
+        },
+        {
+          "key": "tracklog_color",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:243"
+        },
+        {
+          "key": "postponedFloorLimit",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:246",
+          "default": 5000
+        },
+        {
+          "key": "postponedDisplayDistance",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:250",
+          "default": 300
+        },
+        {
+          "key": "fontSize",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:253"
+        },
+        {
+          "key": "mapWidget_showRelativePositionWhilePanning",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:254",
+          "default": false
+        },
+        {
+          "key": "mapWidget_scale",
+          "type": "scale",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:552"
+        },
+        {
+          "key": "live_ShowNearby",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:571",
+          "default": true
+        },
+        {
+          "key": "live_ShowTracklogs",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/MapWidget.java:577",
+          "default": true
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompMap.java:54",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompDistanceToGoal",
+      "titleRu": "Дистанция до финиша",
+      "titleEn": "Distance to goal",
+      "titleResource": "wCompDistanceToGoalTitle",
+      "descriptionResource": "wCompDistanceToGoalDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompDistanceToGoal.java:22",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompDistanceToESS",
+      "titleRu": "Расстояние до ESS",
+      "titleEn": "Distance to ESS",
+      "titleResource": "wCompDistanceToESSTitle",
+      "descriptionResource": "wCompDistanceToESSDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": true,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompDistanceToESS.java:23",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompAltitudeOverGoal",
+      "titleRu": "Высота над финишем",
+      "titleEn": "Altitude over goal",
+      "titleResource": "wCompAltitudeOverGoalTitle",
+      "descriptionResource": "wCompAltitudeOverGoalDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompAltitudeOverGoal.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompAltitudeOverESS",
+      "titleRu": "Высота над ESS",
+      "titleEn": "Altitude over ESS",
+      "titleResource": "wCompAltitudeOverESSTitle",
+      "descriptionResource": "wCompAltitudeOverESSDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": true,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompAltitudeOverESS.java:27",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompGlideToGoal",
+      "titleRu": "Качество до финиша",
+      "titleEn": "Glide to goal",
+      "titleResource": "wCompGlideToGoalTitle",
+      "descriptionResource": "wCompGlideToGoalDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "headless",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompGlideToGoal.java:37",
+          "helperSource": "research/apk/decompiled/sources/wm/w.java",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompGlideToGoal.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompGlideToESS",
+      "titleRu": "Качество до ESS",
+      "titleEn": "Glide to ESS",
+      "titleResource": "wCompGlideToEssTitle",
+      "descriptionResource": "wCompGlideToEssDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": true,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "headless",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompGlideToESS.java:37",
+          "helperSource": "research/apk/decompiled/sources/wm/w.java",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompGlideToESS.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompTimeToStart",
+      "titleRu": "Время до старта",
+      "titleEn": "Time to start",
+      "titleResource": "wCompTimeToStartTitle",
+      "descriptionResource": "wCompTimeToStartDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WeightedTextWidget",
+      "ancestry": [
+        "WeightedTextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WeightedTextWidget.java:77",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WeightedTextWidget.java:79",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WeightedTextWidget.java:120",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompTimeToStart.java:39",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompTimeAtStart",
+      "titleRu": "Время старта",
+      "titleEn": "Time at start",
+      "titleResource": "wCompTimeAtStartTitle",
+      "descriptionResource": "wCompTimeAtStartDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WNextTurnpointSpeedSomething",
+      "ancestry": [
+        "WNextTurnpointSpeedSomething",
+        "WNextTurnpointSomething",
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "time_format",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompTimeAtStart.java:37",
+          "helperSource": "research/apk/decompiled/sources/wm/o.java"
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "speed_type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSpeedSomething.java:28"
+        },
+        {
+          "key": "navigation_target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:32"
+        },
+        {
+          "key": "use_brackets",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:34",
+          "default": true
+        },
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompTimeAtStart.java:29",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompSpeedToStart",
+      "titleRu": "Скорость до старта",
+      "titleEn": "Speed to start",
+      "titleResource": "wCompSpeedToStartTitle",
+      "descriptionResource": "wCompSpeedToStartDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": false,
+      "debugOnly": false,
+      "base": "WNextTurnpointSomething",
+      "ancestry": [
+        "WNextTurnpointSomething",
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "navigation_target",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:32"
+        },
+        {
+          "key": "use_brackets",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/WNextTurnpointSomething.java:34",
+          "default": true
+        },
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompSpeedToStart.java:23",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompPercentage",
+      "titleRu": "% от скоростной секции",
+      "titleEn": "% of speed section",
+      "titleResource": "wCompSSPercentage",
+      "descriptionResource": "wCompSSPercentageDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "value",
+      "pro": true,
+      "debugOnly": false,
+      "base": "ValueWidget",
+      "ancestry": [
+        "ValueWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:93",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:95",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        },
+        {
+          "key": "_unit",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:97",
+          "default": true
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/ValueWidget.java:136",
+          "default": false
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompPercentage.java:25",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WCompTaskSummary",
+      "titleRu": "Таск итого",
+      "titleEn": "Task summary",
+      "titleResource": "wCompTaskSummaryTitle",
+      "descriptionResource": "wCompTaskSummaryDescription",
+      "group": "wgCompetition",
+      "groupRu": "Соревнования",
+      "groupEn": "Competition",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WCompTaskSummary.java:60",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WLiveMessage",
+      "titleRu": "Входящие сообщения",
+      "titleEn": "Incoming messages",
+      "titleResource": "wLiveMessageTitle",
+      "descriptionResource": "wLiveMessageSummary",
+      "group": "wgLivetracking",
+      "groupRu": "Отслеживание",
+      "groupEn": "Livetracking",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "line_count",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLiveMessage.java:55",
+          "default": 2
+        },
+        {
+          "key": "show_time",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLiveMessage.java:59",
+          "default": 300
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLiveMessage.java:46",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WButtonNavig",
+      "titleRu": "Навигация",
+      "titleEn": "Navigation buttons",
+      "titleResource": "wButtonNavig",
+      "descriptionResource": "wButtonNavigDescription",
+      "group": "wgButtons",
+      "groupRu": "Действие",
+      "groupEn": "Action buttons",
+      "family": "button",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonNavig.java:58"
+        },
+        {
+          "key": "longClick",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonNavig.java:60",
+          "default": true
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonNavig.java:48",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WButtonPhone",
+      "titleRu": "Телефон",
+      "titleEn": "Phone button",
+      "titleResource": "wButtonPhone",
+      "descriptionResource": "wButtonPhoneDescription",
+      "group": "wgButtons",
+      "groupRu": "Действие",
+      "groupEn": "Action buttons",
+      "family": "button",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "contact",
+          "type": "unknown",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonPhone.java:67",
+          "helperSource": "research/apk/decompiled/sources/wm/m.java",
+          "note": "Contact serialization is not a simple enum; inspect wm/m.java before building controls."
+        },
+        {
+          "key": "showContactName",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonPhone.java:69",
+          "default": true
+        },
+        {
+          "key": "callType",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonPhone.java:71"
+        },
+        {
+          "key": "backgroundCall",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonPhone.java:73",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonPhone.java:56",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WButtonCamera",
+      "titleRu": "Камера",
+      "titleEn": "Camera app button",
+      "titleResource": "wButtonActionCamera2",
+      "descriptionResource": "wButtonActionCameraDescription",
+      "group": "wgButtons",
+      "groupRu": "Действие",
+      "groupEn": "Action buttons",
+      "family": "button",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "longClick",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonCamera.java:49",
+          "default": true
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonCamera.java:39",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WButtonZoom",
+      "titleRu": "Масштабирование",
+      "titleEn": "Map zoom button",
+      "titleResource": "wButtonZoom",
+      "descriptionResource": "wButtonZoomDescription",
+      "group": "wgButtons",
+      "groupRu": "Действие",
+      "groupEn": "Action buttons",
+      "family": "button",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonZoom.java:56"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonZoom.java:46",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WButtonVario",
+      "titleRu": "Вариометр",
+      "titleEn": "Vario button",
+      "titleResource": "widgetSettingsButtonSensVario2",
+      "descriptionResource": "widgetSettingsButtonSensVarioDescription",
+      "group": "wgButtons",
+      "groupRu": "Действие",
+      "groupEn": "Action buttons",
+      "family": "button",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "showTitle",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonVario.java:53",
+          "default": true
+        },
+        {
+          "key": "longClick",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonVario.java:55",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonVario.java:43",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WButtonBrightness",
+      "titleRu": "Яркость дисплея",
+      "titleEn": "Display brightness",
+      "titleResource": "wButtonBrightness",
+      "descriptionResource": "wButtonBrightnessDesc",
+      "group": "wgButtons",
+      "groupRu": "Действие",
+      "groupEn": "Action buttons",
+      "family": "button",
+      "pro": true,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "type",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonBrightness.java:54"
+        },
+        {
+          "key": "longClick",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonBrightness.java:56",
+          "default": true
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonBrightness.java:44",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WButtonIntentLauncher",
+      "titleRu": "Запуск Intent",
+      "titleEn": "Intent launcher",
+      "titleResource": "wButtonIntentLauncherTitle",
+      "descriptionResource": "wButtonIntentLauncherDesc",
+      "group": "wgButtons",
+      "groupRu": "Действие",
+      "groupEn": "Action buttons",
+      "family": "button",
+      "pro": true,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "longClick",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonIntentLauncher.java:55",
+          "default": true
+        },
+        {
+          "key": "name",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonIntentLauncher.java:57",
+          "default": "test"
+        },
+        {
+          "key": "action",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonIntentLauncher.java:59",
+          "default": "org.xcontest.XCTrack.Event.TEST"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WButtonIntentLauncher.java:46",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WFreeText",
+      "titleRu": "Текст",
+      "titleEn": "Free text",
+      "titleResource": "wFreeTextTitle",
+      "descriptionResource": "wFreeTextDescription",
+      "group": "wgOthers",
+      "groupRu": "Прочее",
+      "groupEn": "Others",
+      "family": "free-text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "text",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFreeText.java:61"
+        },
+        {
+          "key": "color_text",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFreeText.java:63"
+        },
+        {
+          "key": "color_bg",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFreeText.java:65"
+        },
+        {
+          "key": "text_bold",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFreeText.java:71",
+          "default": false
+        },
+        {
+          "key": "text_italic",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFreeText.java:73",
+          "default": false
+        },
+        {
+          "key": "text_size",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/p.java:23",
+          "note": "Default omitted: merged switch constructor needs raw DEX confirmation; native uses millimetres encoded in tenths."
+        },
+        {
+          "key": "text_padding",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/p.java:18",
+          "note": "Default omitted: merged switch constructor needs raw DEX confirmation."
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WFreeText.java:53",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WWebView",
+      "titleRu": "Веб-сайт",
+      "titleEn": "Web page",
+      "titleResource": "wWebViewTextTitle",
+      "descriptionResource": "wWebViewTextDescription",
+      "group": "wgOthers",
+      "groupRu": "Прочее",
+      "groupEn": "Others",
+      "family": "webview",
+      "pro": true,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "url",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:111",
+          "helperSource": "research/apk/decompiled/sources/wm/v.java",
+          "default": "https://www.google.com/"
+        },
+        {
+          "key": "initialScale",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:113",
+          "default": 0
+        },
+        {
+          "key": "refreshInterval",
+          "type": "integer",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:117",
+          "default": 0
+        },
+        {
+          "key": "scrollSettings",
+          "type": "integer-pair",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:119",
+          "default": [
+            0,
+            0
+          ]
+        },
+        {
+          "key": "allowGsp",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:123",
+          "default": false
+        },
+        {
+          "key": "allowXCTrackJS",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:125",
+          "default": false
+        },
+        {
+          "key": "allowClickPassing",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:127",
+          "default": false
+        },
+        {
+          "key": "allowInteraction",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:129",
+          "default": false
+        },
+        {
+          "key": "saveButtonPos",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:131"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WWebView.java:102",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WExternalData",
+      "titleRu": "Отображение внешних данных",
+      "titleEn": "External data display",
+      "titleResource": "wOpenDataTitle",
+      "descriptionResource": "wOpenDataDescription",
+      "group": "wgOthers",
+      "groupRu": "Прочее",
+      "groupEn": "Others",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [
+        {
+          "key": "index",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WExternalData.java:68",
+          "default": "1"
+        },
+        {
+          "key": "suffix",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WExternalData.java:70",
+          "default": ""
+        },
+        {
+          "key": "_hide_labels",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WExternalData.java:72",
+          "default": false
+        }
+      ],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WExternalData.java:42",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WLastKey",
+      "titleRu": "Последняя нажатая кнопка",
+      "titleEn": "Last key pressed",
+      "titleResource": "wTestingLastKeyTitle",
+      "descriptionResource": "wTestingLastKeyDescription",
+      "group": "wgTesting",
+      "groupRu": "Тест",
+      "groupEn": "Testing",
+      "family": "text",
+      "pro": false,
+      "debugOnly": false,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLastKey.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WLogPeek",
+      "titleRu": "Конец лог-файла",
+      "titleEn": "Tail of the log",
+      "titleResource": "wTestingLogPeekTitle",
+      "descriptionResource": "wTestingLogPeekDescription",
+      "group": "wgTesting",
+      "groupRu": "Тест",
+      "groupEn": "Testing",
+      "family": "graphic",
+      "pro": false,
+      "debugOnly": false,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "reverse",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLogPeek.java:63",
+          "default": false
+        },
+        {
+          "key": "filter",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLogPeek.java:65",
+          "default": ""
+        },
+        {
+          "key": "color_text",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLogPeek.java:67"
+        },
+        {
+          "key": "color_bg",
+          "type": "color",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLogPeek.java:69"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WLogPeek.java:53",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WDebugDetectedActivity",
+      "titleRu": "DetectedActivity",
+      "titleEn": "DetectedActivity",
+      "titleResource": "debug_wDebugDetectedActivity",
+      "descriptionResource": "debug_wDebugDetectedActivity",
+      "group": "debug_wgDebug",
+      "groupRu": "Debug",
+      "groupEn": "Debug",
+      "family": "debug",
+      "pro": false,
+      "debugOnly": true,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WDebugDetectedActivity.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WDebugActivelook",
+      "titleRu": "ActiveLook widget",
+      "titleEn": "ActiveLook widget",
+      "titleResource": "debug_wActiveLookTitle",
+      "descriptionResource": "debug_wActiveLookDescr",
+      "group": "debug_wgDebug",
+      "groupRu": "Debug",
+      "groupEn": "Debug",
+      "family": "debug",
+      "pro": false,
+      "debugOnly": true,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WDebugActivelook.java:33",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WDebug",
+      "titleRu": "Debug",
+      "titleEn": "Debug",
+      "titleResource": "debug_wDebugTitle",
+      "descriptionResource": "debug_wDebugDescription",
+      "group": "debug_wgDebug",
+      "groupRu": "Debug",
+      "groupEn": "Debug",
+      "family": "debug",
+      "pro": false,
+      "debugOnly": true,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WDebug.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WDebugFPS",
+      "titleRu": "FPS",
+      "titleEn": "FPS",
+      "titleResource": "debug_wDebugFps",
+      "descriptionResource": "debug_wDebugFps",
+      "group": "debug_wgDebug",
+      "groupRu": "Debug",
+      "groupEn": "Debug",
+      "family": "debug",
+      "pro": false,
+      "debugOnly": true,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WDebugFPS.java:37",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WDebugSystemInfo",
+      "titleRu": "System Info",
+      "titleEn": "System Info",
+      "titleResource": "debug_wDebugSystemInfo",
+      "descriptionResource": "debug_wDebugSystemInfo",
+      "group": "debug_wgDebug",
+      "groupRu": "Debug",
+      "groupEn": "Debug",
+      "family": "debug",
+      "pro": false,
+      "debugOnly": true,
+      "base": "TextWidget",
+      "ancestry": [
+        "TextWidget",
+        "d0"
+      ],
+      "settings": [],
+      "inheritedSettings": [
+        {
+          "key": "_title",
+          "type": "boolean",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:62",
+          "default": true
+        },
+        {
+          "key": "titletext",
+          "type": "string",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/TextWidget.java:64",
+          "helperSource": "research/apk/decompiled/sources/wm/u.java",
+          "default": ""
+        }
+      ],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WDebugSystemInfo.java:28",
+      "ownsCanvasDraw": false
+    },
+    {
+      "name": "WDebugFont",
+      "titleRu": "DebugFont",
+      "titleEn": "DebugFont",
+      "titleResource": "debug_wDebugFont",
+      "descriptionResource": "debug_wDebugFont",
+      "group": "debug_wgDebug",
+      "groupRu": "Debug",
+      "groupEn": "Debug",
+      "family": "debug",
+      "pro": false,
+      "debugOnly": true,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "includeWindAlgorithm",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WDebugFont.java:37"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WDebugFont.java:29",
+      "ownsCanvasDraw": true
+    },
+    {
+      "name": "WVTM",
+      "titleRu": "VTM",
+      "titleEn": "VTM",
+      "titleResource": "debug_wVTM",
+      "descriptionResource": "debug_wVTM",
+      "group": "debug_wgDebug",
+      "groupRu": "Debug",
+      "groupEn": "Debug",
+      "family": "debug",
+      "pro": false,
+      "debugOnly": true,
+      "base": "org.xcontest.XCTrack.widget.d0",
+      "ancestry": [
+        "org.xcontest.XCTrack.widget.d0"
+      ],
+      "settings": [
+        {
+          "key": "rotation",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVTM.java:117",
+          "helperSource": "research/apk/decompiled/sources/wm/k0.java"
+        },
+        {
+          "key": "theme",
+          "type": "enum",
+          "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVTM.java:119"
+        }
+      ],
+      "inheritedSettings": [],
+      "source": "research/apk/decompiled/sources/org/xcontest/XCTrack/widget/w/WVTM.java:66",
+      "ownsCanvasDraw": true
+    }
+  ]
+}

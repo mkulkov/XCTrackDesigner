@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-10",
+  "serial": "emulator-5554",
+  "avd": "Medium_Phone",
+  "androidApi": 35,
+  "densityDpi": 420,
+  "xcTrackVersion": "0.9.12.6",
+  "xcTrackVersionCode": 91260,
+  "captures": [
+    {
+      "file": "export-success.png",
+      "width": 1080,
+      "height": 2400,
+      "sha256": "94de61244efb4ee749c54e24d33b3ebc01c77ee472fa3fcbec73455b26d4e8ef"
+    },
+    {
+      "file": "import-options.png",
+      "width": 1080,
+      "height": 2400,
+      "sha256": "80ae9a695caced2e3930f8ae02005700ddf28294f43c921a4bb541af06272dbf"
+    },
+    {
+      "file": "import-success.png",
+      "width": 1080,
+      "height": 2400,
+      "sha256": "f4de172d93165391dfc2d85e43a77f153c594496ad138c9a9bf3dbe846d27cf2"
+    },
+    {
+      "file": "landscape-competition.png",
+      "width": 2400,
+      "height": 1080,
+      "sha256": "a195d32a2af856c9451ae531fc7a22be7d4f22feddc3edb71ece2a5d47b80a00"
+    },
+    {
+      "file": "landscape-xc.png",
+      "width": 2400,
+      "height": 1080,
+      "sha256": "237de519e7668082b435a698bad7ce956e893a08a54831317502c64f6f571057"
+    },
+    {
+      "file": "pages-import-options.png",
+      "width": 1080,
+      "height": 2400,
+      "sha256": "901d53e8c5dfc1b35f4776ad2c5c3c6fcd30b4249eb5ac3f8a04d5abc99a79cf"
+    },
+    {
+      "file": "pages-import-success.png",
+      "width": 1080,
+      "height": 2400,
+      "sha256": "be6135e06a58f2d162e3dbeaa48524f6ee69cd866a9852e3f5e536986dd8f3bf"
+    },
+    {
+      "file": "portrait-competition.png",
+      "width": 1080,
+      "height": 2400,
+      "sha256": "901ff37168d35d211754be6beb5eac2a90551fb36f5a4b89db0b3939986b5f72"
+    },
+    {
+      "file": "portrait-xc.png",
+      "width": 1080,
+      "height": 2400,
+      "sha256": "55bdbca892b2f9c17a1b3056c9ba6a5c78c330e86153392185bc50a3e641e23f"
+    },
+    {
+      "file": "reimport-success.png",
+      "width": 2400,
+      "height": 1080,
+      "sha256": "2960127ebab81d0a86ec9a878100a0a77f9a2f57913a2842c801f6cac8a70be4"
+    }
+  ],
+  "conditions": {
+    "configuration": "user backup imported, unedited layout",
+    "language": "ru for flight screens; en for initial import UI",
+    "globalTheme": "BlackHCTheme",
+    "fullScreen": true,
+    "flightState": "stationary emulator GPS; inherited sensor configuration; no controlled flight replay",
+    "maps": "no local road/terrain datasets installed",
+    "goldenStatus": "native references only, not deterministic pixel goldens",
+    "orientationChange": "temporary native Display.Orientation change to landscape; restored by reimport of export1"
+  }
+}

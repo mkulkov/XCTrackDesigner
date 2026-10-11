@@ -1,0 +1,63 @@
+{
+  "name": "xctrack-screen-designer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local XCTrack screen editor for Windows",
+  "author": "mkulkov",
+  "main": ".local/desktop/main.cjs",
+  "type": "module",
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "scripts": {
+    "start": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/start-local.ps1",
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "desktop:prepare": "npm run build && node tools/build-desktop.mjs",
+    "desktop": "npm run desktop:prepare && electron .",
+    "desktop:pack": "npm run desktop:prepare && electron-builder --config electron-builder.json --win portable --x64 --publish never",
+    "desktop:test": "node tools/test-desktop.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write web tools/*.mjs tools/*.ts tests/*.test.ts tests/e2e *.json *.ts *.js",
+    "format:check": "prettier --check web tools/*.mjs tools/*.ts tests/*.test.ts tests/e2e *.json *.ts *.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:python": "python -m unittest discover -s tests -v",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm test && npm run test:python && vite build",
+    "doctor": "node tools/doctor.mjs",
+    "android:start": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/android.ps1 -Action Start",
+    "android:status": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/android.ps1 -Action Status",
+    "android:capture": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/android.ps1 -Action Capture",
+    "visual:diff": "node tools/png-diff.ts"
+  },
+  "dependencies": {
+    "lucide-react": "1.55.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.19.2",
+    "@types/pngjs": "6.0.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.28.2",
+    "eslint": "10.12.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "pixelmatch": "8.0.0",
+    "pngjs": "7.0.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.1",
+    "vite": "8.3.4",
+    "vitest": "5.0.3"
+  }
+}

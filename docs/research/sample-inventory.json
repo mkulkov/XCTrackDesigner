@@ -1,0 +1,2385 @@
+{
+  "sourceName": "sanitized-private-sample.xcfg",
+  "sha256": "6574578a818a0a83bc363a4d247d1582ddbc751a98a35a9dfff5da3861114c8b",
+  "byteLength": 57132,
+  "rootKeys": [
+    "airspaceSelectedChannels",
+    "info",
+    "layout",
+    "preferences"
+  ],
+  "version": {
+    "versionName": "0.9.12.6",
+    "versionCode": 91260,
+    "exportType": "backup"
+  },
+  "preferenceCount": 150,
+  "displayAndUnits": {
+    "Display.Fullscreen": true,
+    "Display.Orientation": "PORTRAIT",
+    "Display.RepaintInterval": "500",
+    "Display.WidgetTitleSize": "100",
+    "Display.WidgetTitleFont": "default",
+    "Display.WidgetTitleColor": -8421505,
+    "Display.WidgetTitleOutline": false,
+    "Display.WidgetTitleOutlineColor": -16777216,
+    "Display.Language": "ru",
+    "Display.Theme": "BlackHCTheme",
+    "Unit.Distance": "m,km",
+    "Unit.CompetitionDistance": "m,km",
+    "Unit.RelativeDistance": "km",
+    "Unit.Altitude": "m",
+    "Unit.AirspaceAltitude": "m",
+    "Unit.Speed": "km/h",
+    "Unit.WindSpeed": "m/s",
+    "Unit.VerticalSpeed": "m/s"
+  },
+  "pageCount": 4,
+  "widgetCount": 56,
+  "uniqueWidgetClasses": 23,
+  "classes": {
+    "org.xcontest.XCTrack.widget.w.WAMSL": 2,
+    "org.xcontest.XCTrack.widget.w.WAirTime": 2,
+    "org.xcontest.XCTrack.widget.w.WAltitude": 1,
+    "org.xcontest.XCTrack.widget.w.WAltitudeAboveGround": 3,
+    "org.xcontest.XCTrack.widget.w.WButtonNavig": 3,
+    "org.xcontest.XCTrack.widget.w.WButtonZoom": 4,
+    "org.xcontest.XCTrack.widget.w.WCompAltitudeOverGoal": 2,
+    "org.xcontest.XCTrack.widget.w.WCompGlideToGoal": 2,
+    "org.xcontest.XCTrack.widget.w.WCompMap": 2,
+    "org.xcontest.XCTrack.widget.w.WCompTaskSummary": 2,
+    "org.xcontest.XCTrack.widget.w.WGlide": 4,
+    "org.xcontest.XCTrack.widget.w.WNextTurnpointAlt": 2,
+    "org.xcontest.XCTrack.widget.w.WNextTurnpointGlideTo": 3,
+    "org.xcontest.XCTrack.widget.w.WNextTurnpointTimeOfArrival": 2,
+    "org.xcontest.XCTrack.widget.w.WSpeed": 4,
+    "org.xcontest.XCTrack.widget.w.WStatusLine": 3,
+    "org.xcontest.XCTrack.widget.w.WThermalAltGain": 2,
+    "org.xcontest.XCTrack.widget.w.WThermalAssistant": 2,
+    "org.xcontest.XCTrack.widget.w.WTime": 1,
+    "org.xcontest.XCTrack.widget.w.WVerticalSpeed": 4,
+    "org.xcontest.XCTrack.widget.w.WWindDirection": 2,
+    "org.xcontest.XCTrack.widget.w.WWindSpeed": 2,
+    "org.xcontest.XCTrack.widget.w.WXCAssistant": 2
+  },
+  "parameterKeysByClass": {
+    "org.xcontest.XCTrack.widget.w.WAMSL": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WAirTime": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "_title",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WAltitude": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "_units",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WAltitudeAboveGround": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WButtonNavig": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "longClick",
+      "type"
+    ],
+    "org.xcontest.XCTrack.widget.w.WButtonZoom": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "type"
+    ],
+    "org.xcontest.XCTrack.widget.w.WCompAltitudeOverGoal": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WCompGlideToGoal": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "headless",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WCompMap": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "fontSize",
+      "line_thickness",
+      "live_ShowFinalGlide",
+      "live_ShowFinalGlideAvg",
+      "live_ShowNearby",
+      "live_ShowTracklogs",
+      "mapWidget_KK7opacity",
+      "mapWidget_KK7timed",
+      "mapWidget_KK7timedOpacity",
+      "mapWidget_drawBearing",
+      "mapWidget_drawScale",
+      "mapWidget_emergencyObstacles",
+      "mapWidget_emergencyZoom",
+      "mapWidget_heading_arrow_sizecoef",
+      "mapWidget_mapAppearance",
+      "mapWidget_osmLanguage",
+      "mapWidget_panningAirspaceList",
+      "mapWidget_panningAirspaceListCycleSpeed",
+      "mapWidget_panningTimeout",
+      "mapWidget_pilotEdgeDistance",
+      "mapWidget_pilotPosCenter",
+      "mapWidget_scale",
+      "mapWidget_showAirspaces",
+      "mapWidget_showKK7",
+      "mapWidget_showRainRadar",
+      "mapWidget_showRelativePositionWhilePanning",
+      "nav_line",
+      "nav_showSun",
+      "nav_showWind",
+      "nav_target",
+      "nav_use_brackets",
+      "postponedDisplayDistance",
+      "postponedFloorLimit",
+      "rotation",
+      "thermals",
+      "tracklog_color",
+      "wpt_showCities",
+      "wpt_showTakeoffs",
+      "wpt_showWaypoints"
+    ],
+    "org.xcontest.XCTrack.widget.w.WCompTaskSummary": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme"
+    ],
+    "org.xcontest.XCTrack.widget.w.WGlide": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "avg",
+      "headless",
+      "showVario",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WNextTurnpointAlt": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "altitude",
+      "glide",
+      "navigation_target",
+      "speed_avg",
+      "titletext",
+      "use_brackets"
+    ],
+    "org.xcontest.XCTrack.widget.w.WNextTurnpointGlideTo": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "alt_above",
+      "headless",
+      "navigation_target",
+      "titletext",
+      "use_brackets"
+    ],
+    "org.xcontest.XCTrack.widget.w.WNextTurnpointTimeOfArrival": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "navigation_target",
+      "speed_avg",
+      "speed_type",
+      "time_format",
+      "titletext",
+      "use_brackets"
+    ],
+    "org.xcontest.XCTrack.widget.w.WSpeed": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "_units",
+      "backwardDetection",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WStatusLine": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "showBatteryIcon",
+      "showBatteryPercent",
+      "showGps",
+      "showLive",
+      "showLiveLabel",
+      "showSensors",
+      "showTime"
+    ],
+    "org.xcontest.XCTrack.widget.w.WThermalAltGain": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WThermalAssistant": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "drawCircle",
+      "drawScale",
+      "fontSize",
+      "includeWindAlgorithm",
+      "interval",
+      "line_thickness",
+      "mapScale",
+      "mapWidget_drawBearing",
+      "mapWidget_heading_arrow_sizecoef",
+      "mapWidget_showAirspaces",
+      "nav_line",
+      "nav_showSun",
+      "nav_showWind",
+      "nav_target",
+      "nav_use_brackets",
+      "postponedDisplayDistance",
+      "postponedFloorLimit",
+      "rotation",
+      "thermals"
+    ],
+    "org.xcontest.XCTrack.widget.w.WTime": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "_title",
+      "showSec",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WVerticalSpeed": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "avg",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WWindDirection": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "_title",
+      "degrees",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WWindSpeed": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_hide_labels",
+      "_theme",
+      "_title",
+      "_unit",
+      "titletext"
+    ],
+    "org.xcontest.XCTrack.widget.w.WXCAssistant": [
+      "CLASS",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2",
+      "_bg",
+      "_border",
+      "_theme",
+      "closingCircle",
+      "faiAreas",
+      "faiAreasMinMax",
+      "fontSize",
+      "legDistance",
+      "legPercentage",
+      "line_thickness",
+      "live_ShowFinalGlide",
+      "live_ShowFinalGlideAvg",
+      "live_ShowNearby",
+      "live_ShowTracklogs",
+      "mapWidget_KK7opacity",
+      "mapWidget_KK7timed",
+      "mapWidget_KK7timedOpacity",
+      "mapWidget_drawBearing",
+      "mapWidget_drawScale",
+      "mapWidget_emergencyObstacles",
+      "mapWidget_emergencyZoom",
+      "mapWidget_heading_arrow_sizecoef",
+      "mapWidget_mapAppearance",
+      "mapWidget_osmLanguage",
+      "mapWidget_panningAirspaceList",
+      "mapWidget_panningAirspaceListCycleSpeed",
+      "mapWidget_panningTimeout",
+      "mapWidget_pilotEdgeDistance",
+      "mapWidget_pilotPosCenter",
+      "mapWidget_scale",
+      "mapWidget_showAirspaces",
+      "mapWidget_showKK7",
+      "mapWidget_showRainRadar",
+      "mapWidget_showRelativePositionWhilePanning",
+      "nav_line",
+      "nav_showSun",
+      "nav_showWind",
+      "nav_target",
+      "nav_use_brackets",
+      "postponedDisplayDistance",
+      "postponedFloorLimit",
+      "rotation",
+      "routes",
+      "thermals",
+      "tracklog_color",
+      "wpt_showCities",
+      "wpt_showTakeoffs",
+      "wpt_showWaypoints"
+    ]
+  },
+  "pages": [
+    {
+      "path": "$.layout.landscape[0]",
+      "class": "org.xcontest.XCTrack.widget.wp.WPXCAssistant",
+      "keys": [
+        "CLASS",
+        "navigations",
+        "widgets"
+      ],
+      "widgetCount": 19,
+      "overlapPairs": [
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          3,
+          18
+        ]
+      ],
+      "widgets": [
+        {
+          "path": "$.layout.landscape[0].widgets[0]",
+          "class": "org.xcontest.XCTrack.widget.w.WAirTime",
+          "bounds": [
+            1500,
+            526,
+            3000,
+            1579
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "_title",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[1]",
+          "class": "org.xcontest.XCTrack.widget.w.WTime",
+          "bounds": [
+            0,
+            526,
+            1500,
+            1579
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "_title",
+            "showSec",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[2]",
+          "class": "org.xcontest.XCTrack.widget.w.WThermalAssistant",
+          "bounds": [
+            0,
+            1579,
+            3000,
+            8947
+          ],
+          "theme": "BlackTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "drawCircle",
+            "drawScale",
+            "fontSize",
+            "includeWindAlgorithm",
+            "interval",
+            "line_thickness",
+            "mapScale",
+            "mapWidget_drawBearing",
+            "mapWidget_heading_arrow_sizecoef",
+            "mapWidget_showAirspaces",
+            "nav_line",
+            "nav_showSun",
+            "nav_showWind",
+            "nav_target",
+            "nav_use_brackets",
+            "postponedDisplayDistance",
+            "postponedFloorLimit",
+            "rotation",
+            "thermals"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[3]",
+          "class": "org.xcontest.XCTrack.widget.w.WXCAssistant",
+          "bounds": [
+            3000,
+            0,
+            10000,
+            10000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "closingCircle",
+            "faiAreas",
+            "faiAreasMinMax",
+            "fontSize",
+            "legDistance",
+            "legPercentage",
+            "line_thickness",
+            "live_ShowFinalGlide",
+            "live_ShowFinalGlideAvg",
+            "live_ShowNearby",
+            "live_ShowTracklogs",
+            "mapWidget_KK7opacity",
+            "mapWidget_KK7timed",
+            "mapWidget_KK7timedOpacity",
+            "mapWidget_drawBearing",
+            "mapWidget_drawScale",
+            "mapWidget_emergencyObstacles",
+            "mapWidget_emergencyZoom",
+            "mapWidget_heading_arrow_sizecoef",
+            "mapWidget_mapAppearance",
+            "mapWidget_osmLanguage",
+            "mapWidget_panningAirspaceList",
+            "mapWidget_panningAirspaceListCycleSpeed",
+            "mapWidget_panningTimeout",
+            "mapWidget_pilotEdgeDistance",
+            "mapWidget_pilotPosCenter",
+            "mapWidget_scale",
+            "mapWidget_showAirspaces",
+            "mapWidget_showKK7",
+            "mapWidget_showRainRadar",
+            "mapWidget_showRelativePositionWhilePanning",
+            "nav_line",
+            "nav_showSun",
+            "nav_showWind",
+            "nav_target",
+            "nav_use_brackets",
+            "postponedDisplayDistance",
+            "postponedFloorLimit",
+            "rotation",
+            "routes",
+            "thermals",
+            "tracklog_color",
+            "wpt_showCities",
+            "wpt_showTakeoffs",
+            "wpt_showWaypoints"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[4]",
+          "class": "org.xcontest.XCTrack.widget.w.WStatusLine",
+          "bounds": [
+            0,
+            0,
+            3000,
+            526
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "showBatteryIcon",
+            "showBatteryPercent",
+            "showGps",
+            "showLive",
+            "showLiveLabel",
+            "showSensors",
+            "showTime"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[5]",
+          "class": "org.xcontest.XCTrack.widget.w.WAltitudeAboveGround",
+          "bounds": [
+            3000,
+            3158,
+            4500,
+            4737
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[6]",
+          "class": "org.xcontest.XCTrack.widget.w.WWindDirection",
+          "bounds": [
+            0,
+            8947,
+            1500,
+            10000
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "_title",
+            "degrees",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[7]",
+          "class": "org.xcontest.XCTrack.widget.w.WSpeed",
+          "bounds": [
+            3000,
+            0,
+            4500,
+            1579
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "_units",
+            "backwardDetection",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[8]",
+          "class": "org.xcontest.XCTrack.widget.w.WAltitude",
+          "bounds": [
+            3000,
+            1579,
+            4500,
+            3158
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "_units",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[9]",
+          "class": "org.xcontest.XCTrack.widget.w.WGlide",
+          "bounds": [
+            8500,
+            1579,
+            10000,
+            3158
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "headless",
+            "showVario",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[10]",
+          "class": "org.xcontest.XCTrack.widget.w.WVerticalSpeed",
+          "bounds": [
+            8500,
+            0,
+            10000,
+            1579
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[11]",
+          "class": "org.xcontest.XCTrack.widget.w.WButtonZoom",
+          "bounds": [
+            3750,
+            8421,
+            4500,
+            10000
+          ],
+          "theme": "",
+          "background": 80,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "type"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[12]",
+          "class": "org.xcontest.XCTrack.widget.w.WButtonZoom",
+          "bounds": [
+            3000,
+            8421,
+            3750,
+            10000
+          ],
+          "theme": "",
+          "background": 80,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "type"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[13]",
+          "class": "org.xcontest.XCTrack.widget.w.WThermalAltGain",
+          "bounds": [
+            1750,
+            7895,
+            3000,
+            8947
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[14]",
+          "class": "org.xcontest.XCTrack.widget.w.WWindSpeed",
+          "bounds": [
+            1500,
+            8947,
+            3000,
+            10000
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[15]",
+          "class": "org.xcontest.XCTrack.widget.w.WNextTurnpointGlideTo",
+          "bounds": [
+            8500,
+            3158,
+            10000,
+            4737
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "alt_above",
+            "headless",
+            "navigation_target",
+            "titletext",
+            "use_brackets"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[16]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompGlideToGoal",
+          "bounds": [
+            8500,
+            4737,
+            10000,
+            6316
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "headless",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[17]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompAltitudeOverGoal",
+          "bounds": [
+            3000,
+            6316,
+            4500,
+            7895
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[0].widgets[18]",
+          "class": "org.xcontest.XCTrack.widget.w.WNextTurnpointAlt",
+          "bounds": [
+            3000,
+            4737,
+            4500,
+            6316
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "altitude",
+            "glide",
+            "navigation_target",
+            "speed_avg",
+            "titletext",
+            "use_brackets"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "$.layout.landscape[1]",
+      "class": "org.xcontest.XCTrack.widget.wp.WPCompetition",
+      "keys": [
+        "CLASS",
+        "navigations",
+        "widgets"
+      ],
+      "widgetCount": 8,
+      "overlapPairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "widgets": [
+        {
+          "path": "$.layout.landscape[1].widgets[0]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompMap",
+          "bounds": [
+            3500,
+            0,
+            10000,
+            10000
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "fontSize",
+            "line_thickness",
+            "live_ShowFinalGlide",
+            "live_ShowFinalGlideAvg",
+            "live_ShowNearby",
+            "live_ShowTracklogs",
+            "mapWidget_KK7opacity",
+            "mapWidget_KK7timed",
+            "mapWidget_KK7timedOpacity",
+            "mapWidget_drawBearing",
+            "mapWidget_drawScale",
+            "mapWidget_emergencyObstacles",
+            "mapWidget_emergencyZoom",
+            "mapWidget_heading_arrow_sizecoef",
+            "mapWidget_mapAppearance",
+            "mapWidget_osmLanguage",
+            "mapWidget_panningAirspaceList",
+            "mapWidget_panningAirspaceListCycleSpeed",
+            "mapWidget_panningTimeout",
+            "mapWidget_pilotEdgeDistance",
+            "mapWidget_pilotPosCenter",
+            "mapWidget_scale",
+            "mapWidget_showAirspaces",
+            "mapWidget_showKK7",
+            "mapWidget_showRainRadar",
+            "mapWidget_showRelativePositionWhilePanning",
+            "nav_line",
+            "nav_showSun",
+            "nav_showWind",
+            "nav_target",
+            "nav_use_brackets",
+            "postponedDisplayDistance",
+            "postponedFloorLimit",
+            "rotation",
+            "thermals",
+            "tracklog_color",
+            "wpt_showCities",
+            "wpt_showTakeoffs",
+            "wpt_showWaypoints"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[1].widgets[1]",
+          "class": "org.xcontest.XCTrack.widget.w.WButtonZoom",
+          "bounds": [
+            7500,
+            8421,
+            8250,
+            10000
+          ],
+          "theme": "",
+          "background": 80,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "type"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[1].widgets[2]",
+          "class": "org.xcontest.XCTrack.widget.w.WButtonZoom",
+          "bounds": [
+            8500,
+            8421,
+            9250,
+            10000
+          ],
+          "theme": "",
+          "background": 80,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "type"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[1].widgets[3]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompTaskSummary",
+          "bounds": [
+            0,
+            0,
+            3500,
+            10000
+          ],
+          "theme": "",
+          "background": 0,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[1].widgets[4]",
+          "class": "org.xcontest.XCTrack.widget.w.WButtonNavig",
+          "bounds": [
+            3750,
+            0,
+            5000,
+            2632
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "longClick",
+            "type"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[1].widgets[5]",
+          "class": "org.xcontest.XCTrack.widget.w.WVerticalSpeed",
+          "bounds": [
+            8750,
+            0,
+            10000,
+            1579
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[1].widgets[6]",
+          "class": "org.xcontest.XCTrack.widget.w.WSpeed",
+          "bounds": [
+            5000,
+            0,
+            6250,
+            1579
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "_units",
+            "backwardDetection",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.landscape[1].widgets[7]",
+          "class": "org.xcontest.XCTrack.widget.w.WGlide",
+          "bounds": [
+            8750,
+            1579,
+            10000,
+            3158
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "headless",
+            "showVario",
+            "titletext"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "$.layout.portrait[0]",
+      "class": "org.xcontest.XCTrack.widget.wp.WPXCAssistant",
+      "keys": [
+        "CLASS",
+        "navigations",
+        "widgets"
+      ],
+      "widgetCount": 16,
+      "overlapPairs": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          15
+        ]
+      ],
+      "widgets": [
+        {
+          "path": "$.layout.portrait[0].widgets[0]",
+          "class": "org.xcontest.XCTrack.widget.w.WThermalAssistant",
+          "bounds": [
+            0,
+            0,
+            10000,
+            2500
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "drawCircle",
+            "drawScale",
+            "fontSize",
+            "includeWindAlgorithm",
+            "interval",
+            "line_thickness",
+            "mapScale",
+            "mapWidget_drawBearing",
+            "mapWidget_heading_arrow_sizecoef",
+            "mapWidget_showAirspaces",
+            "nav_line",
+            "nav_showSun",
+            "nav_showWind",
+            "nav_target",
+            "nav_use_brackets",
+            "postponedDisplayDistance",
+            "postponedFloorLimit",
+            "rotation",
+            "thermals"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[1]",
+          "class": "org.xcontest.XCTrack.widget.w.WStatusLine",
+          "bounds": [
+            0,
+            9500,
+            6842,
+            10000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "showBatteryIcon",
+            "showBatteryPercent",
+            "showGps",
+            "showLive",
+            "showLiveLabel",
+            "showSensors",
+            "showTime"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[2]",
+          "class": "org.xcontest.XCTrack.widget.w.WXCAssistant",
+          "bounds": [
+            0,
+            2500,
+            10000,
+            9500
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "closingCircle",
+            "faiAreas",
+            "faiAreasMinMax",
+            "fontSize",
+            "legDistance",
+            "legPercentage",
+            "line_thickness",
+            "live_ShowFinalGlide",
+            "live_ShowFinalGlideAvg",
+            "live_ShowNearby",
+            "live_ShowTracklogs",
+            "mapWidget_KK7opacity",
+            "mapWidget_KK7timed",
+            "mapWidget_KK7timedOpacity",
+            "mapWidget_drawBearing",
+            "mapWidget_drawScale",
+            "mapWidget_emergencyObstacles",
+            "mapWidget_emergencyZoom",
+            "mapWidget_heading_arrow_sizecoef",
+            "mapWidget_mapAppearance",
+            "mapWidget_osmLanguage",
+            "mapWidget_panningAirspaceList",
+            "mapWidget_panningAirspaceListCycleSpeed",
+            "mapWidget_panningTimeout",
+            "mapWidget_pilotEdgeDistance",
+            "mapWidget_pilotPosCenter",
+            "mapWidget_scale",
+            "mapWidget_showAirspaces",
+            "mapWidget_showKK7",
+            "mapWidget_showRainRadar",
+            "mapWidget_showRelativePositionWhilePanning",
+            "nav_line",
+            "nav_showSun",
+            "nav_showWind",
+            "nav_target",
+            "nav_use_brackets",
+            "postponedDisplayDistance",
+            "postponedFloorLimit",
+            "rotation",
+            "routes",
+            "thermals",
+            "tracklog_color",
+            "wpt_showCities",
+            "wpt_showTakeoffs",
+            "wpt_showWaypoints"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[3]",
+          "class": "org.xcontest.XCTrack.widget.w.WWindSpeed",
+          "bounds": [
+            0,
+            2000,
+            2105,
+            2500
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[4]",
+          "class": "org.xcontest.XCTrack.widget.w.WWindDirection",
+          "bounds": [
+            0,
+            1500,
+            2105,
+            2000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "_title",
+            "degrees",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[5]",
+          "class": "org.xcontest.XCTrack.widget.w.WThermalAltGain",
+          "bounds": [
+            7895,
+            2000,
+            10000,
+            2500
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[6]",
+          "class": "org.xcontest.XCTrack.widget.w.WSpeed",
+          "bounds": [
+            0,
+            2500,
+            2632,
+            3250
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "_units",
+            "backwardDetection",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[7]",
+          "class": "org.xcontest.XCTrack.widget.w.WAltitudeAboveGround",
+          "bounds": [
+            0,
+            3250,
+            2632,
+            4000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[8]",
+          "class": "org.xcontest.XCTrack.widget.w.WVerticalSpeed",
+          "bounds": [
+            7368,
+            2500,
+            10000,
+            3250
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[9]",
+          "class": "org.xcontest.XCTrack.widget.w.WGlide",
+          "bounds": [
+            7368,
+            3250,
+            10000,
+            4000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "headless",
+            "showVario",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[10]",
+          "class": "org.xcontest.XCTrack.widget.w.WNextTurnpointGlideTo",
+          "bounds": [
+            7368,
+            4000,
+            10000,
+            4750
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "alt_above",
+            "headless",
+            "navigation_target",
+            "titletext",
+            "use_brackets"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[11]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompGlideToGoal",
+          "bounds": [
+            7368,
+            5500,
+            10000,
+            6250
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "headless",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[12]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompAltitudeOverGoal",
+          "bounds": [
+            0,
+            4750,
+            2632,
+            5500
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[13]",
+          "class": "org.xcontest.XCTrack.widget.w.WAMSL",
+          "bounds": [
+            0,
+            4000,
+            2632,
+            4750
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[14]",
+          "class": "org.xcontest.XCTrack.widget.w.WAirTime",
+          "bounds": [
+            6842,
+            9500,
+            10000,
+            10000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "_title",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[0].widgets[15]",
+          "class": "org.xcontest.XCTrack.widget.w.WNextTurnpointTimeOfArrival",
+          "bounds": [
+            7368,
+            4750,
+            10000,
+            5500
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "navigation_target",
+            "speed_avg",
+            "speed_type",
+            "time_format",
+            "titletext",
+            "use_brackets"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "$.layout.portrait[1]",
+      "class": "org.xcontest.XCTrack.widget.wp.WPCompetition",
+      "keys": [
+        "CLASS",
+        "navigations",
+        "widgets"
+      ],
+      "widgetCount": 13,
+      "overlapPairs": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "widgets": [
+        {
+          "path": "$.layout.portrait[1].widgets[0]",
+          "class": "org.xcontest.XCTrack.widget.w.WStatusLine",
+          "bounds": [
+            0,
+            0,
+            10000,
+            250
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "showBatteryIcon",
+            "showBatteryPercent",
+            "showGps",
+            "showLive",
+            "showLiveLabel",
+            "showSensors",
+            "showTime"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[1]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompTaskSummary",
+          "bounds": [
+            0,
+            6750,
+            10000,
+            10000
+          ],
+          "theme": "WhiteTheme",
+          "background": 0,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[2]",
+          "class": "org.xcontest.XCTrack.widget.w.WCompMap",
+          "bounds": [
+            0,
+            250,
+            10000,
+            6750
+          ],
+          "theme": "",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "fontSize",
+            "line_thickness",
+            "live_ShowFinalGlide",
+            "live_ShowFinalGlideAvg",
+            "live_ShowNearby",
+            "live_ShowTracklogs",
+            "mapWidget_KK7opacity",
+            "mapWidget_KK7timed",
+            "mapWidget_KK7timedOpacity",
+            "mapWidget_drawBearing",
+            "mapWidget_drawScale",
+            "mapWidget_emergencyObstacles",
+            "mapWidget_emergencyZoom",
+            "mapWidget_heading_arrow_sizecoef",
+            "mapWidget_mapAppearance",
+            "mapWidget_osmLanguage",
+            "mapWidget_panningAirspaceList",
+            "mapWidget_panningAirspaceListCycleSpeed",
+            "mapWidget_panningTimeout",
+            "mapWidget_pilotEdgeDistance",
+            "mapWidget_pilotPosCenter",
+            "mapWidget_scale",
+            "mapWidget_showAirspaces",
+            "mapWidget_showKK7",
+            "mapWidget_showRainRadar",
+            "mapWidget_showRelativePositionWhilePanning",
+            "nav_line",
+            "nav_showSun",
+            "nav_showWind",
+            "nav_target",
+            "nav_use_brackets",
+            "postponedDisplayDistance",
+            "postponedFloorLimit",
+            "rotation",
+            "thermals",
+            "tracklog_color",
+            "wpt_showCities",
+            "wpt_showTakeoffs",
+            "wpt_showWaypoints"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[3]",
+          "class": "org.xcontest.XCTrack.widget.w.WButtonNavig",
+          "bounds": [
+            0,
+            250,
+            2105,
+            1250
+          ],
+          "theme": "WhiteTheme",
+          "background": 50,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "longClick",
+            "type"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[4]",
+          "class": "org.xcontest.XCTrack.widget.w.WAltitudeAboveGround",
+          "bounds": [
+            2105,
+            250,
+            4737,
+            1000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[5]",
+          "class": "org.xcontest.XCTrack.widget.w.WVerticalSpeed",
+          "bounds": [
+            7368,
+            250,
+            10000,
+            1000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[6]",
+          "class": "org.xcontest.XCTrack.widget.w.WSpeed",
+          "bounds": [
+            4737,
+            250,
+            7368,
+            1000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "_units",
+            "backwardDetection",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[7]",
+          "class": "org.xcontest.XCTrack.widget.w.WGlide",
+          "bounds": [
+            7368,
+            1000,
+            10000,
+            1750
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "avg",
+            "headless",
+            "showVario",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[8]",
+          "class": "org.xcontest.XCTrack.widget.w.WAMSL",
+          "bounds": [
+            7368,
+            1750,
+            10000,
+            2500
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "titletext"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[9]",
+          "class": "org.xcontest.XCTrack.widget.w.WNextTurnpointAlt",
+          "bounds": [
+            7368,
+            5000,
+            10000,
+            5750
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "altitude",
+            "glide",
+            "navigation_target",
+            "speed_avg",
+            "titletext",
+            "use_brackets"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[10]",
+          "class": "org.xcontest.XCTrack.widget.w.WNextTurnpointGlideTo",
+          "bounds": [
+            7368,
+            4250,
+            10000,
+            5000
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "alt_above",
+            "headless",
+            "navigation_target",
+            "titletext",
+            "use_brackets"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[11]",
+          "class": "org.xcontest.XCTrack.widget.w.WButtonNavig",
+          "bounds": [
+            0,
+            1250,
+            2105,
+            2250
+          ],
+          "theme": "WhiteTheme",
+          "background": 50,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_theme",
+            "longClick",
+            "type"
+          ]
+        },
+        {
+          "path": "$.layout.portrait[1].widgets[12]",
+          "class": "org.xcontest.XCTrack.widget.w.WNextTurnpointTimeOfArrival",
+          "bounds": [
+            7368,
+            2500,
+            10000,
+            3250
+          ],
+          "theme": "WhiteTheme",
+          "background": 100,
+          "keys": [
+            "CLASS",
+            "X1",
+            "X2",
+            "Y1",
+            "Y2",
+            "_bg",
+            "_border",
+            "_hide_labels",
+            "_theme",
+            "_title",
+            "_unit",
+            "navigation_target",
+            "speed_avg",
+            "speed_type",
+            "time_format",
+            "titletext",
+            "use_brackets"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [],
+  "scope": "Inventory of primary layout only; not a full schema or XCTrack import validation"
+}

@@ -1,0 +1,22 @@
+{
+  "profile": "0.9.12.6 / 91260",
+  "serial": "emulator-5554",
+  "webExportSha256": "ecdc2f7710b140bbd81f821a04ad71a19fa3162363d9afa4b8101e682fcdd7ca",
+  "nativeExportSha256": "43b215068f000c840c147a784f5a4adc551e8d3495eb9fc6964ea0c6d5cf38aa",
+  "specifiedLayoutFieldsPreserved": true,
+  "preferencesUnchanged": true,
+  "nativeAddedDefaults": [
+    "/layout/portrait/0/widgets/1/_theme",
+    "/layout/portrait/0/widgets/1/titletext",
+    "/layout/portrait/0/widgets/1/_units",
+    "/layout/portrait/0/widgets/1/backwardDetection",
+    "/layout/landscape/0/widgets/0/_theme",
+    "/layout/landscape/0/widgets/0/titletext",
+    "/layout/landscape/0/widgets/0/_units",
+    "/layout/landscape/0/widgets/0/backwardDetection",
+    "/layout/landscape/0/widgets/1/_theme",
+    "/layout/landscape/0/widgets/1/titletext",
+    "/layout/landscape/0/widgets/1/avg"
+  ],
+  "restoredFrom": "private-backup.xcfg"
+}

@@ -1,0 +1,4116 @@
+[
+  {
+    "name": "WStatusLine",
+    "title": "Статус",
+    "titleEn": "Status Line",
+    "group": "wgSystem",
+    "groupTitle": "Система",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "showGps",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "showSensors",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "showLive",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "showLiveLabel",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "showBatteryIcon",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "showBatteryPercent",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "showTime",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WBrightnessInfo",
+    "title": "Яркость дисплея",
+    "titleEn": "Brightness of the display",
+    "group": "wgSystem",
+    "groupTitle": "Система",
+    "family": "text",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WLastEvent",
+    "title": "Последнее событие",
+    "titleEn": "Last event",
+    "group": "wgSystem",
+    "groupTitle": "Система",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WTime",
+    "title": "Время",
+    "titleEn": "Time",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "showSec",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "WSpeed",
+    "title": "Скорость",
+    "titleEn": "Speed",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_units",
+        "type": "enum",
+        "default": "SYS_UNIT"
+      },
+      {
+        "key": "backwardDetection",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WAirSpeed",
+    "title": "Воздушная скорость",
+    "titleEn": "Airspeed",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "speed_type",
+        "type": "enum",
+        "default": "TAS"
+      },
+      {
+        "key": "speed_avg",
+        "type": "integer",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "WBearing",
+    "title": "Курс",
+    "titleEn": "Bearing",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "degrees",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WAltitude",
+    "title": "GPS Высота",
+    "titleEn": "GPS Alt",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_units",
+        "type": "enum",
+        "default": "SYS_UNIT"
+      }
+    ]
+  },
+  {
+    "name": "WBaroAltitude",
+    "title": "Высота по барометру",
+    "titleEn": "Baro Alt",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_units",
+        "type": "enum",
+        "default": "SYS_UNIT"
+      },
+      {
+        "key": "_altType",
+        "type": "enum",
+        "default": "QNH"
+      }
+    ]
+  },
+  {
+    "name": "WAMSL",
+    "title": "AMSL",
+    "titleEn": "AMSL",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WFL",
+    "title": "Эшелон",
+    "titleEn": "Flight Level",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_decimals",
+        "type": "enum",
+        "default": "0"
+      }
+    ]
+  },
+  {
+    "name": "WAltitudeAboveGround",
+    "title": "Высота над землей",
+    "titleEn": "AGL",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WTakeoffHeightAbove",
+    "title": "Высота над стартом",
+    "titleEn": "Altitude above takeoff",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WVerticalSpeed",
+    "title": "Вертикальная скорость",
+    "titleEn": "Vertical speed",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "avg",
+        "type": "integer",
+        "default": 2000
+      }
+    ]
+  },
+  {
+    "name": "WVarioColumn",
+    "title": "Шкала варио",
+    "titleEn": "Vario bar",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "avg",
+        "type": "integer",
+        "default": 2000
+      }
+    ]
+  },
+  {
+    "name": "WGlide",
+    "title": "Качество",
+    "titleEn": "Glide Ratio",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "showVario",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "avg",
+        "type": "integer",
+        "default": 2000
+      },
+      {
+        "key": "headless",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WLocation",
+    "title": "Местоположение",
+    "titleEn": "Location",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_format",
+        "type": "enum",
+        "default": "DEG"
+      }
+    ]
+  },
+  {
+    "name": "WAirTime",
+    "title": "Время полета",
+    "titleEn": "Air time",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WSunset",
+    "title": "Закат",
+    "titleEn": "Sunset",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "relative",
+        "type": "enum",
+        "default": "ABSOLUTE_TIME"
+      },
+      {
+        "key": "showBefore",
+        "type": "integer",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "WSunsetCivil",
+    "title": "Гражданские сумерки",
+    "titleEn": "Civil twilight",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "relative",
+        "type": "enum",
+        "default": "ABSOLUTE_TIME"
+      },
+      {
+        "key": "showBefore",
+        "type": "integer",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "WVerticalGraph",
+    "title": "Вертикальный график",
+    "titleEn": "Vertical graph",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "interval",
+        "type": "integer",
+        "default": 60000
+      },
+      {
+        "key": "vertical_step",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "dot_size",
+        "type": "integer",
+        "default": 15
+      },
+      {
+        "key": "dot_color",
+        "type": "color",
+        "default": -8355585
+      }
+    ]
+  },
+  {
+    "name": "WAltitudeMaximum",
+    "title": "Максимальная высота",
+    "titleEn": "Max altitude",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WNettoVario",
+    "title": "Нетто варио",
+    "titleEn": "Netto vario",
+    "group": "wgFlying",
+    "groupTitle": "Полет",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "netto_avg",
+        "type": "integer",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "WWindSpeed",
+    "title": "Скорость ветра",
+    "titleEn": "Wind Speed",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WWindDirection",
+    "title": "Направление ветра",
+    "titleEn": "Wind Direction",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "degrees",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WThermalAssistant",
+    "title": "Помощник в термике",
+    "titleEn": "Thermal Assistant",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "rotation",
+        "type": "enum",
+        "default": {
+          "value": "NORTH_AT_TOP",
+          "showCompass": false
+        }
+      },
+      {
+        "key": "mapScale",
+        "type": "scale",
+        "default": {
+          "value": 34,
+          "auto": false,
+          "resetZoomPanExit": false
+        }
+      },
+      {
+        "key": "drawScale",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "fontSize",
+        "type": "enum",
+        "default": "SMALL"
+      },
+      {
+        "key": "mapWidget_heading_arrow_sizecoef",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "mapWidget_showAirspaces",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "postponedFloorLimit",
+        "type": "integer",
+        "default": 5000
+      },
+      {
+        "key": "postponedDisplayDistance",
+        "type": "integer",
+        "default": 300
+      },
+      {
+        "key": "interval",
+        "type": "integer",
+        "default": 300
+      },
+      {
+        "key": "drawCircle",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "includeWindAlgorithm",
+        "type": "enum",
+        "default": "ALGO_CLASSIC"
+      },
+      {
+        "key": "nav_target",
+        "type": "string",
+        "default": "NONE"
+      },
+      {
+        "key": "nav_use_brackets",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "nav_line",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "thermals",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "nav_showWind",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "nav_showSun",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "line_thickness",
+        "type": "integer",
+        "default": 10
+      },
+      {
+        "key": "mapWidget_drawBearing",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "WThermalAltGain",
+    "title": "Выигрыш в термике",
+    "titleEn": "Thermal gain",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WAltitudeDataGraph",
+    "title": "Статистика высот",
+    "titleEn": "Altitude statistics",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "graphic",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "type",
+        "type": "enum",
+        "default": "GRAPH_THERMAL"
+      },
+      {
+        "key": "text_size",
+        "type": "integer",
+        "default": 20
+      },
+      {
+        "key": "line_thickness",
+        "type": "integer",
+        "default": 10
+      },
+      {
+        "key": "color_thermal",
+        "type": "color",
+        "default": -2147483393
+      },
+      {
+        "key": "color_wind",
+        "type": "color",
+        "default": -2136956896
+      },
+      {
+        "key": "color_speed",
+        "type": "color"
+      }
+    ]
+  },
+  {
+    "name": "WQNH",
+    "title": "Атмосферное давление в данной точке",
+    "titleEn": "QNH",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WAirTemperature",
+    "title": "Температура воздуха",
+    "titleEn": "Air Temperature",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_units",
+        "type": "enum",
+        "default": "CELSIUS"
+      }
+    ]
+  },
+  {
+    "name": "WAirHumidity",
+    "title": "Влажность воздуха",
+    "titleEn": "Air Humidity",
+    "group": "wgAir",
+    "groupTitle": "Воздух",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WXCAssistant",
+    "title": "Карта",
+    "titleEn": "XC map",
+    "group": "wgXContest",
+    "groupTitle": "XContest",
+    "family": "map",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "mapWidget_mapAppearance",
+        "type": "json",
+        "default": {
+          "theme": "None",
+          "terrain": "None"
+        }
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "rotation",
+        "type": "enum",
+        "default": {
+          "value": "NORTH_AT_TOP",
+          "showCompass": false
+        }
+      },
+      {
+        "key": "mapWidget_scale",
+        "type": "scale",
+        "default": {
+          "value": 26,
+          "auto": false,
+          "resetZoomPanExit": false
+        }
+      },
+      {
+        "key": "mapWidget_pilotPosCenter",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_pilotEdgeDistance",
+        "type": "integer",
+        "default": 20
+      },
+      {
+        "key": "mapWidget_drawScale",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_showRelativePositionWhilePanning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_osmLanguage",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "mapWidget_showRainRadar",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_showKK7",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_KK7opacity",
+        "type": "integer",
+        "default": 40
+      },
+      {
+        "key": "mapWidget_KK7timed",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_KK7timedOpacity",
+        "type": "integer",
+        "default": 80
+      },
+      {
+        "key": "mapWidget_showAirspaces",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_emergencyObstacles",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_emergencyZoom",
+        "type": "scale",
+        "default": {
+          "value": 35,
+          "auto": true,
+          "resetZoomPanExit": false
+        }
+      },
+      {
+        "key": "mapWidget_panningTimeout",
+        "type": "integer",
+        "default": 60
+      },
+      {
+        "key": "mapWidget_panningAirspaceList",
+        "type": "enum",
+        "default": "TOP_LIST_ONLY"
+      },
+      {
+        "key": "mapWidget_panningAirspaceListCycleSpeed",
+        "type": "integer",
+        "default": 2000
+      },
+      {
+        "key": "live_ShowNearby",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "live_ShowTracklogs",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "wpt_showWaypoints",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "wpt_showCities",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "wpt_showTakeoffs",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "nav_target",
+        "type": "string",
+        "default": "NONE"
+      },
+      {
+        "key": "nav_use_brackets",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "nav_line",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "thermals",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "nav_showWind",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "nav_showSun",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_drawBearing",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "live_ShowFinalGlide",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "live_ShowFinalGlideAvg",
+        "type": "integer",
+        "default": 10000
+      },
+      {
+        "key": "line_thickness",
+        "type": "integer",
+        "default": 10
+      },
+      {
+        "key": "tracklog_color",
+        "type": "color",
+        "default": -27091
+      },
+      {
+        "key": "mapWidget_heading_arrow_sizecoef",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "fontSize",
+        "type": "enum",
+        "default": "SMALL"
+      },
+      {
+        "key": "postponedFloorLimit",
+        "type": "integer",
+        "default": 5000
+      },
+      {
+        "key": "postponedDisplayDistance",
+        "type": "integer",
+        "default": 300
+      },
+      {
+        "key": "routes",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "faiAreas",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "faiAreasMinMax",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "legDistance",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "legPercentage",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "closingCircle",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WOptiResult",
+    "title": "XC дистанция полета",
+    "titleEn": "XC Distance",
+    "group": "wgXContest",
+    "groupTitle": "XContest",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WOptiUnfinishedTriangle",
+    "title": "НЕЗАВЕРШЕННЫЙ Треугольник",
+    "titleEn": "UNFINISHED Triangle",
+    "group": "wgXContest",
+    "groupTitle": "XContest",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WXCSpeed",
+    "title": "Средняя XC скорость",
+    "titleEn": "Average XC speed",
+    "group": "wgXContest",
+    "groupTitle": "XContest",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompass",
+    "title": "Компас и ветер",
+    "titleEn": "Compass and wind",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "rotation",
+        "type": "enum",
+        "default": "HEADING"
+      },
+      {
+        "key": "navigation_target",
+        "type": "enum",
+        "default": "OPTIMIZED"
+      },
+      {
+        "key": "showWind",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "newWindArrow",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "showHeading",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "showBearing",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "showBackground",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "WCompassDigital",
+    "title": "Цифровой компас",
+    "titleEn": "Digital compass",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "target",
+        "type": "enum",
+        "default": "N_NAVIGATION"
+      },
+      {
+        "key": "relative",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "WSideView",
+    "title": "Вид сбоку",
+    "titleEn": "Side view",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "type",
+        "type": "enum",
+        "default": "SIDE_BEARING"
+      },
+      {
+        "key": "distance",
+        "type": "integer",
+        "default": 15000
+      },
+      {
+        "key": "finalGlideAvg",
+        "type": "integer",
+        "default": 10000
+      }
+    ]
+  },
+  {
+    "name": "WNextTurnpoint",
+    "title": "Следующая точка",
+    "titleEn": "Next Turnpoint",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WNextTurnpointDistance",
+    "title": "Дистанция до следующей",
+    "titleEn": "Distance Next",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "navigation_target",
+        "type": "enum",
+        "default": "OPTIMIZED"
+      },
+      {
+        "key": "use_brackets",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "WNextTurnpointTimeOfArrival",
+    "title": "Время прибытия к следующему поворотному пункту",
+    "titleEn": "Next TP TOA",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "navigation_target",
+        "type": "enum",
+        "default": "OPTIMIZED"
+      },
+      {
+        "key": "use_brackets",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "speed_type",
+        "type": "enum",
+        "default": "GROUND"
+      },
+      {
+        "key": "speed_avg",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "time_format",
+        "type": "enum",
+        "default": "COMPACT"
+      }
+    ]
+  },
+  {
+    "name": "WNextTurnpointAlt",
+    "title": "Следующая высота поворотного пункта",
+    "titleEn": "Next TP Height",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "navigation_target",
+        "type": "enum",
+        "default": "OPTIMIZED"
+      },
+      {
+        "key": "use_brackets",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "speed_avg",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "altitude",
+        "type": "enum",
+        "default": "AGL"
+      },
+      {
+        "key": "glide",
+        "type": "enum",
+        "default": "COMPUTED"
+      }
+    ]
+  },
+  {
+    "name": "WNextTurnpointGlideTo",
+    "title": "Аэродинамическое качество к поворотному пункту",
+    "titleEn": "Glide Ratio to TP",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "navigation_target",
+        "type": "enum",
+        "default": "OPTIMIZED"
+      },
+      {
+        "key": "use_brackets",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "alt_above",
+        "type": "integer",
+        "default": 500
+      },
+      {
+        "key": "headless",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WAirspaceProximity",
+    "title": "Близость к запретным зонам",
+    "titleEn": "Airspace proximity",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "maxDistance",
+        "type": "integer",
+        "default": 5000
+      },
+      {
+        "key": "_shownearinside",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_showoriginalheightline",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_showrecomputedheightline",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_splitdirection",
+        "type": "enum",
+        "default": "AUTO"
+      },
+      {
+        "key": "postponedFloorLimit",
+        "type": "integer",
+        "default": 5000
+      },
+      {
+        "key": "postponedDisplayDistance",
+        "type": "integer",
+        "default": 300
+      }
+    ]
+  },
+  {
+    "name": "WTakeoffDistance",
+    "title": "Дистанция от старта",
+    "titleEn": "Distance from takeoff",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WTakeoffCourse",
+    "title": "Курс на старт",
+    "titleEn": "Course to takeoff",
+    "group": "wgNavigation",
+    "groupTitle": "Навигация",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "degrees",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompMap",
+    "title": "Карта таска",
+    "titleEn": "Task map",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "map",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "mapWidget_mapAppearance",
+        "type": "json",
+        "default": {
+          "theme": "None",
+          "terrain": "None"
+        }
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "rotation",
+        "type": "enum",
+        "default": {
+          "value": "NORTH_AT_TOP",
+          "showCompass": false
+        }
+      },
+      {
+        "key": "mapWidget_scale",
+        "type": "scale",
+        "default": {
+          "value": 26,
+          "auto": true,
+          "resetZoomPanExit": false
+        }
+      },
+      {
+        "key": "mapWidget_pilotPosCenter",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_pilotEdgeDistance",
+        "type": "integer",
+        "default": 20
+      },
+      {
+        "key": "mapWidget_drawScale",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_showRelativePositionWhilePanning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_osmLanguage",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "mapWidget_showRainRadar",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_showKK7",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_KK7opacity",
+        "type": "integer",
+        "default": 40
+      },
+      {
+        "key": "mapWidget_KK7timed",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_KK7timedOpacity",
+        "type": "integer",
+        "default": 80
+      },
+      {
+        "key": "mapWidget_showAirspaces",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_emergencyObstacles",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "mapWidget_emergencyZoom",
+        "type": "scale",
+        "default": {
+          "value": 35,
+          "auto": true,
+          "resetZoomPanExit": false
+        }
+      },
+      {
+        "key": "mapWidget_panningTimeout",
+        "type": "integer",
+        "default": 60
+      },
+      {
+        "key": "mapWidget_panningAirspaceList",
+        "type": "enum",
+        "default": "TOP_LIST_ONLY"
+      },
+      {
+        "key": "mapWidget_panningAirspaceListCycleSpeed",
+        "type": "integer",
+        "default": 2000
+      },
+      {
+        "key": "live_ShowNearby",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "live_ShowTracklogs",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "wpt_showWaypoints",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "wpt_showCities",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "wpt_showTakeoffs",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "nav_target",
+        "type": "string",
+        "default": "NONE"
+      },
+      {
+        "key": "nav_use_brackets",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "nav_line",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "thermals",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "nav_showWind",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "nav_showSun",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "mapWidget_drawBearing",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "live_ShowFinalGlide",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "live_ShowFinalGlideAvg",
+        "type": "integer",
+        "default": 10000
+      },
+      {
+        "key": "line_thickness",
+        "type": "integer",
+        "default": 10
+      },
+      {
+        "key": "tracklog_color",
+        "type": "color",
+        "default": -27091
+      },
+      {
+        "key": "mapWidget_heading_arrow_sizecoef",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "fontSize",
+        "type": "enum",
+        "default": "SMALL"
+      },
+      {
+        "key": "postponedFloorLimit",
+        "type": "integer",
+        "default": 5000
+      },
+      {
+        "key": "postponedDisplayDistance",
+        "type": "integer",
+        "default": 300
+      }
+    ]
+  },
+  {
+    "name": "WCompDistanceToGoal",
+    "title": "Дистанция до финиша",
+    "titleEn": "Distance to goal",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompDistanceToESS",
+    "title": "Расстояние до ESS",
+    "titleEn": "Distance to ESS",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompAltitudeOverGoal",
+    "title": "Высота над финишем",
+    "titleEn": "Altitude over goal",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompAltitudeOverESS",
+    "title": "Высота над ESS",
+    "titleEn": "Altitude over ESS",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompGlideToGoal",
+    "title": "Качество до финиша",
+    "titleEn": "Glide to goal",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "headless",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompGlideToESS",
+    "title": "Качество до ESS",
+    "titleEn": "Glide to ESS",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "headless",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompTimeToStart",
+    "title": "Время до старта",
+    "titleEn": "Time to start",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompTimeAtStart",
+    "title": "Время старта",
+    "titleEn": "Time at start",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "navigation_target",
+        "type": "enum",
+        "default": "OPTIMIZED"
+      },
+      {
+        "key": "use_brackets",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "speed_type",
+        "type": "enum",
+        "default": "GROUND"
+      },
+      {
+        "key": "speed_avg",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "time_format",
+        "type": "enum",
+        "default": "COMPACT"
+      }
+    ]
+  },
+  {
+    "name": "WCompSpeedToStart",
+    "title": "Скорость до старта",
+    "titleEn": "Speed to start",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "navigation_target",
+        "type": "enum",
+        "default": "OPTIMIZED"
+      },
+      {
+        "key": "use_brackets",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "WCompPercentage",
+    "title": "% от скоростной секции",
+    "titleEn": "% of speed section",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "value",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_unit",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WCompTaskSummary",
+    "title": "Таск итого",
+    "titleEn": "Task summary",
+    "group": "wgCompetition",
+    "groupTitle": "Соревнования",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WLiveMessage",
+    "title": "Входящие сообщения",
+    "titleEn": "Incoming messages",
+    "group": "wgLivetracking",
+    "groupTitle": "Отслеживание",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "line_count",
+        "type": "integer",
+        "default": 2
+      },
+      {
+        "key": "show_time",
+        "type": "integer",
+        "default": 300
+      }
+    ]
+  },
+  {
+    "name": "WButtonNavig",
+    "title": "Навигация",
+    "titleEn": "Navigation buttons",
+    "group": "wgButtons",
+    "groupTitle": "Действие",
+    "family": "button",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "longClick",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "type",
+        "type": "enum",
+        "default": "ACTION_NEXT_WAYPOINT"
+      }
+    ]
+  },
+  {
+    "name": "WButtonPhone",
+    "title": "Телефон",
+    "titleEn": "Phone button",
+    "group": "wgButtons",
+    "groupTitle": "Действие",
+    "family": "button",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "contact",
+        "type": "unknown",
+        "default": {
+          "fullName": "",
+          "phoneNumber": ""
+        }
+      },
+      {
+        "key": "showContactName",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "callType",
+        "type": "enum",
+        "default": "C_DIAL"
+      },
+      {
+        "key": "backgroundCall",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WButtonCamera",
+    "title": "Камера",
+    "titleEn": "Camera app button",
+    "group": "wgButtons",
+    "groupTitle": "Действие",
+    "family": "button",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "longClick",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "WButtonZoom",
+    "title": "Масштабирование",
+    "titleEn": "Map zoom button",
+    "group": "wgButtons",
+    "groupTitle": "Действие",
+    "family": "button",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "type",
+        "type": "enum",
+        "default": "ACTION_ZOOM_IN"
+      }
+    ]
+  },
+  {
+    "name": "WButtonVario",
+    "title": "Вариометр",
+    "titleEn": "Vario button",
+    "group": "wgButtons",
+    "groupTitle": "Действие",
+    "family": "button",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "showTitle",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "longClick",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "WButtonBrightness",
+    "title": "Яркость дисплея",
+    "titleEn": "Display brightness",
+    "group": "wgButtons",
+    "groupTitle": "Действие",
+    "family": "button",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "longClick",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "type",
+        "type": "enum",
+        "default": "ACTION_PLUS"
+      }
+    ]
+  },
+  {
+    "name": "WButtonIntentLauncher",
+    "title": "Запуск Intent",
+    "titleEn": "Intent launcher",
+    "group": "wgButtons",
+    "groupTitle": "Действие",
+    "family": "button",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 50
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "longClick",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "name",
+        "type": "string",
+        "default": "test"
+      },
+      {
+        "key": "action",
+        "type": "string",
+        "default": "org.xcontest.XCTrack.Event.TEST"
+      }
+    ]
+  },
+  {
+    "name": "WFreeText",
+    "title": "Текст",
+    "titleEn": "Free text",
+    "group": "wgOthers",
+    "groupTitle": "Прочее",
+    "family": "free-text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "text",
+        "type": "string",
+        "default": "Change me in widget settings"
+      },
+      {
+        "key": "color_text",
+        "type": "color",
+        "default": -16777216
+      },
+      {
+        "key": "color_bg",
+        "type": "color",
+        "default": 16777215
+      },
+      {
+        "key": "text_size",
+        "type": "integer",
+        "default": 25
+      },
+      {
+        "key": "text_bold",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "text_italic",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "text_padding",
+        "type": "integer",
+        "default": 10
+      }
+    ]
+  },
+  {
+    "name": "WWebView",
+    "title": "Веб-сайт",
+    "titleEn": "Web page",
+    "group": "wgOthers",
+    "groupTitle": "Прочее",
+    "family": "webview",
+    "pro": true,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "url",
+        "type": "string",
+        "default": "https://www.google.com/"
+      },
+      {
+        "key": "initialScale",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "scrollSettings",
+        "type": "integer-pair",
+        "default": [0, 0]
+      },
+      {
+        "key": "refreshInterval",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "key": "allowGsp",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "allowXCTrackJS",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "allowClickPassing",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "allowInteraction",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "saveButtonPos",
+        "type": "enum",
+        "default": "BOT_RIGHT"
+      }
+    ]
+  },
+  {
+    "name": "WExternalData",
+    "title": "Отображение внешних данных",
+    "titleEn": "External data display",
+    "group": "wgOthers",
+    "groupTitle": "Прочее",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_hide_labels",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "index",
+        "type": "enum",
+        "default": "1"
+      },
+      {
+        "key": "suffix",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WLastKey",
+    "title": "Последняя нажатая кнопка",
+    "titleEn": "Last key pressed",
+    "group": "wgTesting",
+    "groupTitle": "Тест",
+    "family": "text",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WLogPeek",
+    "title": "Конец лог-файла",
+    "titleEn": "Tail of the log",
+    "group": "wgTesting",
+    "groupTitle": "Тест",
+    "family": "graphic",
+    "pro": false,
+    "debugOnly": false,
+    "settings": [
+      {
+        "key": "_border",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "_bg",
+        "type": "integer",
+        "default": 100
+      },
+      {
+        "key": "_theme",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "lines_count",
+        "type": "integer",
+        "default": 25
+      },
+      {
+        "key": "reverse",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "key": "filter",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "key": "color_text",
+        "type": "color",
+        "default": -16777216
+      },
+      {
+        "key": "color_bg",
+        "type": "color",
+        "default": 16777215
+      },
+      {
+        "key": "text_size",
+        "type": "integer",
+        "default": 15
+      }
+    ]
+  },
+  {
+    "name": "WDebugDetectedActivity",
+    "title": "DetectedActivity",
+    "titleEn": "DetectedActivity",
+    "group": "debug_wgDebug",
+    "groupTitle": "Debug",
+    "family": "debug",
+    "pro": false,
+    "debugOnly": true,
+    "settings": [
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WDebugActivelook",
+    "title": "ActiveLook widget",
+    "titleEn": "ActiveLook widget",
+    "group": "debug_wgDebug",
+    "groupTitle": "Debug",
+    "family": "debug",
+    "pro": false,
+    "debugOnly": true,
+    "settings": []
+  },
+  {
+    "name": "WDebug",
+    "title": "Debug",
+    "titleEn": "Debug",
+    "group": "debug_wgDebug",
+    "groupTitle": "Debug",
+    "family": "debug",
+    "pro": false,
+    "debugOnly": true,
+    "settings": [
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WDebugFPS",
+    "title": "FPS",
+    "titleEn": "FPS",
+    "group": "debug_wgDebug",
+    "groupTitle": "Debug",
+    "family": "debug",
+    "pro": false,
+    "debugOnly": true,
+    "settings": [
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WDebugSystemInfo",
+    "title": "System Info",
+    "titleEn": "System Info",
+    "group": "debug_wgDebug",
+    "groupTitle": "Debug",
+    "family": "debug",
+    "pro": false,
+    "debugOnly": true,
+    "settings": [
+      {
+        "key": "_title",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "key": "titletext",
+        "type": "string",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "WDebugFont",
+    "title": "DebugFont",
+    "titleEn": "DebugFont",
+    "group": "debug_wgDebug",
+    "groupTitle": "Debug",
+    "family": "debug",
+    "pro": false,
+    "debugOnly": true,
+    "settings": [
+      {
+        "key": "includeWindAlgorithm",
+        "type": "enum"
+      }
+    ]
+  },
+  {
+    "name": "WVTM",
+    "title": "VTM",
+    "titleEn": "VTM",
+    "group": "debug_wgDebug",
+    "groupTitle": "Debug",
+    "family": "debug",
+    "pro": false,
+    "debugOnly": true,
+    "settings": [
+      {
+        "key": "rotation",
+        "type": "enum"
+      },
+      {
+        "key": "theme",
+        "type": "enum"
+      }
+    ]
+  }
+]

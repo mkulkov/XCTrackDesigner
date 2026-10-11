@@ -1,0 +1,16 @@
+node_modules/
+dist/
+release/
+.local/
+research/vendor/
+research/apk/
+__pycache__/
+*.pyc
+*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
+.playwright-mcp/
+*.xcfg
+!tests/fixtures/*.xcfg
+

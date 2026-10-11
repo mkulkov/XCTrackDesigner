@@ -1,0 +1,310 @@
+{
+  "files": [
+    {
+      "role": "source",
+      "name": "private-sample.xcfg",
+      "bytes": 57132,
+      "sha256": "6574578a818a0a83bc363a4d247d1582ddbc751a98a35a9dfff5da3861114c8b",
+      "rootKeys": [
+        "airspaceSelectedChannels",
+        "info",
+        "layout",
+        "preferences"
+      ],
+      "versionName": "0.9.12.6",
+      "versionCode": 91260,
+      "exportType": "backup"
+    },
+    {
+      "role": "export1",
+      "name": "native-export-01.xcfg",
+      "bytes": 57177,
+      "sha256": "6d041f5ca18153537fe8120b589964616c069faeefbe94f78b620c8c0242d6a0",
+      "rootKeys": [
+        "airspaceSelectedChannels",
+        "info",
+        "layout",
+        "preferences"
+      ],
+      "versionName": "0.9.12.6",
+      "versionCode": 91260,
+      "exportType": "backup"
+    },
+    {
+      "role": "export2",
+      "name": "native-export-02.xcfg",
+      "bytes": 57177,
+      "sha256": "90ac9263395e3077719bd75be3e50325f76d5b983f97bb141355299fd95028e3",
+      "rootKeys": [
+        "airspaceSelectedChannels",
+        "info",
+        "layout",
+        "preferences"
+      ],
+      "versionName": "0.9.12.6",
+      "versionCode": 91260,
+      "exportType": "backup"
+    },
+    {
+      "role": "export3",
+      "name": "native-export-03.xcfg",
+      "bytes": 57177,
+      "sha256": "98cb5d219868ea846363723940dda7bf6caec61c2d8916523e19859116235536",
+      "rootKeys": [
+        "airspaceSelectedChannels",
+        "info",
+        "layout",
+        "preferences"
+      ],
+      "versionName": "0.9.12.6",
+      "versionCode": 91260,
+      "exportType": "backup"
+    },
+    {
+      "role": "pages",
+      "name": "native-pages-01.xcfg",
+      "bytes": 34012,
+      "sha256": "90dbc923ad2d06eb55d02e16e542d87f2af2c75432c8303830a984e2c9fd15fe",
+      "rootKeys": [
+        "info",
+        "layout"
+      ],
+      "versionName": "0.9.12.6",
+      "versionCode": 91260,
+      "exportType": "pages"
+    }
+  ],
+  "comparisons": {
+    "source_to_export1": {
+      "layoutEqual": true,
+      "preferencesEqual": false,
+      "differences": [
+        {
+          "pointer": "/info/device",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/info/timeCreated",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/0/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/0/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/1/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/1/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/2/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/2/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/3/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/3/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/4/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/4/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/5/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/5/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/6/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/6/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/7/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/7/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/8/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/8/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/9/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/9/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/10/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/10/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/11/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/11/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/12/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/12/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/13/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/13/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/14/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/14/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/15/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/15/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/16/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/16/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/17/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/17/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/18/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/18/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/19/waypoint/lat",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Navigation.State/org.xcontest.XCTrack.navig.TaskCompetition/turnpoints/19/waypoint/lon",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/0",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/1",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/2",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/3",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/4",
+          "kind": "changed"
+        }
+      ]
+    },
+    "export1_to_export2": {
+      "layoutEqual": true,
+      "preferencesEqual": false,
+      "differences": [
+        {
+          "pointer": "/info/timeCreated",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/0",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/2",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/3",
+          "kind": "changed"
+        },
+        {
+          "pointer": "/preferences/Sensors.Configuration/sensors/0/filters/4",
+          "kind": "changed"
+        }
+      ]
+    },
+    "export2_to_export3_after_pages_import": {
+      "layoutEqual": true,
+      "preferencesEqual": true,
+      "differences": [
+        {
+          "pointer": "/info/timeCreated",
+          "kind": "changed"
+        }
+      ]
+    }
+  },
+  "pagesLayoutEqualsExport2": true
+}

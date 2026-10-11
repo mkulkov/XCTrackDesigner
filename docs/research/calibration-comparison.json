@@ -1,0 +1,188 @@
+{
+  "width": 1080,
+  "height": 2400,
+  "changedPixels": 81304,
+  "changedRatio": 0.03136728395061728,
+  "points": [
+    {
+      "x": 100,
+      "y": 100,
+      "expected": [
+        255,
+        255,
+        255
+      ],
+      "native": [
+        255,
+        255,
+        255
+      ],
+      "web": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "x": 100,
+      "y": 800,
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "native": [
+        0,
+        0,
+        0
+      ],
+      "web": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "x": 300,
+      "y": 1400,
+      "expected": [
+        128,
+        128,
+        128
+      ],
+      "native": [
+        128,
+        128,
+        128
+      ],
+      "web": [
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "x": 290,
+      "y": 1400,
+      "expected": [
+        255,
+        255,
+        255
+      ],
+      "native": [
+        255,
+        255,
+        255
+      ],
+      "web": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "x": 100,
+      "y": 2200,
+      "expected": [
+        255,
+        255,
+        255
+      ],
+      "native": [
+        255,
+        255,
+        255
+      ],
+      "web": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "x": 1000,
+      "y": 2200,
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "native": [
+        0,
+        0,
+        0
+      ],
+      "web": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "name": "speed-with-units",
+      "x": 0,
+      "y": 0,
+      "width": 540,
+      "height": 600,
+      "changedPixels": 18872,
+      "changedRatio": 0.05824691358024691
+    },
+    {
+      "name": "variometer-with-units",
+      "x": 540,
+      "y": 0,
+      "width": 540,
+      "height": 600,
+      "changedPixels": 34729,
+      "changedRatio": 0.10718827160493827
+    },
+    {
+      "name": "missing-altitude-and-time",
+      "x": 0,
+      "y": 600,
+      "width": 1080,
+      "height": 600,
+      "changedPixels": 2623,
+      "changedRatio": 0.00404783950617284
+    },
+    {
+      "name": "overlap-alpha",
+      "x": 0,
+      "y": 1200,
+      "width": 1080,
+      "height": 600,
+      "changedPixels": 24463,
+      "changedRatio": 0.037751543209876545
+    },
+    {
+      "name": "missing-altitude-hide",
+      "x": 0,
+      "y": 1800,
+      "width": 1080,
+      "height": 600,
+      "changedPixels": 617,
+      "changedRatio": 0.0009521604938271604
+    }
+  ],
+  "threshold": 0.1,
+  "includeAA": true,
+  "referenceSha256": "48db60a6cac070d942502f6d93982d9086bfdd6aea8b23b9ebc45c3dca0e7a4b",
+  "webSha256": "8d3dfbbb9b67e5d9e409c9195a3e8edc901df01390c736abdbb5568d0941aa2e",
+  "overlayEdges": {
+    "native": {
+      "left": 295,
+      "top": 1300,
+      "right": 833,
+      "bottom": 1698
+    },
+    "web": {
+      "left": 295,
+      "top": 1300,
+      "right": 833,
+      "bottom": 1698
+    },
+    "measurement": "exact RGB 128 plateau, excluding unrelated page borders"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[python]": { "editor.formatOnSave": false },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.useFlatConfig": true,
+  "files.exclude": { "**/node_modules": true, "**/__pycache__": true },
+  "search.exclude": { "research/**": true, ".local/**": true, "dist/**": true }
+}

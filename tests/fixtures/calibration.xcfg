@@ -1,0 +1,123 @@
+{
+  "info": {
+    "versionName": "0.9.12.6",
+    "versionCode": 91260,
+    "exportType": "pages"
+  },
+  "layout": {
+    "portrait": [
+      {
+        "CLASS": "org.xcontest.XCTrack.widget.wp.WPXCAssistant",
+        "navigations": "all",
+        "widgets": [
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WSpeed",
+            "X1": 0,
+            "Y1": 0,
+            "X2": 5000,
+            "Y2": 2500,
+            "_theme": "WhiteTheme",
+            "_bg": 0,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "SPEED"
+          },
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WVerticalSpeed",
+            "X1": 5000,
+            "Y1": 0,
+            "X2": 10000,
+            "Y2": 2500,
+            "_theme": "WhiteHCTheme",
+            "_bg": 0,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "VARIO"
+          },
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WAMSL",
+            "X1": 0,
+            "Y1": 2500,
+            "X2": 5000,
+            "Y2": 5000,
+            "_theme": "BlackHCTheme",
+            "_bg": 0,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "AMSL"
+          },
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WAirTime",
+            "X1": 5000,
+            "Y1": 2500,
+            "X2": 10000,
+            "Y2": 5000,
+            "_theme": "BlackTheme",
+            "_bg": 0,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "AIR TIME"
+          },
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WSpeed",
+            "X1": 0,
+            "Y1": 5000,
+            "X2": 10000,
+            "Y2": 7500,
+            "_theme": "WhiteHCTheme",
+            "_bg": 0,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "BASE"
+          },
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WAMSL",
+            "X1": 2500,
+            "Y1": 5500,
+            "X2": 7500,
+            "Y2": 7000,
+            "_theme": "BlackHCTheme",
+            "_bg": 50,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "ALPHA 50"
+          },
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WAMSL",
+            "X1": 0,
+            "Y1": 7500,
+            "X2": 5000,
+            "Y2": 10000,
+            "_theme": "WhiteHCTheme",
+            "_bg": 0,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "NO DATA"
+          },
+          {
+            "CLASS": "org.xcontest.XCTrack.widget.w.WAMSL",
+            "X1": 5000,
+            "Y1": 7500,
+            "X2": 10000,
+            "Y2": 10000,
+            "_theme": "WhiteTheme",
+            "_bg": 0,
+            "_border": true,
+            "_title": true,
+            "_unit": true,
+            "titletext": "HIDE NO DATA",
+            "_hide_labels": true
+          }
+        ]
+      }
+    ],
+    "landscape": []
+  }
+}
